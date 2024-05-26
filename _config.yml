@@ -17,9 +17,9 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 # Site Settings
 locale                   : "en-US"
 title                    : "Hezziz DEVlog"
-title_separator          : "-"
+title_separator          : "||"
 subtitle                 : "To keep a record everyd day "
-name                     : "Hezziz Devlog"
+name                     : "Hezziz DEVlog"
 description              : "Welcome to my Devlog."
 url                      : "https://quokkavely.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
