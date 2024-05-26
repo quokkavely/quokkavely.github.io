@@ -83,7 +83,7 @@ google:
 # SEO Related
 google_site_verification :
 bing_site_verification   :
-naver_site_verification  : <meta name="naver-site-verification" content="73b63580ba23af7104900c94a91b5f0a2697fdc4" />
+naver_site_verification  : "73b63580ba23af7104900c94a91b5f0a2697fdc4"
 yandex_site_verification :
 baidu_site_verification  :
 
