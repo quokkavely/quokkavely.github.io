@@ -1,0 +1,396 @@
+# css
+
+태그: CSS
+날짜: 2024/05/20
+목표량: No
+복습: No
+소목표 DB: 프론트 [html , css , js] (https://www.notion.so/html-css-js-f707bd4d7be549b5aca0b62caff4cfbb?pvs=21)
+최종 목표: https://www.notion.so/b7df7eb5912743c5bef6b0851dfc0c4c
+
+# BOX
+
+| block | inline-block | inline |
+| --- | --- | --- |
+| 줄 바꿈 여부 | 줄 바꿈이 일어남 | 줄 바꿈이 일어나지 않음 |
+| 기본적으로 갖는 너비(width) | 100% | 글자가 차지하는 만큼 |
+| width, height 사용 가능 여부 | 가능 | 가능 |
+
+![Untitled](css%20d09c7f60dfe54a438e6db367eded8ca7/Untitled.png)
+
+# Selector
+
+### 기본 선택자
+
+1. 전체 선택자
+    
+    ```css
+    * { }
+    ```
+    
+2. 태그 선택자 : 같은 태그명을 가진 모든 요소를 선택, 복수로도 선택가능
+    
+    ```css
+    h1 { }
+    div { }
+    
+    section, h1 { }
+    ```
+    
+3. ID 선택자 : `#id`
+    
+    ```css
+    #only { }
+    ```
+    
+4. Class 선택자 : `.class`로 입력하여 선택, 같은 class를 가진 모든 요소를 선택
+    
+    ```css
+    .widget { }
+    .center { }
+    ```
+    
+5. attribute 선택자: 같은 속성을 가진 요소를 선택
+    
+    ```css
+    a[href] { }
+    p[id="only"] { }
+    p[class~="out"] { }
+    p[class|="out"] { }
+    section[id^="sect"] { }
+    div[class$="2"] { }
+    div[class*="w"] { }
+    ```
+    
+
+### 자식/후손/형제 선택자
+
+1. 자식 선택자
+    1. 첫 번째로 입력한 요소의 바로 아래 자식인 요소를 선택
+    2. `<header>` 요소 바로 아래에 있는 두 개의 `<div>` 요소는 선택되지만, `<p>` 요소의 자식인 `<div>` 요소는 선택되지 않음
+        
+        ```css
+        header > div { }
+        ```
+        
+        ```html
+        <header>
+        	<div> <!-- 선택 -->
+        		<p>
+        			<div></div>
+        		</p>
+        	</div>
+        	<div> <!-- 선택 -->
+        		<p>
+        			<div></div>
+        		</p>
+        	</div>
+        </header>
+        ```
+        
+2. 후손 선택자 : 첫 번째로 입력한 요소의 후손을 선택
+    1. `<header>` 요소의 자식인 `<div>` 요소뿐 아니라, `<p>` 요소의 자식인 `<div>` 요소까지 모두 선택
+        
+        ```css
+        header div {}
+        ```
+        
+        ```html
+        <header>
+        	<div><!-- 선택 -->
+        		<p>
+        			<div><!-- !!선택!! -->
+        			</div>
+        		</p>
+        	</div>
+        	<div><!-- 선택 -->
+        		<p>
+        			<div><!-- !!선택!! -->
+        			</div>
+        		</p>
+        	</div>
+        </header>
+        ```
+        
+3. 형제 선택자 : 같은 부모 요소를 공유하면서, 첫 번째 입력한 요소 뒤에 오는 두 번째 입력한 요소를 모두 선택
+    
+    ```css
+    section ~ p { }
+    ```
+    
+    ```html
+    <header>
+    	<section></section>
+    	<p></p> <!-- 선택 -->
+    	<p></p> <!-- 선택 -->
+    	<p></p> <!-- 선택 -->
+    </header>
+    ```
+    
+4. 인접 형제 선택자
+    
+    ```css
+    section + p { }
+    ```
+    
+    ```html
+    <header>
+    	<section></section>
+    	<p></p> <!-- 선택 -->
+    	<p></p>
+    	<p></p>
+    </header>
+    ```
+    
+
+### 기타 선택자
+
+1. 가상 클래스 선택자
+    
+    ```css
+    a:link { } /*사용자가 방문하지 않은 <a>요소를 선택합니다. 이 상태는 기본적으로 페이지가 처음 로드되었을 때 링크에 적용됩니다.*/
+    a:visited { } /*사용자가 방문한 <a>요소를 선택합니다. 브라우저는 사용자가 방문한 링크를 기억하고 스타일을 다르게 적용합니다.*/
+    a:hover { } /* 마우스를 요소 위에 올렸을 때 선택합니다. */
+    a:active { } /* 활성화 된(클릭된) 상태일 때 선택합니다. */
+    a:focus { } /* 포커스가 들어와 있을 때 선택합니다.  포커스는 키보드로 링크를 탐색할 때 발생합니다. (예: 탭 키 사용)*/
+    ```
+    
+2. UI 요소 상태 선택자
+    
+    ```css
+    input:checked + span { } /*체크 상태일 때 선택합니다. */
+    input:enabled + span { } /*사용 가능한 상태일 때 선택합니다. */
+    input:disabled + span { } /*사용 불가능한 상태일 때 선택합니다. */
+    ```
+    
+3. 구조 가상 클래스 선택자
+    
+    ```html
+    p:first-child { } /* 셀렉터는 부모 요소의 첫 번째 자식 요소가 <p>일 때 선택합니다. */
+    
+    ul > li:last-child { } /* ul 요소의 마지막 자식인 li 요소를 선택합니다. */
+    <ul>
+        <li>첫 번째 항목</li>
+        <li>두 번째 항목</li>
+        <li>마지막 항목</li>
+    </ul>
+    
+    ul > li:nth-child(2n) { } /* ul 요소의 짝수 번째 자식인 li 요소를 선택합니다. */
+    <ul>
+        <li>첫 번째 항목</li>
+        <li>두 번째 항목</li>
+        <li>세 번째 항목</li>
+        <li>네 번째 항목</li>
+    </ul>
+    
+    section > p:nth-child(2n+1) { } /*  section 요소의 홀수 번째 자식인 p 요소를 선택합니다. */
+    <section>
+        <p>첫 번째 단락</p>
+        <p>두 번째 단락</p>
+        <p>세 번째 단락</p>
+        <p>네 번째 단락</p>
+    </section>
+    ul > li:first-child { } /*  ul 요소의 첫 번째 자식인 li 요소를 선택합니다.*/
+    <ul>
+        <li>첫 번째 항목</li>
+        <li>두 번째 항목</li>
+        <li>세 번째 항목</li>
+    </ul>
+    
+    li:last-child { } /* 부모 요소의 마지막 자식인 li 요소를 선택합니다. */
+    <ul>
+        <li>첫 번째 항목</li>
+        <li>두 번째 항목</li>
+        <li>마지막 항목</li>
+    </ul>
+    div > div:nth-child(4) { } /* div 요소의 네 번째 자식인 div 요소를 선택합니다. */
+    <div>
+        <div>첫 번째 div</div>
+        <div>두 번째 div</div>
+        <div>세 번째 div</div>
+        <div>네 번째 div</div>
+    </div>
+    div:nth-last-child(2) { } /* 부모 요소의 뒤에서 두 번째 자식인 div 요소를 선택합니다. */
+    <div>
+        <div>첫 번째 div</div>
+        <div>두 번째 div</div>
+        <div>세 번째 div</div>
+        <div>네 번째 div</div>
+    </div>
+    
+    section > p:nth-last-child(2n + 1) { } /* 부모 요소의 뒤에서 홀수 번째 자식인 p 요소를 선택합니다. */
+    p:first-of-type { } /* 형제 요소 중 첫 번째 <p> 요소를 선택합니다. */
+    <div>
+        <p>첫 번째 단락</p>
+        <span>텍스트</span>
+        <p>두 번째 단락</p>
+    </div>
+    
+    div:last-of-type { } /* 형제 요소 중 마지막 <div> 요소를 선택합니다. */
+    <div>
+        <div>첫 번째 div</div>
+        <span>텍스트</span>
+        <div>마지막 div</div>
+    </div>
+    
+    ul:nth-of-type(2) { } /* 형제 요소 중 두 번째 <ul> 요소를 선택합니다. */
+    <ul>
+        <li>첫 번째 목록</li>
+    </ul>
+    <ul>
+        <li>두 번째 목록</li>
+    </ul>
+    p:nth-last-of-type(1) { } /* 형제 요소 중 마지막 <p> 요소를 선택합니다. */
+    <div>
+        <p>첫 번째 단락</p>
+        <span>텍스트</span>
+        <p>마지막 단락</p>
+    </div>
+    ```
+    
+4. 부정 선택자
+    
+    ```html
+    input:not([type="password"]) { } /*  type 속성이 "password"가 아닌 모든 <input> 요소를 선택합니다. */
+    <form>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <input type="email" placeholder="Email">
+        <input type="submit" value="Submit">
+    </form>
+    
+    div:not(:nth-of-type(2)) { } /* 형제 요소들 중 두 번째 div 요소를 제외한 모든 div 요소를 선택합니다.*/
+    <div>첫 번째 div</div>
+    <div>두 번째 div</div>
+    <div>세 번째 div</div>
+    <div>네 번째 div</div>
+    
+    ```
+    
+5. 정합성 확인 선택자
+    
+    ```html
+    input[type="text"]:valid { } /* 올바른 형식으로 입력된 텍스트 필드를 선택합니다. 즉, 유효한 값이 입력된 input 요소를 선택합니다.*/
+    <form>
+        <label for="username">Username (at least 3 characters):</label>
+        <input type="text" id="username" name="username" pattern=".{3,}" required>
+        <input type="submit" value="Submit">
+    </form>
+    
+    input[type="text"]:invalid { } /*  올바르지 않은 형식으로 입력된 텍스트 필드를 선택합니다. 즉, 무효한 값이 입력된 input 요소를 선택합니다.*/
+    <form>
+        <label for="username">Username (at least 3 characters):</label>
+        <input type="text" id="username" name="username" pattern=".{3,}" required>
+        <input type="submit" value="Submit">
+    </form>
+    
+    ```
+    
+
+# Flexbox
+
+Flexbox 속성들을 활용하면 요소의 **정렬**, 요소가 **차지하는 공간**을 설정 가능
+
+## 부모요소에 적용해야 하는 속성
+
+`flex-direction`  `flex-wrap` `justify-content` 
+
+### flex-direction : 정렬 축 정하기
+
+자식 요소들을 정렬할 정렬 축을 정함
+
+아무 설정도 해주지 않으면 **기본적으로 가로 정렬**
+
+![wgO8q6mdb9bCcIocBBkjV-1650723781832.gif](css%20d09c7f60dfe54a438e6db367eded8ca7/wgO8q6mdb9bCcIocBBkjV-1650723781832.gif)
+
+### **flex-wrap : 줄 바꿈 설정**
+
+`flex-wrap` 속성은 하위 요소들의 크기가 상위 요소의 크기를 넘으면 자동 줄 바꿈을 할 것인지 정함. 
+
+설정해 주지 않으면 **줄 바꿈을 하지 않음**
+
+![2.png](css%20d09c7f60dfe54a438e6db367eded8ca7/2.png)
+
+### **justify-content : 축 수평 방향 정렬**
+
+자식 요소들을 축의 수평 방향으로 어떻게 정렬할 것인지 정함
+
+소들이 가로로 정렬되어 있다면 가로 방향으론 어떻게 정렬할 것인지, 세로로 정렬되어 있다면 세로 방향으론 어떻게 정렬할 것인지 정하는 속성
+
+![Untitled](css%20d09c7f60dfe54a438e6db367eded8ca7/Untitled%201.png)
+
+`flex-direction : row` 인 경우 ↔
+
+![Untitled](css%20d09c7f60dfe54a438e6db367eded8ca7/Untitled%202.png)
+
+`flex-direction : column` 인 경우 ↕️
+
+![Untitled](css%20d09c7f60dfe54a438e6db367eded8ca7/Untitled%203.png)
+
+### **align-items : 축 수직 방향 정렬**
+
+`align-items` 속성은 자식 요소들을 축의 수직 방향으로 어떻게 정렬할 것인지 정함
+
+요소들이 가로로 정렬되어 있다면 세로 방향으론 어떻게 정렬할 것인지, 세로로 정렬되어 있다면 가로 방향으론 어떻게 정렬할 것인지 정하는 속성
+
+`align items: row` 인 경우 
+
+![Untitled](css%20d09c7f60dfe54a438e6db367eded8ca7/Untitled%204.png)
+
+`align items: column` 인 경우 
+
+![Untitled](css%20d09c7f60dfe54a438e6db367eded8ca7/Untitled%205.png)
+
+## 자식요소에 적용해야 하는 속성
+
+부모 요소에 적용해야 하는 속성들이 자식 요소들의 **정렬**과 관련이 있었다면, 
+
+자식 요소에게 적용해야 하는 속성인 `flex`는 요소가 **차지하는 공간**과 관련이 있음
+
+```css
+flex:   <grow(팽창 지수)>    <shrink(수축 지수)>    <basis(기본 크기)>
+```
+
+기본값 :  **`flex: grow shrink basis`, `flex: 0 1 auto` 순서 기억하기**
+
+```css
+flex: 0 1 auto;
+```
+
+```css
+flex-grow: 0;
+flex-shrink: 1;
+flex-basis: auto;
+```
+
+위 아래 코드는 같은 값이다.
+
+1. glow : 상대크기 ==팽창지수의 절대적 크기가 아닌 **총합에서의 비율**로 빈 공간을 차지
+    1. `flex` 속성을 설정하기 전
+        
+        ![Untitled](css%20d09c7f60dfe54a438e6db367eded8ca7/Untitled%206.png)
+        
+    2. `grow`의 기본 값인 0은 빈 공간이 있어도 늘어나지 않음을  의미
+    3. box1만 `flex-grow : 1`로 설정, 나머지 박스는 `flex-grow : 0` 
+        
+        ![Untitled](css%20d09c7f60dfe54a438e6db367eded8ca7/Untitled%207.png)
+        
+    4. box1, box2도 `flex-grow : 1`로 설정. box3만 `flex-grow : 0`인 상태
+        
+        ![Untitled](css%20d09c7f60dfe54a438e6db367eded8ca7/Untitled%208.png)
+        
+    5. 세 박스 모두 `flex-grow : 1` 
+        
+        ![Untitled](css%20d09c7f60dfe54a438e6db367eded8ca7/Untitled%209.png)
+        
+2. **shrink -거의 안씀**
+    1. grow와 반대로, 설정한 비율만큼 박스 크기가 작아짐
+    2. 비율이 클수록 더 많이 줄어들게 됨.
+    3. 그러나 `flex-grow` 속성과 `flex-shrink` 속성을 함께 사용하는 일은 추천하지 않음
+    4. **`lex-grow` 속성으로 비율을 변경하는 경우, `flex-shrink` 속성은 기본값인 1로 두어도 무방**
+3. basis : 기본크기
+    1. `lex-grow`나 `flex-shrink`에 의해 늘어나거나 줄어들기 전에 가지는 기본 크기
+    2. grow는 0 : 1 : 1로 설정하고, box1에 flex-basis : 50px, 
+    
+    ![SMuYIs7IH18-X23y0Eoam-1650724190299.gif](css%20d09c7f60dfe54a438e6db367eded8ca7/SMuYIs7IH18-X23y0Eoam-1650724190299.gif)
+    
+    box1의 크기가 늘어나거나 줄어들지 않고 50px을 유지
