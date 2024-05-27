@@ -322,3 +322,9 @@ defaults:
       comments: true
       share: true
       related: true
+      show_date: true
+      toc: true
+      toc_sticky: true
+      tock_icon: "fa-solid fa-seedling"
+
+date_format: "%Y-%m-%d"
