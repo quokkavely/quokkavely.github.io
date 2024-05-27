@@ -113,7 +113,7 @@ analytics:
 # Site Author
 author:
   name             : "Hezzi"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  avatar           : "/assets/images/abcd/HEZZIZ.png"
   bio              : "Today’s special moments are **tomorrow’s memories**."
   location         : "Somewhere"
   email            :
