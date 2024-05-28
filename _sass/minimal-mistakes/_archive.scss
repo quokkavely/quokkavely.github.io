@@ -96,7 +96,7 @@
 }
 
 .archive__item-caption {
-  position: absolute;
+  position: relative; //absolute;
   bottom: 0;
   right: 0;
   margin: 0 auto;
@@ -124,12 +124,50 @@
    List view
    ========================================================================== */
 
-.list__item {
-  .page__meta {
-    margin: 0 0 4px;
-    font-size: 0.6em;
-  }
-}
+   .list__item {
+    position: relative;
+    display: inline-block;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+
+    @media screen and (min-width: 600px) {
+    .archive__item-teaser_list {
+      position: relative;
+      border-radius: $border-radius;
+      overflow: hidden;
+      margin-right: 0.5em;
+      display: inline;
+      justify-content: center;
+      float : left;
+      margin-bottom: 5px;
+
+      background-color: mix(rgb(248, 217, 226), $background-color, 10%);
+      backdrop-filter: blur(10px);
+      width: 15em;
+      max-height: 130px;
+      text-align: center;
+      vertical-align: middle;
+
+      img {
+        margin: auto;
+        position: relative; //absolute;
+        object-fit: contain;
+        overflow: hidden;
+        justify-content: center;
+        transition: all 0.3s linear; //hover 시간 조정
+      }
+
+      @include breakpoint($small) {
+        min-height: 130px;
+        background-size: contain; //비율 강제 고정
+      }
+
+      @include breakpoint($medium) {
+        background-size: contain; //비율 강제 고정
+      }
+    }
+    }
 
 /*
    Grid view
@@ -212,6 +250,41 @@
     }
   }
 
+  .page__taxonomy-item-category {
+    display: inside;
+    margin-right: 5px;
+    margin-bottom: 8px;
+    padding: 5px 10px;
+    color: $text-color;
+    font-family: $myfont_a1;
+    text-decoration: none;
+    border: 1px solid $link-color-visited;
+    border-radius: $border-radius;
+  
+    &:hover {
+      text-decoration: none;
+      background-color: $link-color-visited; /* 커서 댈 때 색깔 */
+      color: #eaeaea;
+    }
+  }
+  
+    .page__taxonomy-item-tag {
+      display: inside;
+      margin-right: 5px;
+      margin-bottom: 8px;
+      padding: 5px 10px;
+      color: $text-color;
+      font-family: $myfont_a1;
+      text-decoration: none;
+      border: 1px solid mix($text-color, $background-color, 30%);
+      border-radius: $border-radius;
+  
+    &:hover {
+      text-decoration: none;
+      background-color: rgb(254, 220, 220); /* 커서 댈 때 색깔 */
+      color: #eaeaea;
+    }
+  }
   .archive__item-title {
     margin-top: 0.5em;
     font-size: $type-size-5;

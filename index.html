@@ -1,11 +1,22 @@
 ---
 layout: home
-mode: immersive
+mode: archive
+author_profile: true
+entries_layout: list
 article_header:
   type: overlay
   theme: dark
   background-color: bisque;
 show_title: true
 title: hezziz Study records
-excerpt: Leaving a daily record of studies
+excerpt: 고민말고 GO 🍒Leaving a daily record of studies
 ---
+
+
+<div class="grid__wrapper">
+  {% for post in paginator.posts %}
+  {% include archive-single1.html type="list" %}
+  {% endfor %}
+</div>
+{% include paginator.html %} 
+
