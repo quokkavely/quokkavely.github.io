@@ -13,6 +13,7 @@
 
   &__inner-wrap {
     @include clearfix;
+    background-color: bisque;
     margin-left: auto;
     margin-right: auto;
     padding: 1em;
