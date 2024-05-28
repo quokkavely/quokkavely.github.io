@@ -167,8 +167,21 @@
         background-size: contain; //비율 강제 고정
       }
     }
-    }
+  }
+  .archive__item-postbox {
+    display: inline;
+    padding-bottom: 0.25em;
+    //float : left;
+    clear: both;
+    width: auto;
+    vertical-align: middle;
 
+    h2 {
+        margin: 0 0 4px;
+        padding-top: 5px;
+      }
+  }
+}
 /*
    Grid view
    ========================================================================== */
@@ -285,6 +298,7 @@
       color: #eaeaea;
     }
   }
+
   .archive__item-title {
     margin-top: 0.5em;
     font-size: $type-size-5;
