@@ -1,6 +1,6 @@
 ---
 title: "Layout: Read Time Enabled"
-read_time: true
+read_time: false
 tags:
   - read time
 ---
