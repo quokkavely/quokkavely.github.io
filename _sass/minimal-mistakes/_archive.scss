@@ -142,7 +142,7 @@
       float : left;
       margin-bottom: 5px;
 
-      background-color: mix(rgb(248, 217, 226), $background-color, 10%);
+      background-color: mix(rgba(248, 217, 226, 0.101), $background-color, 10%);
       backdrop-filter: blur(10px);
       width: 15em;
       max-height: 130px;
@@ -294,7 +294,7 @@
   
     &:hover {
       text-decoration: none;
-      background-color: rgb(254, 220, 220); /* 커서 댈 때 색깔 */
+      background-color: rgb(247, 200, 200); /* 커서 댈 때 색깔 */
       color: #eaeaea;
     }
   }
