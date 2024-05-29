@@ -13,10 +13,10 @@
 
   &__inner-wrap {
     @include clearfix;
-    background-color: rgba(255, 228, 196, 0.232);
+    background-color: rgba(255, 228, 196, 0.712);
     margin-left: auto;
     margin-right: auto;
-    padding: 1em;
+    padding: 0em;
     max-width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -32,7 +32,7 @@
 
     nav {
       z-index: 10;
-      background-color: rgb(255, 205, 162);
+      background-color: rgb(225, 228, 196,.232);
     }
 
     a {
