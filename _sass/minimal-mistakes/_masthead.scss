@@ -13,7 +13,7 @@
 
   &__inner-wrap {
     @include clearfix;
-    background-color: bisque;
+    background-color: rgba(255, 228, 196, 0.232);
     margin-left: auto;
     margin-right: auto;
     padding: 1em;
@@ -32,7 +32,7 @@
 
     nav {
       z-index: 10;
-      background-color: bisque;
+      background-color: rgb(255, 205, 162);
     }
 
     a {
@@ -42,7 +42,7 @@
 }
 
 .site-logo img {
-  max-height: 2rem;
+  max-height: 10rem;
 }
 
 .site-title {
