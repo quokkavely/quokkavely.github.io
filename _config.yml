@@ -18,7 +18,7 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 locale                   : "en-US"
 title                    : "Trust me"
 title_separator          : "||"
-subtitle                 : "In my study room "
+subtitle                 : ""
 name                     : "Hezziz DEVlog"
 description              : "Welcome to my Devlog."
 url                      : "https://quokkavely.github.io"
@@ -114,8 +114,8 @@ analytics:
 author:
   name             : "Hezzi"
   avatar           : "/assets/images/abcd/HEZZIZ.png"
-  bio              : "Today’s special moments are **tomorrow’s memories**."
-  location         : "Somewhere"
+  bio              : "For my own study record"
+  location         : "in hezziz study room"
   email            :
   links:
     - label: "Email"
