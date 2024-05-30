@@ -1,0 +1,68 @@
+{% assign sum = site.posts | size %}
+
+<nav class="nav__list">
+  <input id="ac-toc" name="accordion-toc" type="checkbox" />
+  <label for="ac-toc">{{ site.data.ui-text[site.locale].menu_label }}</label>
+  <ul class="nav__items" id="category_tag_menu">
+      <li>
+            📂 <span style="font-family:'JUA';">전체 글 수</style> <span style="font-family:'JUA';">{{sum}}</style> <span style="font-family:'JUA';">개</style> 
+      </li>
+      <li>
+        <span class="nav__sub-title">HTML/CSS/JS/React</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "html,css" %}
+                        <li><a href="/categories/html,css" class="">HTML,CSS ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "react" %}
+                        <li><a href="/categories/react" class="">React ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "javascript" %}
+                        <li><a href="/categories/javascript" class="">JAVASCRIPT ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+
+        <span class="nav__sub-title">JAVA</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "JAVA-Learn" %}
+                        <li><a href="/categories/JAVA-Learn" class="">JAVA 개념 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "JAVA-Practice" %}
+                        <li><a href="/categories/JAVA-Practice" class="">JAVA 프로그램 및 실습 ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        <span class="nav__sub-title">Database</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Database" %}
+                        <li><a href="/categories/Database" class="">Database({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        
+        <span class="nav__sub-title">CS</span>
+            <ul>
+                {% for category in site.categories %}
+                    {% if category[0] == "Network" %}
+                        <li><a href="/categories/Network" class="">Network ({{category[1].size}})</a></li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+      </li>
+  </ul>
+</nav>
