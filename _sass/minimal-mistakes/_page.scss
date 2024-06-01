@@ -338,7 +338,40 @@ body {
     margin-right: 10px;
   }
 }
+.page__taxonomy-item-category {
+  display: inside;
+  margin-right: 5px;
+  margin-bottom: 8px;
+  padding: 5px 10px;
+  color: rgba($color: #00000034, $alpha: 1.0);
+  text-decoration: none;
+  border: 1px solid rgba(173, 230, 168, 0.295);
+  border-radius: $border-radius;
 
+  &:hover {
+    text-decoration: none;
+    background-color: $link-color-visited; /* 커서 댈 때 색깔 */
+    color: #ffbcbc77;
+  }
+}
+
+  .page__taxonomy-item-tag {
+    display: inside;
+    margin-right: 5px;
+    margin-bottom: 8px;
+    padding: 5px 10px;
+    color: $text-color;
+    font-family: 'Jua';
+    text-decoration: none;
+    border: 1px solid mix($text-color, $background-color, 30%);
+    border-radius: $border-radius;
+
+  &:hover {
+    text-decoration: none;
+    background-color: rgb(247, 200, 200); /* 커서 댈 때 색깔 */
+    color: #eaeaea;
+  }
+}
 .page__taxonomy-item {
   display: inline-block;
   margin-right: 5px;
