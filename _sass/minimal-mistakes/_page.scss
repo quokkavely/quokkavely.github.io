@@ -343,7 +343,8 @@ body {
   margin-right: 5px;
   margin-bottom: 8px;
   padding: 5px 10px;
-  color: rgba($color: #00000034, $alpha: 1.0);
+  color: $text-color;
+  font-weight: 100;
   text-decoration: none;
   font-family: 'Jua';
   font-size:smaller;
@@ -364,7 +365,8 @@ body {
     padding: 5px 10px;
     color: $text-color;
     font-family: 'Jua';
-    font-size: x-small;
+    font-weight: 100;
+    font-size: smaller;
     text-decoration: none;
     border: 1px solid rgba(104, 104, 104, 0.041);
     border-radius: $border-radius;
