@@ -345,13 +345,15 @@ body {
   padding: 5px 10px;
   color: rgba($color: #00000034, $alpha: 1.0);
   text-decoration: none;
-  border: 1px solid rgba(173, 230, 168, 0.295);
+  font-family: 'Jua';
+  font-size:smaller;
+  border: 1px solid rgba(104, 104, 104, 0.041);
   border-radius: $border-radius;
 
   &:hover {
     text-decoration: none;
-    background-color: $link-color-visited; /* 커서 댈 때 색깔 */
-    color: #ffbcbc77;
+    background-color:rgba(247, 215, 200, 0.521); /* 커서 댈 때 색깔 */
+    color: #9e9e9e;
   }
 }
 
@@ -362,14 +364,15 @@ body {
     padding: 5px 10px;
     color: $text-color;
     font-family: 'Jua';
+    font-size: x-small;
     text-decoration: none;
-    border: 1px solid mix($text-color, $background-color, 30%);
+    border: 1px solid rgba(104, 104, 104, 0.041);
     border-radius: $border-radius;
 
   &:hover {
     text-decoration: none;
-    background-color: rgb(247, 200, 200); /* 커서 댈 때 색깔 */
-    color: #eaeaea;
+    background-color: rgba(247, 215, 200, 0.521); /* 커서 댈 때 색깔 */
+    color: #9e9e9e;
   }
 }
 .page__taxonomy-item {
