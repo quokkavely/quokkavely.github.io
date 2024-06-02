@@ -327,6 +327,7 @@ defaults:
       toc: true
       toc_sticky: true
       toc_icon: "fa-solid fa-seedling"
+      toc_label:"list of page"
       #mathjax: true
       sidebar_main: true
       #future: true
