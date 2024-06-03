@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[JAVA] 조건문 반복문 연습분제"
+title : "[JAVA] 조건문 반복문 연습문제"
 categories: JAVA-Learn
 tag : [JAVA, 실습]
 toc : true
