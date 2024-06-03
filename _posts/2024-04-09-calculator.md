@@ -5,7 +5,7 @@ categories: JAVA-Learn
 tag : [JAVA, 실습]
 toc : true
 toc_sticky : true
-author_profile: true
+author_profile: trueㅎ
 ---
 
 ## 최소 기능 구현
@@ -65,15 +65,15 @@ author_profile: true
   }
 ```
 
-1. 부족했던 점
+1. **부족했던 점**
 
-   1. 스캐너
+   1. **스캐너**
 
       사실 자바의 정석 예제에서 스캐너 몇번 사용 했기 때문에 스캐너 사용하는 것에는 크게 부담은 없었는데 이렇게 처음부터 만들어본 것은 처음이라서
 
         Scanner sc = new Scanner(System.in); 를 계속 만듬. 입력받을 때마다 스캐너 객체 생성해서 사용했는데 다 한 사람 검사받으래서 손들었는데 스캐너 왤케 많이 만들었냐고 하심..
 
-   2. do-while문 사용
+   2. **do-while문 사용**
 
       처음에는 기초 기능만 구현하고 다시 반복하시겠냐는 기능은 못넣었는데
 
@@ -81,13 +81,13 @@ author_profile: true
 
       심화기능은 잘모르겠어서 구글링 해보니 do-while이나 try-catch문 사용하라고 나옴
 
-   3. scope 문제
+   3. **scope 문제**
 
       do-while 쓰는 것은 알겠는데 중괄호내에 변수가 있으면 밖에서 사용 못하니까 답답했음.
 
       안에서 할당해야하는데 (while문에 사용된 repeat 같은 경우) 첨부터 n으로 할당하면 자꾸 원하는대로 출력이 안되서 어려웠음
 
-   4. validate 기능
+   4. **validate 기능**
 
       do-while 문에 시간을 많이써서 추가 검증 기능은 구현 하지 못함.
 
@@ -206,3 +206,8 @@ public class Calculator {
 이런 거에대해서 더 알게 되었고 이론보다 프로그램이 더 재밌는 고 많이 배우는 것 같기도 하다! 
 
 아직 더 많은 기능을 구현해내기에는 실력이 많이 모자라니 더더더 공부해야지
+
+<br/>
+
+---
+
