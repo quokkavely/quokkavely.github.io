@@ -11,7 +11,7 @@
         <span class="nav__sub-title">HTML/CSS/JS/React</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "html&css" %}
+                    {% if category[0] == "html-css" %}
                         <li><a href="/categories/html-css" class="">HTML&CSS({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
