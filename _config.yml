@@ -200,7 +200,7 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 # Conversion
 markdown: kramdown
-highlighter: base16.solarized
+highlighter: base16.solarized.light
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
