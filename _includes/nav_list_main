@@ -65,7 +65,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "Spring" %}
-                        <li><a href="/categories/Spring" class="">MVC({{category[1].size}})</a></li>
+                        <li><a href="/categories/Spring" class="">Spring({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
