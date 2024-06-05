@@ -530,7 +530,7 @@ HttpSession 객체를 통해 세션가져옴
 
     **index.jsp**
         
-        ```java
+     ```java
         <body>
             <h2>Calculator</h2>
             <h4>Please enter numbers and operator</h4>
@@ -550,11 +550,11 @@ HttpSession 객체를 통해 세션가져옴
         </body>
         </html>
         
-        ```
+    ```
     
     **CalculateServlet.java**
     
-        ```java
+     ```java
         String number1Str = request.getParameter("number1");
         String operatorStr = request.getParameter("operator");
         String number2Str = request.getParameter("number2");
@@ -580,7 +580,7 @@ HttpSession 객체를 통해 세션가져옴
                         break;
                 }
         }
-        ```
+     ```
 
 <br/>
 
