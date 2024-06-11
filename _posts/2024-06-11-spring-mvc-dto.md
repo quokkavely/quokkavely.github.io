@@ -7,13 +7,6 @@ author_profile: true
 ---
 
 
-<div class="notice" markdown="1">
-🍒 `공지` 
-<h4> - <u>정보 공유가 아닌 개인이 공부하고 기록하기 위한 용도입니다.</u></h4>
-</div>
-
-
-
 ## HTTP 요청/응답에서의 DTO
 
 ### DTO 란?
@@ -238,3 +231,29 @@ author_profile: true
         1. Custom Validator를 사용하기 위한 Custom Annotation을 정의
         2. 정의한 Custom Annotation에 바인딩되는 Custom Validator를 구현
         3. 유효성 검증이 필요한 DTO 클래스의 멤버 변수에 Custom Annotation을 추가
+
+<br/>
+
+ ### comment
+
+오늘은 어제보다 나은듯, dto 어렵다고해서 조금 걱정했는데 다행이도
+이해못할 정도는 아니였다, 실습도 어떻게든 구현했고!
+복습하고 DI를 다시 봐야할 것 같다..DI는 아직도 이해못함
+아 그리고 정규식...!은 한번만 봐야겠다..
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+        
+<div class="notice" markdown="1">
+🍒 `공지` 
+<h4> - <u>정보 공유가 아닌 개인이 공부하고 기록하기 위한 용도입니다.</u></h4>
+</div>
+
+

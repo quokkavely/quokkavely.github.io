@@ -7,10 +7,6 @@ author_profile: true
 ---
 
 
-<div class="notice" markdown="1">
-🍒 `공지` 
-<h4> - <u>정보 공유가 아닌 개인 공부 기록용입니다.</u></h4>
-</div>
 
 
 ## Spring MVC
@@ -993,3 +989,7 @@ Spring MVC는 아래와 같이 HTTP 헤더 정보를 읽어오는 몇 가지 방
 <br/>
 <br/>
 <br/>
+<div class="notice" markdown="1">
+🍒 `공지` 
+<h4> - <u>정보 공유가 아닌 개인 공부 기록용입니다.</u></h4>
+</div>
