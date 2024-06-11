@@ -21,34 +21,35 @@ author_profile: true
 - **Transfer**라는 의미에서 알 수 있듯이 데이터를 전송하기 위한 용도의 객체
 - DTO는 주로 클라이언트에서 서버 쪽으로 전송하는 요청 데이터를 전달받을 때, 서버에서 클라이언트 쪽으로 전송하는 응답 데이터를 전송하기 위한 용도로 사용
 - 레이어드 아키텍처의 기본흐름
-    
+
     Client
-    
+
     — ↓↑ —  **DTO(↓Request/Response↑)**
-    
-    - Request : 클라이언트 쪽에서 JSON 형식의 데이터를 서버 쪽으로 전송 ⇒ 서버에서 JSON 형식의 데이터를 DTO같은 JAVA객체로 변환=역직렬화**(Deserialization)**
-    - Response : 서버쪽에서 client에게 응답데이터를 전송 , 응답데이터 java에서 JSON형식으로 변환 =직렬화 (Serialization)
-    
+
+    ​			Request :  클라이언트 쪽에서 JSON 형식의 데이터를 서버 쪽으로 전송 ⇒ 서버에서 JSON 형식의 데이터를 DTO같은						JAVA객체로 변환=역직렬화(Deserialization)
+
+    ​			Response : 서버쪽에서 client에게 응답데이터를 전송 , 응답데이터 java에서 JSON형식으로 변환 =직렬화 						(Serialization)
+
     API (Controller)
-    
+
     — ↓↑ — Entity (DB의 테이블과 1:1로 맵핑되는 객체)
-    
+
     Service
-    
+
     — ↓↑ — Entity
-    
+
     Repository
-    
+
     — ↓↑ — 
-    
+
     DB
-    
+
 
 ### DTO 사용이유
 
 1. DTO 클래스를 이용한 코드의 간결성
     1. 회원정보를 등록할 때  정보가 많을 수록 `postMember()`에 파라미터로 추가되는 `@RequestParam`의 개수가 늘어남 ⇒ **DTO 클래스가 바로 요청 데이터를 하나의 객체로 전달받는 역할을 해줌.**
-        
+       
         **[기존코드]**
         
         ```java
@@ -79,13 +80,13 @@ author_profile: true
                 return new ResponseEntity<MemberDto>(memberDto, HttpStatus.CREATED);
             }
         ```
-        
+    
 2. 데이터 유효성 검증의 단순화
     1. 서버 쪽에서 유효한 데이터를 전달받기 위해 데이터를 검증하는 것을 **유효성(Validation) 검증**
     2. HTTP 요청을 전달받는 핸들러 메서드는 요청을 전달받는 것이  주목적이기 때문에 최대한 간결하게 작성해야 함.
     3. **DTO 클래스를 사용하면 유효성 검증 로직을 DTO 클래스로 빼내어 핸들러 메서드의 간결함을 유지가능**
-        
-        
+       
+       
         **[기존 코드]**
         
         ```java
@@ -175,7 +176,7 @@ author_profile: true
 ### DTO 클래스에 유효성 검증 적용
 
 1. 유효성 검증을 위한 의존 라이브러리 추가
-    
+   
     ```groovy
     dependencies {
     	implementation 'org.springframework.boot:spring-boot-starter-validation'
@@ -185,9 +186,9 @@ author_profile: true
     ```
     
 2. 유효성 검증시 사용되는 Annotation
-    
-    
-    | Annotation | Description | Null 허용 = null일 경우 유효성검증 x, not null이면 검증함 |
+   
+   
+    | Annotation | Description | Null 허용 = null일 경우 유효성검증 x,<br/> not null이면 검증함 |
     | --- | --- | --- |
     | @NotBlank | ”” (공백) X, ” “(스페이스) X, 
     검증 실패시 에러메세지 출력됨 | x |
@@ -200,7 +201,7 @@ author_profile: true
     | @Length(min = , max = ) | 문자열의 길이가 min 이상, max 이하여야 함 |  |
 
 1. 유효성 검증시 Controller Metnod에 작성해야 하는 것.
-    
+   
     ```groovy
     @RestController
     @RequestMapping("/v1/members")
@@ -223,9 +224,9 @@ author_profile: true
     
     - @Valid @RequestBody 는 꼭 작성해야 함. Valid 작성하지 않을 경우 유효성 검증이 이루어지지 않음.
     - `@PathVariable("member-id") long memberId` 변수는 URI path에 사용되는데 일반적으로 데이터 식별자는 0이상의 숫자이므로 @PathVariable("member-id") @Min(1) long memberId - 이런식으로 제약조건 걸 수 있음.
-        
+      
         → PathVariable에 유효성 검증이 정상적으로 수행되려면 클래스 레벨에 @Validated 붙여줘야 함.
-        
+    
 2. Jakarta Bean Validation이란?
     1.  DTO 클래스의 유효성 검증을 위해서 사용한 애너테이션은 **Jakarta Bean Validation**이라는 유효성 검증을 위한 표준 스펙에서 지원하는 내장 애너테이션
     2. **Jakarta Bean Validation**은 라이브러리처럼 사용할 수 있는 API가 아닌 스펙(사양, Specification) 자체
