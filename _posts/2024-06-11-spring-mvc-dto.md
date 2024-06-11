@@ -10,7 +10,6 @@ author_profile: true
 <div class="notice" markdown="1">
 🍒 `공지` 
 <h4> - <u>정보 공유가 아닌 개인이 공부하고 기록하기 위한 용도입니다.</u></h4>
-<h4> 잘못된 내용이 있을 수 있으니 참고부탁드립니다. </h4>
 </div>
 
 
