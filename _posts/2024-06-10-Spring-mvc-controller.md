@@ -6,10 +6,12 @@ tag : [MVC,개념정리,Spring]
 author_profile: true
 ---
 
+🌝 **<u>공지</u>** 개인 공부 기록용입니다. {: .notice--primary} 
+
 ## Spring MVC
 
 - 스프링은 서블릿 기반으로 동작함.
-- Spring의 모듈 중에서 **서블릿(Servlet) API**를 기반으로 클라이언트의 요청을 처리하는 모듈이 바로 `spring-webmvc` = Spring MVC = Spring MVC 프레임워
+- Spring의 모듈 중에서 **서블릿(Servlet) API**를 기반으로 클라이언트의 요청을 처리하는 모듈이 바로 `spring-webmvc` = Spring MVC = Spring MVC 프레임워크
     - 서블릿 :  **클라이언트의 요청을 처리하도록 특정 규약에 맞추어서 Java 코드로 작성하는클래스 파일**
     - **아파치 톰캣(Apache Tomcat)**은 이러한 서블릿들이 웹 애플리케이션으로 실행이 되도록 해주는 **서블릿 컨테이너(Servlet Container)** 중 하나
 
@@ -67,7 +69,7 @@ public class CoffeeController {
 - (2)에서 `CoffeeService` 클래스의 `findCoffee()` 메서드를 호출해서 비즈니스 로직을 처리
 - (2)에서 비즈니스 로직을 처리한 다음 리턴 받는 Coffee가 여기서는 **Model 데이터**
 
-### MVC의 전체적인 동작흐름
+## MVC의 전체적인 동작흐름
 
 - Client가 요청 데이터 전송
   
@@ -456,7 +458,7 @@ public class MemberController {
     - POST Method 형식의 클라이언트 요청에 대한 응답 상태는 `HttpStatus.OK`보다는 `HttpStatus.CREATED`가 조금 더 자연스러
     
 
-### HTTP 헤더(Header)
+## HTTP 헤더(Header)
 
 - HTTP 메시지(Messages)의 구성 요소 중 하나로써 클라이언트의 요청이나 서버의 응답에 포함되어 부가적인 정보를 HTTP 메시지에 포함할 수 있도록 함.
 - 개발자가 헤더를 건드릴 일은 많이 없지만, 코드 레벨에서 직접 컨트롤 해야 할 경우가 있음
@@ -627,7 +629,7 @@ Spring MVC는 아래와 같이 HTTP 헤더 정보를 읽어오는 몇 가지 방
     > **복잡한 처리가 아니라면 코드의 간결성이나 생산성 면에서 가급적 Spring에서 지원하는 고수준 API를 사용하길 권장**
     > 
 
-### Rest Client
+## Rest Client
 
 ### 클라이언트(Client)와 서버(Server)의 관계
 
@@ -975,7 +977,6 @@ Spring MVC는 아래와 같이 HTTP 헤더 정보를 읽어오는 몇 가지 방
  ### comment
 
 배운듯 안배운듯 생소한 느낌, 
-
 이거 아는데 싶다가도 모르겠다...
 
 
