@@ -6,10 +6,12 @@ tag : [MVC,개념정리,Spring]
 author_profile: true
 ---
 
+
 <div class="notice" markdown="1">
 🍒 `공지` 
-- 정보 공유가 아닌 개인 공부 기록용입니다.
+<h4> - <u>정보 공유가 아닌 개인 공부 기록용입니다.</u></h4>
 </div>
+
 
 ## Spring MVC
 
