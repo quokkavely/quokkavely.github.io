@@ -9,7 +9,7 @@ author_profile: true
 # [Spring MVC] DTO 실습
 
 
-### 처음작성 - 오류발생
+## 처음작성 - 오류발생
 
 1. CoffeePostDto
     
@@ -123,7 +123,7 @@ author_profile: true
         특정 ArgumnetResolver에 의해 유효성 검사가 진행되었던 @Valid와 달리, @Validated는 AOP 기반으로 메소드 요청을 인터셉터하여 처리된다. @Validated를 클래스 레벨에 선언하면 해당 클래스에 유효성 검증을 위한 AOP의 어드바이스 또는 인터셉터(MethodValidationInterceptor)가 등록된다. 그리고 해당 클래스의 메소드들이 호출될 때 AOP의 포인트 컷으로써 요청을 가로채서 유효성 검증을 진행한다.이러한 이유로 @Validated를 사용하면 컨트롤러, 서비스, 레포지토리 등 계층에 무관하게 스프링 빈이라면 유효성 검증을 진행할 수 있다. 대신 클래스에는 유효성 검증 AOP가 적용되도록 @Validated를, 검증을 진행할 메소드에는 @Valid를 선언해주어야 한다.이러한 이유로 @Valid에 의한 예외는 MethodArgumentNotValidException이며, @Validated에 의한 예외는  ConstraintViolationException
         
 
-### 다시 작성- 오류 개선,  but Body의 attribute가 null일 때도 유효성 검증함
+## 다시 작성- 오류 개선,  but Body의 attribute가 null일 때도 유효성 검증함
 
 ```java
     @PatchMapping("/{coffee-id}")
@@ -204,7 +204,7 @@ getter와 setter를 미리 만들었더니 여기는 int값으로 유지되고 �
 
 모두 변경하니 null값이 잘 들어옴.
 
-### 완성
+## 완성
 
 [CoffeePatchDto]
 
@@ -290,7 +290,7 @@ public class CoffeeController {
     }
 ```
 
-### Comment
+## Comment
 
 실무에도 이렇게 null을 받나 싶어서 의문이 계속 들었고 DB를 아직 사용하지 않아서 DB에는 변경한 값만 들어가는 건지 궁금했는데
 
@@ -301,3 +301,18 @@ public class CoffeeController {
 이걸 방지하기 위해 Optional class 또는 람다식을 사용해서 대체할 수 있다고 함. (실무에서 대부분 람다식 사용)
 
 무튼 int랑 integer때문에 애 많이 먹었는데 강사님은 NotZero라는 annotation을 custom으로 만들어 버림. 😮 ,,, 그리고 custom Annotation 실무에서도 자주 사용되는데 프로젝트 전에 한번 만들어보는 것도 좋다고 하심, !
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+        
+<div class="notice" markdown="1">
+🍒 `공지` 
+<h4> - <u>정보 공유가 아닌 개인이 공부하고 기록하기 위한 용도입니다.</u></h4>
+</div>
+
+
