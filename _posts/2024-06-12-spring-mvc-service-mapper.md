@@ -33,22 +33,22 @@ Service
    
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/9b068e3d-666c-4a05-bbc7-0a54f0c63bc7" width=300/>
     
-1. 특별한 예외상황이 없으면 controller와 1:1 로 메서드를 매칭해서 만듬.
+    1. 특별한 예외상황이 없으면 controller와 1:1 로 메서드를 매칭해서 만듬.
    
    
-    | Controller | MemberService |
-    | --- | --- |
-    | postMember | createMember |
-    | patchMember | updateMember |
-    | getMember | findMember |
-    | getMembers | findMembers |
-    | deleteMember | deleteMember |
+        | Controller | MemberService |
+        | --- | --- |
+        | postMember | createMember |
+        | patchMember | updateMember |
+        | getMember | findMember |
+        | getMembers | findMembers |
+        | deleteMember | deleteMember |
     
-4. Controller 계층은 httpMethod 기준으로 이름 생성
+    2. Controller 계층은 httpMethod 기준으로 이름 생성
 
-3. 서비스 계층은 CRUD 로 이름 생성
+    3. 서비스 계층은 CRUD 로 이름 생성
 
-1. Member , MemberService 개선.
+3. Member , MemberService 개선.
     1. Member 클래스
        
         ```java
@@ -129,7 +129,7 @@ Service
             
             
     
-1. MemberController 개선
+4. MemberController 개선
    
     ```java
     package com.springboot.member;
