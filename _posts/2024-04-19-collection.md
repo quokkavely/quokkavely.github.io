@@ -2,7 +2,7 @@
 layout : single
 title : "[JAVA] 컬렉션프레임워크, 예외처리"
 categories: JAVA-Learn
-tag : [JAVA, 실습개념]
+tag : [JAVA, 개념]
 toc : true
 toc_sticky : true
 author_profile: true
