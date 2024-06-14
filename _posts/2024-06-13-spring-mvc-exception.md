@@ -6,13 +6,13 @@ tag : [MVC,실습,Spring,개념정리]
 author_profile: true
 ---
 
-우리가 앞으로 만나 볼 수 있는 예외
+**우리가 앞으로 만나 볼 수 있는 예외**
 
 - 클라이언트 요청 데이터에 대한 유효성 검증(Validation)에서 발생하는 예외
 - 서비스 계층의 비즈니스 로직에서 던져지는 의도된 예외
 - 웹 애플리케이션 실행 중에 발생하는 예외(RuntimeException)
 
-예외란? 
+**예외란?** 
 
 - cheked exception
 - ⇒ 개발자가 예외처리를 꼭 해야하는 것 ! 즉 JVM이 읽을 수 있게 바꿔주는 것
@@ -33,7 +33,7 @@ author_profile: true
 - MethodArgumentNotValidException은  request를 잘못 했을 때 발생 (필드 누락이나 바디가 형식에 맞지 않거나 유효성 검증 조건에 맞지 않으면 발생할 수 있음.)
     - 예를 들어, DTO클래스에서 `*@NotSpace*(message = "커피명(한글)은 공백이 아니어야 합니다.")` 를 name위에 적용하고 Controller에 @Valid를 적용했는는데 postman에서 postman에서 Request body에 attruibute에 blank 작성 하고  요청했을 경우에  발생할 수 있다.
 - 매개인자로 들어온 `MethodArgumentNotValidException` 객체에서 `getBindingResult().getFieldErrors()`를 통해 발생한 에러 정보를 확인 가능
-- List<FieldError>fieldErrros에서 FieldError는?? 저런 클래스를 작성한 것이 없는데..! 찾아보니
+- List<<FieldError>>fieldErrros에서 FieldError는?? 저런 클래스를 작성한 것이 없는데..! 찾아보니
     - Spring Framework에서 제공하는 클래스라고 함.
     - org.springframework.validation 패키지에 속해 있으며, 유효성 검사 중 발생한 오류에 대한 정보를 포함
         1. **field**: 유효성 검사가 실패한 필드의 이름. 
@@ -42,10 +42,10 @@ author_profile: true
         4. **objectName**: 오류가 발생한 객체의 이름 
         5. **codes**: 오류 코드를 배열 형태로 저장
         6. **arguments**: 오류 메시지의 인자
-        
+    
 - 위에서 확인한 정보를 `ResponseEntity`를 통해 Response Body로 전달
 - postman을 이용해 body를 잘못 입력 후 post요청하면 하기와 같이 메세지가 뜬다.
-    
+  
     ![Untitled](%5Bspring%20MVC%5D%20Exception(@RestControllerAdvice,@Exce%2045ac29926691473b902e4cb2c5e369ba/Untitled.png)
     
 - 위의 메세지는 너무 길고 필요 없는 데이터가 많음
@@ -53,7 +53,7 @@ author_profile: true
 ### **1. 문제점 보완 → ErrorResponse 클래스 적용**
 
 1. **ErrorResponse**
-    
+   
     ```java
     import lombok.AllArgsConstructor;
     import lombok.Getter;
@@ -100,7 +100,7 @@ public ResponseEntity handleException(MethodArgumentNotValidException e) {
 - 왜 new ErrorResponse(errors) 인가? 모르겟음 왜 errors가 아니라
 - `ErrorResponse.FieldError` 클래스에 담아서 List로 변환 후,  `List<ErrorResponse.FieldError>`를 `ResponseEntity` 클래스에 실어서 전달
 - streamd이 아닌 반복문 사용해도 됨.
-    
+  
     ```java
     List<CustomError> errors = new ArrayList<>();
     for(FieldError : fieldErrors){
@@ -263,7 +263,7 @@ public class ErrorResponse {
 |  | 위반된 제약 조건의 메시지 (getMessage()). | 전체 오류 여부 (hasErrors()). | 거부된 값 (getRejectedValue()). |
 |  | 유효성 검사가 실패한 속성 경로 (getPropertyPath()). |  |  |
 
-### 3. **Exception 핸들러 메서드 수정(**GlobalExceptionAdvice)
+### 4. **Exception 핸들러 메서드 수정(**GlobalExceptionAdvice)
 
 ```java
 package com.springboot.advice;
@@ -326,4 +326,3 @@ reponse클래스의 static Member class 라고 하네!<br/>
 🍒 `공지` 
 <h4> - <u>정보 공유가 아닌 개인이 공부하고 기록하기 복습하기 위한 용도입니다.</u></h4>
 </div>
-
