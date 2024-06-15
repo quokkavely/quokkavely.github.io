@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[JAVA] 배열 연습문제"
-categories: JAVA-Learn
+categories: JAVA-Practice
 tag : [JAVA, 실습]
 toc : true
 toc_sticky : true

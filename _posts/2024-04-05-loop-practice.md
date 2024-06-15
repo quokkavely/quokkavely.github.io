@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[JAVA] 조건문 반복문 연습문제"
-categories: JAVA-Learn
+categories: JAVA-Practice
 tag : [JAVA, 실습]
 toc : true
 toc_sticky : true

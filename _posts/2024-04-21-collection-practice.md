@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[JAVA] 컬렉션프레임워크, 예외처리"
-categories: JAVA-Learn
+categories: JAVA-Practice
 tag : [JAVA, 실습]
 toc : true
 toc_sticky : true

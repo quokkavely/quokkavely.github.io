@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[JAVA] 미니 텍스트 게임 만들기 "
-categories: JAVA-Learn
+categories: JAVA-Practice
 tag : [JAVA, 실습]
 toc : true
 toc_sticky : true

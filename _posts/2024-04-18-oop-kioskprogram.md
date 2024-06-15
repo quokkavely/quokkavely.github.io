@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[JAVA] kiosk 프로그램 실습"
-categories: JAVA-Learn
+categories: JAVA-Practice
 tag : [JAVA, 실습]
 toc : true
 toc_sticky : true
