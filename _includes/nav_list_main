@@ -30,7 +30,6 @@
                     {% endif %}
                 {% endfor %}
             </ul>
-
         <span class="nav__sub-title">JAVA</span>
             <ul>
                 {% for category in site.categories %}
@@ -77,6 +76,7 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+        
       </li>
   </ul>
 </nav>
