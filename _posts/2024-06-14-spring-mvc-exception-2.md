@@ -176,150 +176,6 @@ author_profile: true
     - validator
 - 나머지 클래스는 건들지 않고 **GlobalExceptionAdvice와 ErrorResponse만 수정하기**
 
-1. ErrorResponse 작성
-    
-    ```java
-    package com.springboot.response;
-    
-    import com.springboot.exception.BusinessLogicException;
-    import com.springboot.exception.ExceptionCode;
-    import lombok.Getter;
-    import org.springframework.http.HttpStatus;
-    import org.springframework.validation.BindingResult;
-    import org.springframework.web.HttpRequestMethodNotSupportedException;
-    
-    import javax.validation.ConstraintViolation;
-    import java.util.List;
-    import java.util.Set;
-    import java.util.stream.Collectors;
-    
-    @Getter
-    public class ErrorResponse {
-        Integer status;
-        String message;
-        private List<FieldError> fieldErrors;
-        private List<ConstraintViolationError> violationErrors;
-    
-        private ErrorResponse(Integer status,String message,final List<FieldError>fieldErrors,final List<ConstraintViolationError> violationErrors) {
-            this.status=status;
-            this.message=message;
-            this.fieldErrors = fieldErrors;
-            this.violationErrors = violationErrors;
-        }
-    
-    //    public static ErrorResponse of(BusinessLogicException businessLogicException) {
-    //        return new ErrorResponse(businessLogicException.getExceptionCode().getStatus(),
-    //                businessLogicException.getMessage(),
-    //                null,
-    //                null);
-    //    }
-    //    public static ErrorResponse of(HttpRequestMethodNotSupportedException httpRequestMethodNotSupportedException) {
-    //        return new ErrorResponse(HttpStatus.METHOD_NOT_ALLOWED.value(),HttpStatus.METHOD_NOT_ALLOWED.toString(),
-    //                null,
-    //                null);
-    //    }
-    
-        public static ErrorResponse of(Integer status, String message, Object o, Object object){
-            return new ErrorResponse(status, message,null,null);
-        }
-    
-        public static ErrorResponse of(BindingResult bindingResult) {
-            return new ErrorResponse(null,null,FieldError.of(bindingResult), null);
-        }
-    
-        public static ErrorResponse of(Set<ConstraintViolation<?>> violations) {
-            return new ErrorResponse(null,null,null, ConstraintViolationError.of(violations));
-        }
-    
-        @Getter
-        public static class FieldError {
-            private String field;
-            private Object rejectedValue;
-            private String reason;
-    
-            private FieldError(String field, Object rejectedValue, String reason) {
-                this.field = field;
-                this.rejectedValue = rejectedValue;
-                this.reason = reason;
-            }
-    
-            public static List<FieldError> of(BindingResult bindingResult) {
-                final List<org.springframework.validation.FieldError> fieldErrors =
-                                                            bindingResult.getFieldErrors();
-                return fieldErrors.stream()
-                        .map(error -> new FieldError(
-                                error.getField(),
-                                error.getRejectedValue() == null ?
-                                                "" : error.getRejectedValue().toString(),
-                                error.getDefaultMessage()))
-                        .collect(Collectors.toList());
-            }
-        }
-    
-        @Getter
-        public static class ConstraintViolationError {
-            private String propertyPath;
-            private Object rejectedValue;
-            private String reason;
-    
-            private ConstraintViolationError(String propertyPath, Object rejectedValue,
-                                       String reason) {
-                this.propertyPath = propertyPath;
-                this.rejectedValue = rejectedValue;
-                this.reason = reason;
-            }
-    
-            public static List<ConstraintViolationError> of(
-                    Set<ConstraintViolation<?>> constraintViolations) {
-                return constraintViolations.stream()
-                        .map(constraintViolation -> new ConstraintViolationError(
-                                constraintViolation.getPropertyPath().toString(),
-                                constraintViolation.getInvalidValue().toString(),
-                                constraintViolation.getMessage()
-                        )).collect(Collectors.toList());
-            }
-        }
-    }
-    ```
-    
-2. GlobalException 작성
-    
-    ```java
-    @ExceptionHandler
-        public ResponseEntity handleBusinessLogicException(BusinessLogicException e) {
-            System.out.println(e.getExceptionCode().getStatus());
-            System.out.println(e.getMessage());
-    
-            // TODO GlobalExceptionAdvice 기능 추가 1
-            final ErrorResponse response =
-            ErrorResponse.of(e.getExceptionCode().getStatus(),e.getMessage(),null,null);
-            return new ResponseEntity<>(response,HttpStatus.valueOf(e.getExceptionCode()
-                    .getStatus()));
-        }
-    
-        // TODO GlobalExceptionAdvice 기능 추가 2
-    
-        @ExceptionHandler
-        public ResponseEntity handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e){
-            String message="METHOD_NOT_ALLOWED";
-            final ErrorResponse response =
-                    ErrorResponse.of(HttpStatus.METHOD_NOT_ALLOWED.value(),message,null,null);
-            return new ResponseEntity<>(response,HttpStatus.METHOD_NOT_ALLOWED);
-        }
-    
-        // TODO GlobalExceptionAdvice 기능 추가 3
-        @ExceptionHandler
-        public ResponseEntity handleException(Exception e){
-    
-            final ErrorResponse response = ErrorResponse.of(
-                    ExceptionCode.INTERNAL_SERVER_ERROR.getStatus(),
-                    ExceptionCode.INTERNAL_SERVER_ERROR.getMessage(),
-                    null,
-                    null
-            );
-            return new ResponseEntity<>(response,HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    ```
     
 
 ### 헤맸던 부분
@@ -399,11 +255,11 @@ author_profile: true
     
     ---
     
-    ### 해결방법 v1
+### 해결방법 v1
     
-    ![Untitled](%5Bspring%20MVC%5D%20%E1%84%87%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%82%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%85%E1%85%A9%E1%84%8C%E1%85%B5%E1%86%A8%20f594462116ee4ebd86191eb9274dc8c8/Untitled%202.png)
+![Untitled](%5Bspring%20MVC%5D%20%E1%84%87%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%82%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%85%E1%85%A9%E1%84%8C%E1%85%B5%E1%86%A8%20f594462116ee4ebd86191eb9274dc8c8/Untitled%202.png)
     
-    - HttpsStats가 구현된 클래스로 이동해보면 .value()로 상태코드 받아올 수 있고 .getReasonPhrase()로 상태메세지 가져올 수 있음.
+- HttpsStats가 구현된 클래스로 이동해보면 **.value()** 로 상태코드 받아올 수 있고 **.getReasonPhrase()**로 상태메세지 가져올 수 있음.
     
     **GlobalExceptionAdvice**
     
@@ -463,13 +319,14 @@ public ErrorResponse handleException(NullpointerException e){
 
 ## Comment
 
-예외처리 어제 것도 이해못했는데 실습하니까 더 이해안가서 더 헤맸음
-돌이켜보면 확실히 코드를 보고 이해하는 것도 중요한데 백지에서 코드를 쳐보고 헤매는 경험도
-중요한 것 같음...! 그러고 됫을 때 더 이해가 되는 것 같은데
-그 과정이 고통스럽다
-강사님이 풀이해주시는 것도 너무 쉽게 풀어서 현타옴...
+예외처리 어제 것도 이해못했는데 실습하니까 더 이해안가서 더 헤맸음<br/>
+돌이켜보면 확실히 코드를 보고 이해하는 것도 중요한데<br/>
+백지에서 코드를 쳐보고 헤매는 경험도
+중요한 것 같음...!<br/> 그러고 됫을 때 더 이해가 되는 것 같은데
+그 과정이 고통스럽다<br/>
+강사님이 풀이해주시는 것도 너무 쉽게 풀어서 현타옴...<br/>
 나 도대체 뭐한거지..?ㅎ
-공식문서나 구현체를 보는게 중요한 것 같아서
+공식문서나 구현체를 보는게 중요한 것 같아서<br/>
 앞으로는 검색해서 블로그보는 것 보단 공식문서를 찾아보는 것이...
 좋을것 같다!
 <br/>
