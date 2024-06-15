@@ -10,9 +10,9 @@ author_profile: true
 
 ### 예외는 크게 Checked Exception , Unchecked Exception
 
-![Untitled](%5Bspring%20MVC%5D%20%E1%84%87%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%82%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%85%E1%85%A9%E1%84%8C%E1%85%B5%E1%86%A8%20f594462116ee4ebd86191eb9274dc8c8/Untitled.png)
+![image-20240615095510345](../assets/images/image-20240615095510345.png)
 
-[https://rollbar.com/blog/how-to-handle-checked-unchecked-exceptions-in-java/](https://rollbar.com/blog/how-to-handle-checked-unchecked-exceptions-in-java/)
+[출처][https://rollbar.com/blog/how-to-handle-checked-unchecked-exceptions-in-java/](https://rollbar.com/blog/how-to-handle-checked-unchecked-exceptions-in-java/)
 
 **Checked Exception**은  말그대로 체크해야 하는 예외
 
@@ -50,11 +50,11 @@ author_profile: true
 
 - 서버쪽에서 발생한 예외를 조금 더 구체적으로 표현할 수 있는 Custom Exception을 만들어 예외를 던질 수 있음
 1. **ExceptionCode와 BuisinessLogicException 생성**
-    
+   
     ![Untitled](%5Bspring%20MVC%5D%20%E1%84%87%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%82%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%85%E1%85%A9%E1%84%8C%E1%85%B5%E1%86%A8%20f594462116ee4ebd86191eb9274dc8c8/Untitled%201.png)
     
     1. **ExceptionCode**
-        
+       
         ```java
         package com.springboot.exception;
         
@@ -75,7 +75,7 @@ author_profile: true
         ExceptionCode를 enum으로 정의하면 비즈니스 로직에서 발생하는 다양한 유형의 예외를 enum에 추가해서 사용 가능
         
     2. **BuisinessLogicException**
-        
+       
         ```java
         package com.springboot.exception;
         
@@ -98,7 +98,7 @@ author_profile: true
         - `RuntimeException`의 생성자(super)로 예외 메시지를 전달
     
     1. **globalExceptionAdvice**
-        
+       
         ```java
         @RestControllerAdvice
         public class GlobalExceptionAdvice {
@@ -116,7 +116,7 @@ author_profile: true
         
         ```
         
-        `*@RestControllerAdvice`* 
+        **`@RestControllerAdvice`**
         
         - *API계층은 아님, RestController에 있는 exception은 내가 다 지켜보고 있다 하는 것.*
         - *즉 controller에서 발생하는 예외를 처리하지만 서비스에서 관리하는 error도 처리.*
@@ -130,7 +130,7 @@ author_profile: true
         🔎 BusinessLogicException처럼 다양한 유형의 Custom Exception을 처리하고자 할 경우에는 ResponseEntity를 사용하기
         
     2. **MemberService**
-        
+       
         ```java
         lic class MemberService {
             public Member createMember(Member member) {
@@ -181,7 +181,7 @@ author_profile: true
 ### 헤맸던 부분
 
 1. ErrorResponse클래스에서 생서자랑 메서드 만드는 부분
-    
+   
     ```java
     @Getter
     public class ErrorResponse {
@@ -217,7 +217,7 @@ author_profile: true
     - 근데 생성자를 하나 더 만들어서 status와 message만 받을 수 있음.
     - 나는 4개를 다 받아서 하느라 헤맸음….
     - 근데 생성자를 2개만 받아도 상관없음
-        
+      
         ```java
             public ErrorResponse(Integer status, String message) {
                 this.status = status;
@@ -227,7 +227,7 @@ author_profile: true
         
     
 2. globalException
-    
+   
     ```java
         @ExceptionHandler
         public ResponseEntity handleHttpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException e){
@@ -256,11 +256,11 @@ author_profile: true
     ---
     
 ### 해결방법 v1
-    
+
 ![Untitled](%5Bspring%20MVC%5D%20%E1%84%87%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%82%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%85%E1%85%A9%E1%84%8C%E1%85%B5%E1%86%A8%20f594462116ee4ebd86191eb9274dc8c8/Untitled%202.png)
     
 - HttpsStats가 구현된 클래스로 이동해보면 **.value()** 로 상태코드 받아올 수 있고 **.getReasonPhrase()**로 상태메세지 가져올 수 있음.
-    
+  
     **GlobalExceptionAdvice**
     
     ```java
@@ -311,7 +311,7 @@ public ErrorResponse handleException(NullpointerException e){
 
 @Deprecated 앞으로 안쓸거니까 사용을 자제해달라 - 지원하지 않을 예정.
 
-![Untitled](%5Bspring%20MVC%5D%20%E1%84%87%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%82%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%85%E1%85%A9%E1%84%8C%E1%85%B5%E1%86%A8%20f594462116ee4ebd86191eb9274dc8c8/Untitled%204.png)
+<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/009a220c-af7a-451f-b9a6-0a6d0d8b5c94" width=500/>
 
 
 <br/>
