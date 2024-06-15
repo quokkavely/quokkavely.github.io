@@ -5,7 +5,7 @@ categories: JAVA-Learn
 tag : [JAVA, 실습]
 toc : true
 toc_sticky : true
-author_profile: trueㅎ
+author_profile: true
 ---
 
 ## 최소 기능 구현

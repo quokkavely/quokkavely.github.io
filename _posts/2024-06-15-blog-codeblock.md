@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[blog] 코드블럭(라인 추가, 배경색 변경, 복사방지 기능 추가)"
+title : "[blog] 코드블럭(라인 추가, 배경색 변경, 복사방지 기능, 코드폰트 컬러)"
 categories: blog
 tag : [blog, 코드블럭]
 author_profile: true
@@ -125,4 +125,20 @@ figure.highlight {
 
 ![image-20240615113919106](../assets/images/image-20240615113919106.png)
 
-완료!
+
+
+### 코드블럭 내 폰트 컬러 수정
+
+코드블럭 배경을 변경했더니 코드 폰트 컬러가 진짜 너무 휘향찬란함
+
+1. ![image-20240615150359488](../assets/images/image-20240615150359488.png)
+
+​	variable.scss에도 contrast syntax highlighting (base16)이 있길래 여기서 색 맞춰봤는데
+
+​	전혀 다른 색깔이 나와서 읭 뭐지 했는데 드디어 찾았다
+
+​	내 minimal mistake 에서 skin contrast 라서 
+
+​	여기 _sass > minimal-mistakes > skins > constrats.scss 내에 있는 base16 색깔이 적용됨..  
+
+​	그래서 코드 내 글자 색 변경할거면 적용한 skin의 scss파일 찾아서 변경하면 된다
