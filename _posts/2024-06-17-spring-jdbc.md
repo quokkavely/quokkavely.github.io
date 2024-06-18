@@ -2,7 +2,7 @@
 layout : single
 title : "JDBC"
 categories: Spring
-tag : [Spring, DB]
+tag : [Spring, DB, 개념정리]
 author_profile: true
 ---
 
@@ -390,7 +390,7 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
     
     2)  coffeeId를 외래키처럼 추가
     
-    3) @Builder
+    3) @Builder -> 내일 업로드 하기!
     
 3. Order
    
