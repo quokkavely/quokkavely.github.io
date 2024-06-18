@@ -29,7 +29,7 @@ author_profile: true
 2. **JDBC API**
     - **JDBC API 사용 흐름**
     
-    ![Untitled](JDBC%204f57a4a3d6b44fd1b51a50efc75132b7/Untitled.png)
+      <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/a2685f8e-f019-4ed6-b9ca-6f70f7261714" width=500/>
     
     예전에 DB할 때 마지막에 JDBC에서 배웠던 것.
     
@@ -54,10 +54,9 @@ author_profile: true
     - 원래 Apache Commons DBCP(Database Connection Pool, DBCP)를 주로 사용했지만
     - Spring Boot 2.0부터는 성능면에서 더 나은 이점을 가지고 있는 HikariCP를 기본 DBCP로 채택
     
-    ![Untitled](JDBC%204f57a4a3d6b44fd1b51a50efc75132b7/Untitled%201.png)
+      <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/4eb12e74-371d-4e4c-a9a7-4f2aeb22a24d" width=500/>
     
-    ![Untitled](JDBC%204f57a4a3d6b44fd1b51a50efc75132b7/Untitled%202.png)
-    
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/03aee5a9-a4fa-4cfd-b525-0f68327e2293" width=500/>
 
 ## Spring Data JDBC란?
 
@@ -65,10 +64,10 @@ author_profile: true
 
 - 앞에서 언급한 **mybatis**와 **Spring JDBC**는 대표적인 SQL 중심 기술
 - Spring JDBC의 JdbcTemplate 사용 예
-    
+  
     ```java
     Member member = this.jdbcTemplate.queryForObject(
-    											"select * from member where member_id=?", 1, Member.class);
+        "select * from member where member_id=?", 1, Member.class);
     
     ```
     
@@ -85,7 +84,7 @@ author_profile: true
 Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복잡도를 낮춘 기술
 
 1. **라이브러리 추가**
-    
+   
     ```groovy
     dependencies {
     	...
@@ -96,7 +95,7 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
     ```
     
     - **인메모리(In-memory) DB**인 **H2**를 사용하기 위해 의존 라이브러리 설정에 추가
-        
+      
         > 인메모리 DB란?
         **메모리 안에 데이터를 저장하는 데이터베이스**
         
@@ -107,7 +106,7 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
         > - 테스트가 끝나고 나면 데이터베이스의 테이블에 남아있는 데이터는 깨끗이 비워져 있는 것이 좋음
 
 1. **H2 관련 설정 추가**
-    
+   
     ```yaml
     spring:
       h2:
@@ -122,7 +121,7 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
     1. localhost:8080/h2-console
     2. 애플리케이션 로그에 출력되는 JDBC URL을 확인하여 JDBC URL에 입력 후 Connect
     3. **H2 DB 설정 추가 →** JDBC URL이 랜덤으로 바뀌는 불편함 해결하기 위함
-        
+       
         ```yaml
         spring:
           h2:
@@ -141,7 +140,7 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
     - MessageController
     - MessageMapper
     - **MessageService**
-        
+      
         ```java
         package com.springboot.hello_world.service;
         
@@ -166,14 +165,14 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
         
         1. MessageRepository 인터페이스는 MessageService 클래스에서 DI를 통해 주입받음
         2. messageRepository.save(message)와 같이 save() 메서드를 사용
-            
+           
             1)  Sava 메서드는 `CrudRepository`가 이 작업을 대신해 주는 역할
             
             2)  쿼리문으로 데이터 저장할 때 기능 (==insert into)
             
         
     - **Message** (Entity 클래스)
-        
+      
         ```java
         import lombok.Getter;
         import lombok.Setter;
@@ -194,7 +193,7 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
         2)   @Id애너테이션을 추가한 멤버 변수는 해당 엔티티의 **고유 식별자 역할 =primary key**
         
     - **MessageRepository**
-        
+      
         ```java
         import org.springframework.data.repository.CrudRepository;
         
@@ -208,12 +207,11 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
             1. CrudRepository라는 인터페이스를 상속, 제너릭 타입이 `<Message, Long>`으로 선언
             2. 데이터베이스에 CRUD(데이터 생성, 조회, 수정, 삭제) 작업을 진행하기 위해 Spring에서 지원해 주는 인터페이스
             3. CrudRepository를 상속함으로써 query를 따로 작성할 일도 없고 container에 bean을 등록하지 않아도 CrudRepository가 가지고있어서 괜찮음.
-                
-                ![Untitled](JDBC%204f57a4a3d6b44fd1b51a50efc75132b7/Untitled%203.png)
-                
+               
+                <img src="![image-20240618101334129](../assets/images/image-20240618101334129.png)" width=500 />
     
     1. application. yml 추가 설정 - **H2 DB에 MESSAGE 테이블 생성**
-        
+       
         ```xml
         spring:
           h2:
@@ -245,18 +243,18 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
         - **인메모리 DB를 사용할 경우**, 애플리케이션이 실행될 때마다 schema.sql 파일의 **스크립트가 매번 실행된다는 것 기억하기.**
         
     2. H2 콘솔에 접속해서 MESSAGE 테이블 확인
-        
-        ![Untitled](JDBC%204f57a4a3d6b44fd1b51a50efc75132b7/Untitled%204.png)
+       
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/e449adc4-4e8a-41d2-a0b1-5f228b12347d" width=500 />
         
     3. POSTRUN
-        
-        ![Untitled](JDBC%204f57a4a3d6b44fd1b51a50efc75132b7/Untitled%205.png)
+       
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/3992c40a-4e00-4e85-b3f9-d67353926afe" width=500 />
         
         POST요청으로   message만 조금 변경함
         
     4. MESSAGE table 조회
-        
-        ![Untitled](JDBC%204f57a4a3d6b44fd1b51a50efc75132b7/Untitled%206.png)
+       
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/3e6e2393-d04e-4982-8d02-90199ed8935a" width=500 />
         
         POST 요청이 잘 되었는지 Message table 조회
         
@@ -277,17 +275,17 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
     3. 어떤 특정 집단이나 그룹의 대표라고 생각하기
     4. 애그리거트의 선정기준 ⇒ 도메인들과 직간접적으로 연관되어 있는 도메인
     5. **데이터베이스의 테이블 간 관계로 보자면, 애그리거트 루트는 부모 테이블이 되고, 애그리거트 루트가 아닌 다른 도메인들은 자식 테이블이 되는 것과 비슷..**
-    6. 베딜주문 앱을 세분화 하면
-        
-        ![Untitled](JDBC%204f57a4a3d6b44fd1b51a50efc75132b7/Untitled%207.png)
+    6. 배달주문 앱을 세분화 하면
+       
+        <img src="" width=500 />
         
         - **회원 애그리거트, 주문 애그리거트, 음식 애그리거트, 결제 애그리거트**라 할 수 있음.
 
 ### 엔티티 구현
 
 1. **엔티티 설계 확인 - 커피 주문 샘플 애플리케이션**
-    
-    ![Untitled](JDBC%204f57a4a3d6b44fd1b51a50efc75132b7/Untitled%208.png)
+   
+    <img src="" width=500 />
     
     - Mebmer : Order =1: N
         - Order에 member_Id 외래키를 추가하여 조인.
@@ -302,7 +300,7 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
     
     → **어떤 식으로든 애그리거트 루트가 나머지 모든 엔티티에 대한 객체를 직간접적으로 참조할 수 있다는 의미**
     
-    ![Untitled](JDBC%204f57a4a3d6b44fd1b51a50efc75132b7/Untitled%209.png)
+    <img src="" width=500 />
     
     (2) 하나의 동일한 애그리거트 내에서의 엔티티 객체 참조
     
@@ -317,7 +315,7 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
 ### 엔티티 구현 - 예제
 
 1. Order
-    
+   
     ```java
     package com.springboot.order.entity;
     
@@ -352,7 +350,7 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
     
     1. Order 클래스는 애그리거트 루트
     2. long memberId로 외래키를 표현했는데 Spring Data JDBC에서는 AggregateReference 라는 클래스를 이용해 아래 코드와 같이 외래키 표현 가능
-        
+       
         ```java
         private AggregateReference<Member, Long> memberId;
         ```
@@ -360,11 +358,11 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
     3. ✅ @MappedCollection 애너테이션의 역할
         - 엔티티 클래스 간에 연관 관계를 맺어주는 정보를 의미
         - ⭐ i**dColumn** 애트리뷰트는 자식 테이블에 추가되는 **외래키에 해당되는 열명**을 지정
-        - ⭐ **keyColumnkeyColumn** 애트리뷰트는 **외래키를 포함하고 있는 테이블의 기본키 열명**을 지정
+        - ⭐ **keyColumn** 애트리뷰트는 **외래키를 포함하고 있는 테이블의 기본키 열명**을 지정
             - ex) ORDERS 테이블의 자식 테이블인 ORDER_COFFEE 테이블의 기본키는 **ORDER_COFFEE_ID** 이므로, `keyColumn`의 값이 ‘ORDER_COFFEE_ID
-            
-2. OrderCoffee - 주문 애그리거트 내에 있는 엔티티 클래스
     
+2. OrderCoffee - 주문 애그리거트 내에 있는 엔티티 클래스
+   
     ```java
     package com.springboot.order.entity;
     
@@ -395,7 +393,7 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
     3) @Builder
     
 3. Order
-    
+   
     ```java
     import com.springboot.member.entity.Member;
     import lombok.Getter;
@@ -456,8 +454,8 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
         - OrderStatus enum이 Order 클래스의 멤버로 포함이 되어 있는 이유는 OrderStatus는 주문을 위한 전용 상태 값으로 사용할 수 있기 때문
         - 다른 기능에서도 사용할 가능성이 있다면 클래스 외부로 분리시킬 수 있겠지만 현재로서는 특별히 그럴 이유가 없음
     - coffee와 order은 연결하지 않음, 사용하지 않을것이라서.
-        
-        
+      
+    
 4.  `src/main/resources/db/h2/schema.sql` 파일에 테이블 생성 스크립트 추가하여 애플리케이션 실행시 테이블 생성되도록 하기.
 
 ## Spring Data JDBC - Service, Repository
@@ -465,7 +463,7 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
 ### Repository
 
 1. Spring Data JDBC, Spring Data JPA에서는 데이터 액세스 계층에서 데이터베이스와 상호작용하는 역할을 하는 인터페이스를 **리포지토리(Repository)라고 함.**
-    
+   
     > **리포지토리(Repository)**라는 용어는 DDD(Domain Driven Design, 도메인 주도 설계)에서 사용하는 용어
     > 
 2. **쿼리 메서드(Query Method)**
@@ -476,7 +474,7 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
     - 반드시 엔티티 클래스의 멤버 변수명을 적어주어야 함.
     - 약 Member 엔티티 클래스에 firstName이라는 멤버 변수, 테이블에 있는 FIRST_NAME이라는 열명과 매핑이 된다고 가정하면  findByFirstName이 되어야 함.
 3. 예제
-    
+   
     ```java
     import com.springboot.coffee.entity.Coffee;
     import org.springframework.data.jdbc.repository.query.Query;
