@@ -69,7 +69,7 @@ Optional 클래스는  NullPointerException을 방지하고, 명시적으로 값
     
 4. **값 변환**
     - map(Function<? super T, ? extends U> mapper): 값이 존재하면 주어진 함수를 적용한 결과를 담은 새로운 Optional을 반환
-    - flatMap(Function<? super T, Optional<U>> mapper): 값이 존재하면 주어진 함수를 적용하여 반환된 Optional을 평탄화하여 반환
+    - flatMap(Function<? super T, Optional<'U'> mapper): 값이 존재하면 주어진 함수를 적용하여 반환된 Optional을 평탄화하여 반환
     
     ```java
     
