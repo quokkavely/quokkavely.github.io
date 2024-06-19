@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "JDBC"
+title : "JDBC-1"
 categories: Spring
 tag : [Spring, DB, 개념정리]
 author_profile: true

@@ -75,16 +75,6 @@ POSTMAN에 드디어 get요청을 했다.
         //members.getContent() => List<Member>
          MemberPageResponseDto memberPageResponseDto =
                  new MemberPageResponseDto(members.getContent(),new PageInfo());
-            /*  MemberPageResponseDto memberPageResponseDto= members.getContent()
-                .stream().map(member ->
-                MemberPageResponseDto.builder()
-                        .data(member.getMemberId()
-                                ,member.getEmail()
-                                ,member.getName()
-                                ,member.getPhone()))
-                        .pageInfo(new PageInfo())
-                        .build();
-             */
                 return memberPageResponseDto;
     }
 ```
