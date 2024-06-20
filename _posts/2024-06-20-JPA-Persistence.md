@@ -15,7 +15,7 @@ author_profile: true
 
 ## JPA란?
 
-### JPA
+### **JPA**
 
 - ORM(Object-Relational Mapping) 기술의 표준 사양(또는 명세, Specification)
 - 표준사양이란 인터페이스로 사양이 정의되었기 때문에
