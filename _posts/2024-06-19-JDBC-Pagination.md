@@ -104,6 +104,7 @@ coffee 구현 다하고 오류 만났는데 get 요청시 500에러가 나왔다
 당황해서 콘솔보니  HttpMediaTypeNotAcceptableException: Could not find acceptable representation 라고 오류메세지 발생.. 
 
 <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/fd89ecc7-8a05-4ed8-9b3f-6c68462fed17" width=500>
+
 혹시 애너테이션이나 뭐 빠진게 있나 한참 찾다가 알게된 것은
 
 DTO 클래스 만들면서 @Getter 빠져먹음…!
