@@ -395,7 +395,7 @@ false 설정시 DDL 생성시에 NOT NULL 제약조건 붙음 |
         - MEMBER 테이블의 기본키 열 이름이 “`MEMBER_ID`” 이기 때문에 동일하게 작성
             
             
-    - 문제점
+    - 예제) 다대일에서 일대다를 추가해야 하는 경우
         
         ```java
          	   	  tx.begin();
