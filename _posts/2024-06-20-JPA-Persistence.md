@@ -28,8 +28,7 @@ author_profile: true
 - Layerd Architecture에서 데이터 액세스 계층의 상단에 위치
 - 데이터 저장, 조회 등의 작업은 JPA를 거쳐 JPA의 구현체인 Hibernate ORM을 통해서 이루어짐
 - Hibernate ORM은 내부적으로 JDBC API를 이용해서 데이터베이스에 접근
-
-![Untitled](JPA%20-%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC,%20%E1%84%8B%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B5%E1%84%90%E1%85%B5%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%2098ee2cbc0e6c4156ab506e3bd5b79787/Untitled.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/02b8be12-6e26-4574-9d75-0c287c234e87" width=300/>
 
 ## Persistence
 
@@ -38,71 +37,10 @@ author_profile: true
 - JPA에서는 테이블과 매핑되는 엔티티 객체정보를 영속성 컨텍스트에 보관해서 애플리케이션 내에 오래 지속되도록 함.
 - 영속성 컨텍스트에는 1차 캐시와 쓰기지연 SQL 저장소의 영역이 있음.
     
-    ![Untitled](JPA%20-%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC,%20%E1%84%8B%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B5%E1%84%90%E1%85%B5%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%2098ee2cbc0e6c4156ab506e3bd5b79787/Untitled%201.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/ced9222a-5428-41ec-b16f-4897b25fdb66" width=250/>
     
 
----
-
-- 설정 코드
-    - JPA 준비사항1 - build.gradle dependecies에 아래 코드 추가
         
-        ```groovy
-        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-        ```
-        
-    - JPA 준비사항2 - JPA 설정(application.yml)
-        
-        ```yaml
-        spring:
-          h2:
-            console:
-              enabled: true
-              path: /h2
-          datasource:
-            url: jdbc:h2:mem:test
-          jpa:
-            hibernate:
-              ddl-auto: create  # (1) 스키마 자동 생성
-            show-sql: true      # (2) SQL 쿼리 출력
-        ```
-        
-        - (1) 추가시  **JPA가 자동으로 데이터베이스에 테이블을 생성**
-        - (2)를 추가하면 JPA의 JPA API를 통해서 실행되는 SQL 쿼리를 로그로 출력해줌.
-    - Configuration 클래스 생성
-        
-        ```java
-        package com.springboot.basic;
-        
-        import org.springframework.boot.CommandLineRunner;
-        import org.springframework.context.annotation.Bean;
-        import org.springframework.context.annotation.Configuration;
-        
-        import javax.persistence.EntityManager;
-        import javax.persistence.EntityManagerFactory;
-        import javax.persistence.EntityTransaction;
-        
-        // (1) Bean 검색 후 @Bean이 추가된 메서드의 리턴객체를 Spring Bean으로 추가 
-        @Configuration
-        public class JpaBasicConfig {
-            private EntityManager em;
-            private EntityTransaction tx;
-        
-        		
-            @Bean
-            public CommandLineRunner testJpaBasicRunner(EntityManagerFactory emFactory) {
-                this.em = emFactory.createEntityManager();
-                this.tx = em.getTransaction();
-        
-                return args -> {
-                    // (2) 이 곳에 코드를 타이핑.
-                };
-            }
-        }
-        
-        ```
-        
-
----
 
 ### 영속성 컨텍스트와 EntityManger
 
@@ -188,18 +126,18 @@ author_profile: true
 
 1. **Entity Create, Insert, Select** 
     
-    ![Untitled](JPA%20-%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC,%20%E1%84%8B%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B5%E1%84%90%E1%85%B5%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%2098ee2cbc0e6c4156ab506e3bd5b79787/Untitled%202.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/ef9e7ce9-f701-492d-ae3e-7d5e49df7b2c" />
     
     - 애플리케이션이 시작되면서 [hibernate.hbm2ddl.auto](http://hibernate.hbm2ddl.auto) : create 속성에 따라 기존 테이블을 삭제하고 새로 생성함 (@Entity 가 붙은 클래스를 테이블로 만들어준다)
     - 분홍박스의 em.persist(member);  → 여기서 member가 1차 캐시에 저장되고 쓰기지연저장소에 insert쿼리가 저장되고(영속성컨텍스트에 저장)
         
-        ![Untitled](JPA%20-%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC,%20%E1%84%8B%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B5%E1%84%90%E1%85%B5%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%2098ee2cbc0e6c4156ab506e3bd5b79787/Untitled%203.png)
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/c4c9d5a4-2aef-429c-b9e4-8ad361e24333" width=250/>
         
     - 아랫줄에 tx.commit();이 실행되면 쿼리문이 실행되고 DB에 저장됨.
         
         쓰기지연저장소에는 쿼리문이 실행되어 사라지고 1차캐시에 있던 member는 남아있음
         
-        ![Untitled](JPA%20-%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC,%20%E1%84%8B%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B5%E1%84%90%E1%85%B5%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%2098ee2cbc0e6c4156ab506e3bd5b79787/Untitled%204.png)
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/89aa373c-054a-485a-b287-6140905350f8" width=250/>
         
     - Member result =em.find(Member.class, 1L); 에서 1차 캐시에 member가 존재하기 때문에 select 쿼리를 날리지 않아도 조회 가능 → 콘솔에 출력도 잘 됨.
     - 그러나 member_Id가 2인 객체는 1차 캐시에 없으므로 select 쿼리를 날려서 DB를 조회 하고 없기 때문에 null 이 맞음.
@@ -228,7 +166,7 @@ author_profile: true
     
 3. 엔티티 삭제
     
-    ![Untitled](JPA%20-%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC,%20%E1%84%8B%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B5%E1%84%90%E1%85%B5%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%2098ee2cbc0e6c4156ab506e3bd5b79787/Untitled%205.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/d230cd5a-7355-49f3-b694-82bdcfab8bf7" />
     
     - select 쿼리는 1차 캐시에  이미 존재하기 때문에 나가지 않음.
     - remove 하면 1차 캐시를 지우지만 사라졌다는 상태도 보관함.
@@ -274,6 +212,8 @@ author_profile: true
 
 ### 필드(멤버변수)와 Column 간의 매핑
 
+**Annotation**
+
 | annotation | Description |
 | --- | --- |
 | @Column | 열 매핑 |
@@ -283,6 +223,8 @@ author_profile: true
 | @Lob | BLOB, CLOB  매핑 |
 | @Transient | 특정필드를 컬럼에 매핑하지 않음 (매핑 무시)
 임시 데이터를 메모리에서 사용하기 위한 용도로 사용 |
+
+**attribute**
 
 | 속성 | 기본값 | Description |
 | --- | --- | --- |
@@ -343,19 +285,19 @@ false 설정시 DDL 생성시에 NOT NULL 제약조건 붙음 |
 1. **단방향 연관 관계**
     
     한쪽 클래스만 다른 쪽 클래스의 참조 정보를 가지고 있는 관계를 **단방향 연관 관계**
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/bf036c97-027a-49c1-b7bc-db904eeb40b8"/>
     
-    ![Untitled](JPA%20-%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC,%20%E1%84%8B%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B5%E1%84%90%E1%85%B5%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%2098ee2cbc0e6c4156ab506e3bd5b79787/Untitled%206.png)
     
     - Member 클래스가 Order 객체를 원소로 포함하고 있는 List 객체를 가지고 있으므로, Order를 참조
     - Order 입장에서는 Member 정보를 알 수 없음
     
 2. **양방향 연관 관계**
     
-    양쪽 클래스가 서로의 참조 정보를 가지고 있는 관계를 **양방향 연관 관계**
-    
+    양쪽 클래스가 서로의 참조 정보를 가지고 있는 관계를 **양방향 연관 관계** <br>
     서로 다른 단방향 관계 2개임.
+
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/87849c96-b64f-4378-91d8-36558b19a6e5"/>
     
-    ![Untitled](JPA%20-%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC,%20%E1%84%8B%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B5%E1%84%90%E1%85%B5%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%2098ee2cbc0e6c4156ab506e3bd5b79787/Untitled%207.png)
     
     - 두 클래스가 모두 서로의 객체를 참조할 수 있으므로, Member는 Order 정보를 알 수 있고, Order는 Member 정보를 알 수 있음
     
@@ -367,7 +309,7 @@ false 설정시 DDL 생성시에 NOT NULL 제약조건 붙음 |
 
 1. **다대일 단방향 :  가장 많이 사용, 다(N)에 해당하는 클래스가 일(1)에 해당하는 객체를 참조할 수 있는 관계**를 의미
     
-    ![Untitled](JPA%20-%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC,%20%E1%84%8B%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B5%E1%84%90%E1%85%B5%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%2098ee2cbc0e6c4156ab506e3bd5b79787/Untitled%208.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/9f035a62-5b00-45f5-ad43-0b7af6c4f427">
     
     - Order만 Member 객체를 참조할 수 있으므로 단방향 관계
     - 예제
@@ -437,9 +379,9 @@ false 설정시 DDL 생성시에 NOT NULL 제약조건 붙음 |
     - 만약에 새로운 주문이 발생하면 다대일 양방향에서는 서로 참조하고 있으니 서로를 update 해주어야 함.
     - 양쪽에 add  메서드 생성후 commit 하면 StackOverFlow 발생 - 서로가 서로를 호출하기 때문 ⇒ 종료시점 필요
         
-        ![Untitled](JPA%20-%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC,%20%E1%84%8B%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B5%E1%84%90%E1%85%B5%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%2098ee2cbc0e6c4156ab506e3bd5b79787/Untitled%209.png)
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/c3ad47a3-4cb1-4199-9a7a-76b61df00ad7"/>
         
-        ![Untitled](JPA%20-%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC,%20%E1%84%8B%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B5%E1%84%90%E1%85%B5%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%2098ee2cbc0e6c4156ab506e3bd5b79787/Untitled%2010.png)
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/e45e6166-d677-4bf4-9ce0-db5bc6eef021" width=250>
         
     
     - 이렇게 해주어야 함!
@@ -512,9 +454,9 @@ false 설정시 DDL 생성시에 NOT NULL 제약조건 붙음 |
     
      **일(1)에 해당하는 클래스가 다(N)에 해당하는 객체를 참조할 수 있는 관계를 의미**
     
-    ![Untitled](JPA%20-%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC,%20%E1%84%8B%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B5%E1%84%90%E1%85%B5%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%2098ee2cbc0e6c4156ab506e3bd5b79787/Untitled%2011.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/0d86d5a1-913c-4cde-b850-c9f711cfb432"/>
     
-    ![Untitled](JPA%20-%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC,%20%E1%84%8B%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B5%E1%84%90%E1%85%B5%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%2098ee2cbc0e6c4156ab506e3bd5b79787/Untitled%2012.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/fc265785-5ab0-4665-8d03-654da995a944"/>
     
     - Member만 List<Order> 객체를 참조할 수 있으므로 단방향 관계
     - 엔티티가 관리하는 외래 키가 다른 테이블에 있음
@@ -536,8 +478,7 @@ false 설정시 DDL 생성시에 NOT NULL 제약조건 붙음 |
 ### 일대일[1:1] : @OneToOne
 
 ### 다대다[N:M] : @ManyToMany
-
-![Untitled](JPA%20-%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC,%20%E1%84%8B%E1%85%A6%E1%86%AB%E1%84%90%E1%85%B5%E1%84%90%E1%85%B5%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC%2098ee2cbc0e6c4156ab506e3bd5b79787/Untitled%2013.png)
+<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/40b7fb14-34ca-4864-a7a3-900d0d4094a1">
 
 
 ### Comment
