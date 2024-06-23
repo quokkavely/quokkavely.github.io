@@ -79,14 +79,18 @@ Optional 클래스는  NullPointerException을 방지하고, 명시적으로 값
     Optional<Integer> lengthOptional = nonEmptyOptional.flatMap(value -> Optional.of(value.length()));
     lengthOptional.ifPresent(System.out::println); // 5
     ```
-    
+        
     - `? extends T`
         
-        상한 와일드카드이며 매개변수화 된 유형이 ‘T’또는 해당 하위 클래스 중 하나임을 나타내는 데 사용됨, 이는 컬렉션에서 항목을 읽으려는 생산자에게 유용
+        상한 와일드카드이며 매개변수화 된 유형이 ‘T’또는 해당 하위 클래스 중 하나임을 나타내는 데 사용
         
     - `? super T`
         
-        하한 경계의 와일드카드이며 컬렉션에 항목을 쓰려는 소비자에게 유용.
+        하한 경계의 와일드카드이며 T와 그 조상들만 가능
+        
+    - `<?>`
+        
+        제한 없음 모든 타입이 가능 <? extends Object>와 동일
         
 
 ## 실습 (Service 구현하기)
