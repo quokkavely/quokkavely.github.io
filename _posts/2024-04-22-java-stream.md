@@ -89,9 +89,8 @@ author_profile: true
             MyFuctionalInterface example = ()->{...};
             //example.accept();
             
-            람다식이 대입된 인터페이스의 참조 변수는 위의 주석과 같이 
-            accept()를 호출할 수 있습니다.accept()의 호출은 
-            람다식의 중괄호 {}를 실행시킵니다.
+            람다식이 대입된 인터페이스의 참조 변수는 accept()를 호출가능
+            accept()의 호출은 람다식의 중괄호 {}를 실행시킴
             ```
             
         2. 예제 -2
@@ -144,7 +143,9 @@ author_profile: true
             10
             ```
             
-            람다식이 대입된 인터페이스 참조 변수는 다음과 같이 `accept()`를 호출할 수 있습니다. 위의 예시와 같이 매개값으로 2를 주면 람다식의 x 변수에 2가 대입되고, x는 중괄호 { }에서 사용됩니다.
+            람다식이 대입된 인터페이스 참조 변수는 다음과 같이 `accept()`를 호출 가능. 
+            
+            위의 예시와 같이 매개값으로 2를 주면 람다식의 x 변수에 2가 대입되고, x는 중괄호 { }에서 사용됨
         
     5. 리턴값이 있는 람다식
         1. 예제-1
@@ -308,30 +309,32 @@ author_profile: true
         
         ```
     
-5. java.util.fuction 패키지
+5. java.util.fuction 패키지 <br/>
+    https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html
+
     1. **자주 사용되는 다양한 함수형 인터페이스를 제공.** 
        
-        ![Untitled](28%20%E1%84%85%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A1+%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%20fce1d28bc56e42bd8eb1be8858fd236c/Untitled.png)
+        <img src="" width=400 />  
         
     2. 매개변수가 2개인 함수형 인터페이
        
-        ![Untitled](28%20%E1%84%85%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A1+%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%20fce1d28bc56e42bd8eb1be8858fd236c/Untitled%201.png)
+        <img src="" width=400 />  
         
     3.  **매개변수의 타입과 반환타입이 일치하는 함수형 인터페이스**   
         
-        ![Untitled](28%20%E1%84%85%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A1+%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%20fce1d28bc56e42bd8eb1be8858fd236c/Untitled%202.png)
+        <img src="" width=400 />  
         
     4. **함수형 인터페이스를 사용하는 컬렉션 프레임웍의** **메서드**   
        
-        ![Untitled](28%20%E1%84%85%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A1+%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%20fce1d28bc56e42bd8eb1be8858fd236c/Untitled%203.png)
+        <img src="" width=400 />  
         
     5. **기본형을 사용하는 함수형 인터페이스**   
        
-        ![Untitled](28%20%E1%84%85%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A1+%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%20fce1d28bc56e42bd8eb1be8858fd236c/Untitled%204.png)
         
-        ![Untitled](28%20%E1%84%85%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A1+%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%20fce1d28bc56e42bd8eb1be8858fd236c/Untitled%205.png)
         
-    6. 
+        <img src="" width=400 />  
+        
+     
 
 
 
@@ -398,9 +401,9 @@ author_profile: true
 
 1. **스트림 처리 과정은 생성, 중간 연산, 최종 연산 *세 단계의 파이프라인*으로 구성될 수 있다.**
    
-    ![Untitled](28%20%E1%84%85%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A1+%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%20fce1d28bc56e42bd8eb1be8858fd236c/Untitled%206.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/d1aa73c1-8115-431e-afd8-891942661bde" width=400 />  
     
-    ![Untitled](28%20%E1%84%85%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A1+%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%20fce1d28bc56e42bd8eb1be8858fd236c/Untitled%207.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/fc6ae093-1c80-4ece-abda-da33906bf037" width=400 />  
     
 2. **스트림은 원본 데이터 소스를 변경하지 않는다(read-only).**
     1. 오직 데이터를 읽어올 수 있고, 데이터에 대한 변경과 처리는 생성된 스트림 안에서만 수행
@@ -412,23 +415,24 @@ author_profile: true
     1. ↔외부반복자 : for/Iterator/while문, 개발자가 코드로 직접 컬렉션의 요소를 반복해서 가져오는 코드 패턴
     2. 내부반복자 : 컬렉션 내부에 데이터 요소 처리 방법(람다식)을 주입해서 요소를 반복처리
        
-        ![Untitled](28%20%E1%84%85%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A1+%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%20fce1d28bc56e42bd8eb1be8858fd236c/Untitled%208.png)
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/e0c015c5-afed-4fd3-9420-4dd94d5dda6f" width=400 />  
         
-    3. 
+    
 
-**`스트림 생성`**
+###  **`스트림 생성`**
 
 1. 배열 Stream<타입>변수명 = Arrays.stream(배열변수명)
     1. IntStream 변수명 = Arrays.stream(정수형배열 변수명)
+    
 2. 컬렉션 스트림 Stream<타입>변수명=list.stream(배열변수명)
+
 3. 난수생성 
-    1. **IntStream    ints(int begin, int end)                    // 무한 스트림**
-    2. **LongStream   longs(long begin, long end)**
-    3. **DoubleStream doubles(double begin, double end)**
-    4. **IntStream    ints(long streamSize, int begin, int end)   // 유한 스트림**
-    5. **LongStream   longs(long streamSize, long begin, long end)**
-    6. **DoubleStream**
-    7. **doubles(long streamSize, double begin, double end)**
+    1. **IntStream**    ints(int begin, int end)                    // 무한 스트림
+    2. **LongStream**   longs(long begin, long end)
+    3. **DoubleStream**  doubles(double begin, double end)
+    4. **IntStream**    ints(long streamSize, int begin, int end)   // 유한 스트림
+    5. **LongStream**   longs(long streamSize, long begin, long end)
+    6. **DoubleStream**  doubles(long streamSize, double begin, double end)
     
     ```java
     IntStream ints=new Random().ints();
@@ -437,14 +441,13 @@ author_profile: true
     
 1. 특정 범위의 정수값을 스트림으로 생성
     1. IntStream intStream = IntStream.rangeClosed(1,10);
+    
     2. IntStream.forEach(System.out::println);
     
-    rangeClosed() - 끝번호 포함
-    
-    range() - 끝번호 미포함
+       rangeClosed() - 끝번호 포함, range() - 끝번호 미포함
     
 
-**`스트림 중간연산`** : **필터링/맵핑/정렬** - 가장 많이 사용
+### **`스트림 중간연산`** : **필터링/맵핑/정렬** - 가장 많이 사용
 
 1. 필터링 
     1. distinct() - 중복제거 
@@ -462,7 +465,7 @@ author_profile: true
     3.  역순정렬 : **sorted(Comparator.reverseOrder())**
     4. 
     
-    ![IMG_0593.png](28%20%E1%84%85%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A1+%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%20fce1d28bc56e42bd8eb1be8858fd236c/53ad5f17-868d-4a92-a090-0be8e539b41c.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/dd462e1f-1db2-4716-a932-b3f767dabe99" width=400 />  
     
 1. 기타
     1. **`skip()`** - 스트림의 일부 요소들을 건너뛰기
@@ -472,38 +475,48 @@ author_profile: true
 
 ### **`스트림 최종연산`**
 
-1. forEach()
+1. **forEach()**
+
 2. **기본집계 (`sum()` , `count()` , `average()`, `max()` , `min()`)**
-    1. **int                         sum()**
-    2. long                      count() 
+    1. **int            sum()**
+    2. long             count() 
     3. **OptionalInt           max()**
     4. **OptionalInt           min()**
     5. **OptionalDouble   average()**
+    
 3. **매칭(`allMatch()`, `anyMatch()`, `noneMatch()` ) -boolean** 
     1. **`allMatch()`** - **모든 요소가 조건을 만족하는지** 여부를 판단
     2. **`noneMatch()`** - **모든 요소가 조건을 만족하지 않는지** 여부를 판단
     3. **`anyMatch()`** - **하나라도 조건을 만족하는 요소가 있는지** 여부를 판단
+    
 4. **요소 소모(`reduce()`)**
     1. **스트림의 요소를 줄여나가면서 연산을 수행하고 최종적인 결과를 반환**
     2. 매개변수 타입 : `BinaryOperator<T>`, identity -초기값, accumulator : 누적결과 생성
     3. .reduce((a , b) -> a + b) - 초기값 없는 reduce 
     4.  .reduce(5, (a ,b) -> a + b); 초기값 있는 reduce
-5. 요소 수집**(`collect()`)**
+    
+5. **요소 수집(`collect()`)**
+    
     1. 요소를 수집하는 기능 이외에도 **요소 그룹핑 및 분할 등 다른 기능들을 제공**
         1. Map<key ,value> 으로 변환 : collect(Collectors.toMap)
+        
         2. List로 저장 :  **collect(Collectors.toList())**   
-        3. 
+        
+           
+    
 6. 이외
     1. findAny() -  조건에 일치하는 아무거나 하나를 반환
     2. findFirst() - 조건에 일치하는 첫번째 요소
     3. toArray()
-        1. 그냥 .toArray()만 쓰면 object[]
-        2. 원하는 타입(String)이 있을때    .toArray(String[]::new)
+        - 그냥 .toArray()만 쓰면 object[]
+        
+        - 원하는 타입(String)이 있을때    .toArray(String[]::new)
     4. 참고
-- `getAsDouble()`과 `getAsInt()`는 객체로 반환되는 값을 다시 기본형으로 변환하기 위해 사용되는 메서드 - 파이프라인과는 관계없음.
-- **isPresent() – Optional객체의 값이 null이면 false, 아니면 true를 반환**
     
-
+    - `getAsDouble()`과 `getAsInt()`는 객체로 반환되는 값을 다시 기본형으로 변환하기 위해 사용되는 메서드 - 파이프라인과는 관계없음.
+    
+    - **isPresent() – Optional객체의 값이 null이면 false, 아니면 true를 반환**
+    
 
 ## Optional class
 
@@ -574,159 +587,68 @@ author_profile: true
     
     e.  optional 객체에서 제공하는 전체 메서드 : [Optional (Java Platform SE 8 ) (oracle.com)](https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html)
     
-    [Optional 심화학습](https://www.notion.so/Optional-5f789b404ae2412f875387adfeafb651?pvs=21)
     
 - 스트림 활용예제 - lazy evaluation임을 잘 알 수 있음,  Lazy and Short-circuit
   
-    ```java
-    import java.lang.invoke.CallSite;
-    import java.util.*;
+    - for문 사용시
     
-    public class ListTest {
-        public static void main(String[] args) {
-            List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
-        }
-    
-        private static List<Integer> filter(List<Integer> list) {
-            List<Integer> result = new ArrayList<>();
-            List<Integer>filteredList = filter(list);
-            System.out.println("-".repeat(40));
-            System.out.println(filteredList);
-    
-            int count = 0;
-            for (Integer integer : list) {
-                System.out.println("숫자를 필터링합니다. integer: " + integer);
-                if (integer % 3 == 0) {
-                    if (count < 3) {
-                        result.add(integer * 10);
-                        count++;
+        ```java
+        import java.lang.invoke.CallSite;
+        import java.util.*;
+        
+        public class ListTest {
+            public static void main(String[] args) {
+                List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+            }
+        
+            private static List<Integer> filter(List<Integer> list) {
+                List<Integer> result = new ArrayList<>();
+                List<Integer>filteredList = filter(list);
+                System.out.println("-".repeat(40));
+                System.out.println(filteredList);
+        
+                int count = 0;
+                for (Integer integer : list) {
+                    System.out.println("숫자를 필터링합니다. integer: " + integer);
+                    if (integer % 3 == 0) {
+                        if (count < 3) {
+                            result.add(integer * 10);
+                            count++;
+                        }
                     }
                 }
+                return result;
             }
-            return result;
         }
-    }
-    ```
+         ```
     
-    1. 상기 코드를 스트림으로 구현한 코드를 아래에서 볼 수 있음
+    - 스트림 사용시
     
-    ```java
-    import java.util.*;
-    import java.util.stream.Collectors;
-    
-    public class ListTest {
-        public static void main(String[] args) {
-            List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
-            List<Integer>filteredList = streamFilter(list);
-            System.out.println("-".repeat(40));
-            System.out.println(filteredList);
+        ```java
+        import java.util.*;
+        import java.util.stream.Collectors;
+        
+        public class ListTest {
+            public static void main(String[] args) {
+                List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+                List<Integer>filteredList = streamFilter(list);
+                System.out.println("-".repeat(40));
+                System.out.println(filteredList);
+            }
+            private static List<Integer> streamFilter(List<Integer> list) {
+        
+                return list.stream()
+                .filter(integer->{
+                    System.out.println("숫자를 필터링합니다. integer: " + integer);
+                        return integer %3 ==0;
+                }).map(integer -> integer*10)
+                        .limit(3)
+                        .collect(Collectors.toList());
+            }
         }
-        private static List<Integer> streamFilter(List<Integer> list) {
+        ```
     
-            return list.stream()
-            .filter(integer->{
-                System.out.println("숫자를 필터링합니다. integer: " + integer);
-                    return integer %3 ==0;
-            }).map(integer -> integer*10)
-                    .limit(3)
-                    .collect(Collectors.toList());
-        }
-    }
-    ```
-    
-    1. 스트림으로 구현시 출력 결과
+    - 스트림으로 구현시 출력 결과
        
-        ![Untitled](28%20%E1%84%85%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A1+%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%20fce1d28bc56e42bd8eb1be8858fd236c/Untitled%2011.png)
+       <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/30817a9f-8b17-49a5-92fb-ce490780d7ae" width=400 />    
     
-    
-
----
-
-**스트림 요약**
-
-**`스트림 생성`**
-
-1. 배열 Stream<타입>변수명 = Arrays.stream(배열변수명)
-    1. IntStream 변수명 = Arrays.stream(정수형배열 변수명)
-2. 컬렉션 스트림 Stream<타입>변수명=list.stream(배열변수명)
-3. 난수생성 
-    1. **IntStream    ints(int begin, int end)                    // 무한 스트림**
-    2. **LongStream   longs(long begin, long end)**
-    3. **DoubleStream doubles(double begin, double end)**
-    4. **IntStream    ints(long streamSize, int begin, int end)   // 유한 스트림**
-    5. **LongStream   longs(long streamSize, long begin, long end)**
-    6. **DoubleStream**
-    7. **doubles(long streamSize, double begin, double end)**
-    
-    ```java
-    IntStream ints=new Random().ints();
-    ints.forEach(System.out::println);
-    ```
-    
-1. 특정 범위의 정수값을 스트림으로 생성
-    1. IntStream intStream = IntStream.rangeClosed(1,10);
-    2. IntStream.forEach(System.out::println);
-    
-    rangeClosed() - 끝번호 포함
-    
-    range() - 끝번호 미포함
-    
-
-**`스트림 중간연산`** : **필터링/맵핑/정렬** - 가장 많이 사용
-
-1. 필터링 
-    1. distinct() - 중복제거 
-    2. filter() - 매개 값으로 조건 predicate을 주고, 조건이 참이되는 요소만 필터링
-2. 맵핑 map() 
-    1. 원하는 필드만 추출하거나 특정형태로 변환할 때
-    2. flatMap() - 중첩구조를 제거하고 단일 컬렉션(Stream<String>)으로 만들어주는 역할
-    3. sum() 을 사용하려면 IntStream, LongStream, DoubleStream 와 같은 기본형 (Primitive Type) 특화 스트림을 사용해야함.
-        1. mapToInt : 스트림을 `IntStream`으로 변환해주는 메서드
-        2. mapToLong, mapToDouble 등이 있음.
-    
-3. 정렬(sorted())
-    1. 아무값도 넣지 않으면 기본정렬(오름차순)
-    2. stream.sorted(Comparator.naturalOrder())
-    3.  역순정렬 : **sorted(Comparator.reverseOrder())**
-    4. 
-    
-    ![IMG_0593.png](28%20%E1%84%85%E1%85%A1%E1%86%B7%E1%84%83%E1%85%A1+%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%B7%20fce1d28bc56e42bd8eb1be8858fd236c/53ad5f17-868d-4a92-a090-0be8e539b41c.png)
-    
-1. 기타
-    1. **`skip()`** - 스트림의 일부 요소들을 건너뛰기
-        1. skip(5) : 앞의 5개 숫자 건너뛰고 6부터 출력
-    2. **`limit()`** - 스트림의 일부를 자릅니다.
-    3. **`peek()`** - `forEach()`와 마찬가지로, 요소들을 순회하며 특정 작업을 수행
-
-### **`스트림 최종연산`**
-
-1. forEach()
-2. **기본집계 (`sum()` , `count()` , `average()`, `max()` , `min()`)**
-    1. **int                         sum()**
-    2. long                      count() 
-    3. **OptionalInt           max()**
-    4. **OptionalInt           min()**
-    5. **OptionalDouble   average()**
-3. **매칭(`allMatch()`, `anyMatch()`, `noneMatch()` ) -boolean** 
-    1. **`allMatch()`** - **모든 요소가 조건을 만족하는지** 여부를 판단
-    2. **`noneMatch()`** - **모든 요소가 조건을 만족하지 않는지** 여부를 판단
-    3. **`anyMatch()`** - **하나라도 조건을 만족하는 요소가 있는지** 여부를 판단
-4. **요소 소모(`reduce()`)**
-    1. **스트림의 요소를 줄여나가면서 연산을 수행하고 최종적인 결과를 반환**
-    2. 매개변수 타입 : `BinaryOperator<T>`, identity -초기값, accumulator : 누적결과 생성
-    3. .reduce((a , b) -> a + b) - 초기값 없는 reduce 
-    4.  .reduce(5, (a ,b) -> a + b); 초기값 있는 reduce
-5. 요소 수집**(`collect()`)**
-    1. 요소를 수집하는 기능 이외에도 **요소 그룹핑 및 분할 등 다른 기능들을 제공**
-        1. Map<key ,value> 으로 변환 : collect(Collectors.toMap)
-        2. List로 저장 :  **collect(Collectors.toList())**   
-        3. 
-6. 이외
-    1. findAny() -  조건에 일치하는 아무거나 하나를 반환
-    2. findFirst() - 조건에 일치하는 첫번째 요소
-    3. toArray()
-        1. 그냥 .toArray()만 쓰면 object[]
-        2. 원하는 타입(String)이 있을때    .toArray(String[]::new)
-    4. 참고
-- `getAsDouble()`과 `getAsInt()`는 객체로 반환되는 값을 다시 기본형으로 변환하기 위해 사용되는 메서드 - 파이프라인과는 관계없음.
-- **isPresent() – Optional객체의 값이 null이면 false, 아니면 true를 반환**
