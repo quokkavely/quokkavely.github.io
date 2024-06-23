@@ -22,7 +22,9 @@ author_profile: true
     
     컬렉션프레임워크의 핵심 인터페이스 : 크게 List와 Set 그리고 Map으로 구분
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/fa1caada-12ae-4766-b3d8-f1d4eb7c7dbd" width =500 />    
-        
+
+<br>
+
 
 | List                         | Set                                     | Map                                                          |
 | ---------------------------- | --------------------------------------- | ------------------------------------------------------------ |
@@ -35,6 +37,7 @@ author_profile: true
 | Vector                       |                                         | Properties                                                   |
 
 
+<br>
 
 # List
 
@@ -96,16 +99,19 @@ LinkedList의 구조는 각 요소들이 자신과 연결된 다음요소에 대
 그렇기 때문에 중간 데이터를 추가 / 삭제 시 LinkedList가 빠름
 but, 데이터의 개수가 많아질수록 데이터를 읽어오는 시간(접근 시간)이 길어짐.
 
-배열의 경우
-인덱스가 n인 요소의 값을 얻고자하면
-"n번째 데이터의 주소 = 배열의 주소+(n-1)*데이터 타입의 크기"
-수식으로 계산하여 간단히 데이터를 읽어 올 수 있지만
-LinkedList는 불연속적으로 위치한 각 요소들이 서로 연결되어 처음부터 n번째 데이터 까지 차례대로 따라가야 값을 얻을 수 있음 > 접근시간 길어짐
+**배열의 경우** <br>
+인덱스가 n인 요소의 값을 얻고자하면 <br>
+"n번째 데이터의 주소 = 배열의 주소+(n-1) * 데이터 타입의 크기" <br>
+수식으로 계산하여 간단히 데이터를 읽어 올 수 있지만<br>
 
-(ArrayList가 더 나은 경우
-+순차적으로 추가, 삭제는 ArrayList가 더 빠름
-+마지막 데이터 부터 삭제할 경우 재배치 필요가 없어서 상당히 빠름
-+데이터 개수가 변하지 않는다면 )
+**LinkedList**는 불연속적으로 위치한 각 요소들이 서로 연결되어 <br>
+처음부터 n번째 데이터 까지 차례대로 따라가야 값을 얻을 수 있음 <br> 
+→ 접근시간 길어짐
+
+(**ArrayList가 더 나은 경우** <br>
++**순차적으로 추가**, 삭제는 ArrayList가 더 빠름 <br>
++마지막 데이터 부터 삭제할 경우 재배치 필요가 없어서 상당히 빠름 <br>
++데이터 개수가 변하지 않는다면 )<br>
 
 ## **Iterator**
 
@@ -241,7 +247,10 @@ HashMap은 해시 함수를 통해 '키'와 '값'이 저장되는 위치를 결�
 
 또한, HashMap의 개별 요소가 되는 Entry 객체는 Map 인터페이스의 내부 인터페이스인 Entry 인터페이스를 구현
 
-[Map.Entry 인터페이스의 메서드]
+<br>
+<br>
+
+**[Map.Entry 인터페이스의 메서드]**
 
 | 리턴 타입 | 메서드 | 설명 |
 | --- | --- | --- |
@@ -323,7 +332,8 @@ Map은 인덱스가 없어서 Map자체로 순회할 수 없음.
 
 =Map은 키와 값을 쌍으로 저장하기 때문에 `iterator()`를 직접 호출 불가
 
-그 대신 **`keySet()`이나 `entrySet()` 메서드를 이용해 Set 형태로 반환된 컬렉션에 `iterator()`를 호출하여 반복자를 만든 후, 반복자를 통해 순회가능. =for문으로도 가능**
+그 대신 **`keySet()`이나 `entrySet()` 메서드를 이용해 Set 형태로 반환된 컬렉션에 <br> 
+`iterator()`를 호출하여 반복자를 만든 후, 반복자를 통해 순회가능. = for문으로도 가능**
 
 아래는 Iterator대신 향상된 for문으로 돈 것.
 
@@ -417,15 +427,15 @@ ex)재귀 사용 시 탈출 조건 만들지 못하면 발생 - 일단 종료됨
 
 1. 예외 클래스는 두 그룹으로 나눠질 수 있음.
 
-   1) Exception클래스와 그 하위클래스들 - 휴먼에러가 많음. checked예외
+   1) Exception클래스와 그 하위클래스들 - 휴먼에러가 많음. **checked예외**
 
-   2) Runtime 클래스와 그 하위클래스들. - unchecked 예외
+   2) Runtime 클래스와 그 하위클래스들. - **unchecked 예외**
 
 2. Errors - 해결 불가능 한 것. 상속받아서 만듬.
 
 3. Runtime Exceptions : 실행될 때 까지 모르는 것. ex )0으로 나누려고 할 때
 
-4. Other Exceptions =Checked Exception : Runtime Exceptions이외의 모든 것
+4. Other Exceptions = **Checked Exception** : Runtime Exceptions이외의 모든 것
 
 5. 서비스를 만들면서 사용자 지정 예외를 만들 수 있음
 
@@ -553,7 +563,7 @@ java.lang.NullPointerException
 
 5. catch문에 Exception e로 예외처리 할 경우 컴파일 에러 발생 
 
-   <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/cf0d505a-c4b0-4d61-9ff1-8103862f0bf7" width=500/>
+   <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/cf0d505a-c4b0-4d61-9ff1-8103862f0bf7" width=200/>
 
    1. 이유 : Exception이 상위클래스이기 때문 (Null~, Arithmetic~,등)
 
