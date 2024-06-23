@@ -480,6 +480,7 @@ false 설정시 DDL 생성시에 NOT NULL 제약조건 붙음 |
 ### 다대다[N:M] : @ManyToMany
 <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/40b7fb14-34ca-4864-a7a3-900d0d4094a1">
 
+- 실무에서 거의 사용하지 않으므로 이런게 있다 정도만 참고!
 
 ### Comment
     
