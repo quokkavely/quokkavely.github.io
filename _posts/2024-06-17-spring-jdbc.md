@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "JDBC-1"
+title : "JDBC-intro"
 categories: Spring
 tag : [Spring, DB, 개념정리]
 author_profile: true
@@ -499,6 +499,7 @@ Spring Data JDBC는 JPA처럼 ORM 기술을 사용하지만 JPA의 기술적 복
     - (2) @Query 애너테이션 :  COFFEE 테이블에 질의하기 위함,
         - 실제로는  CrudRepository 인터페이스에 내장되어 있는 findById(ID id)를 사용하는 것이 좋음.
         - findById(ID id)는 테이블에서 기본키를 WHERE절의 조건으로 지정해 데이터를 조회할 수 있는 편리한 쿼리메서드
+        - findBy~ 이렇게 작성하면 알아서 찾아줌-> 카멜케이스로 작성 필요
 
 
 
