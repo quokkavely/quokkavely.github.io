@@ -274,6 +274,119 @@ Stamp는 내가 뭘해도 자꾸 null이 들어옴,,,
 
 <img src ="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/1ef9b084-5bec-42c8-b5b6-ae808087de3f" width=300/>
 
+<br>
+
+<br>
+
+## 개선포인트 확인 후 개선.
+
+### Stamp 생성 후 적립시 시간 변경 안됨.
+
+1. Stamp 추가 등록시 modifiedAt에서 시간 수정안됨. ⇒  stamp 갯수는 변경되는데 CREATED_At의 시간과 LAST_MODIFIED_AT의 시간과 동일함.
+
+   ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/9ab05c64-4cc8-45a6-b418-a3bfecc2bbcc/Untitled.png)
+
+   CreateOrder에서 Stamp 갯수 적립하고 있으니 여기서 수정하면 된다.
+
+2. OrderService의 CreateOrder에서 변경 완료
+
+   ```sql
+    Stamp stamp;
+          if(member.getStamp()!=null){
+              stamp= member.getStamp();
+          }else{
+              stamp=new Stamp();
+          }
+          stamp.setCoffeeStamp(quantity);
+           stamp.setModifiedAt(LocalDateTime.now()); //추가
+          member.setStamp(stamp);
+   ```
+
+### CreateOrder에 너무 많은 기능 →  메서드로 분리하기
+
+1. CreateOrder에서 Stamp를 초기화 하지 않고 Member에서 초기화 하기.
+
+   ```java
+   Stamp stamp;
+          if(member.getStamp()!=null){
+              stamp= member.getStamp();
+          }else{
+              stamp=new Stamp();
+          }
+          stamp.setCoffeeStamp(quantity);
+          member.setStamp(stamp);
+   ```
+
+   변경후
+
+2. 기능분리 1 → Member와 Coffee를 검증하는 기능
+
+   ```java
+   private Order preOrderValidation(Order order){
+           // 회원이 존재하는지 확인
+           memberService.findVerifiedMember(order.getMember().getMemberId());
+           //커피가 존재하는지 확인
+           order.getOrderCoffees()
+                   .stream()
+                   .forEach(orderCoffee -> {
+                       coffeeService.findVerifiedCoffee(orderCoffee.getCoffee().getCoffeeId());
+                   });
+           return order;
+       }
+   ```
+
+3. 기능분리2 → Stamp 적립 기능
+
+   ```java
+     private void saveUpStamp(Order order){
+   			  Member member = order.getMember()
+           Stamp stamp = member.getStamp();
+           int quantity = order.getOrderCoffees()
+                   .stream()
+                   .mapToInt(orderCoffee -> orderCoffee.getQuantity()).sum();
+           stamp.setCoffeeStamp(quantity);
+           stamp.setModifiedAt(LocalDateTime.now());
+           order.getMember().setStamp(stamp);
+       }
+   ```
+
+   - 주문했는데 Stamp 갯수가 안 들어옴
+
+     ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/234cac6b-7d6b-4044-bcd8-0eee321e63ad/Untitled.png)
+
+   - Stamp 갯수와는 상관없을 것 같긴한데 Persist보다는 All이 맞는 것 같아서 변경
+
+     ```java
+     //Member 클래스
+     
+     @OneToOne(cascade = CascadeType.ALL)
+         @JoinColumn(name = "STAMP_ID")
+         private Stamp stamp = new Stamp();
+     ```
+
+   - 디버깅 해봄
+
+     ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/4d4a7429-eab0-4925-b320-117ed294e015/Untitled.png)
+
+     - stampCount는 잘 들어오는 것 같은데
+     - 원래 잘 되던 메서드가 분리했다고 안되는 것이 이상해서 아마 검증하던 메서드가 없어서 발생하던 일 같았다.
+     - member를 memberId로 불러와서  getStamp를 해야되는게 맞는 것 같아서 변경했더니 해결되었다.
+
+   - OrderService 클래스에서 스탬프 적립하는 메서드 새로 수정
+
+     ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/862a3d83-c303-4b31-a348-caaf49c19a90/Untitled.png)
+
+     그리고 하나 놓친것이 또 있는데 여기에 추가로 Stamp를 적립했으면 DB에 명시적으로 저장하는 것이 맞다고 한다. →  표에는 잘들어오더라도 여기선 되다가 문제가 발생할 수 있으니 명시적으로 꼭 업데이트하기!
+
+     ```java
+       //명시적으로 꼭 업데이트 하기.
+             memberService.updateMember(findMember);
+     ```
+
+
+
+
+
 ## Comment
 
 stamp는 기존에 없던 기능이라 오래 걸릴 줄 알았는데 (물론 오래걸리긴 했다만은….)

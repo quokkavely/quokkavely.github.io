@@ -12,6 +12,8 @@ author_profile: true
 {: .notice--primary}
 
 # JPA(Java Persistence API)
+ - 공식문서 참고 하기 <br>
+https://docs.spring.io/spring-data/jpa/reference/jpa.html
 
 ## JPA란?
 
@@ -454,9 +456,9 @@ false 설정시 DDL 생성시에 NOT NULL 제약조건 붙음 |
     
      **일(1)에 해당하는 클래스가 다(N)에 해당하는 객체를 참조할 수 있는 관계를 의미**
     
-    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/0d86d5a1-913c-4cde-b850-c9f711cfb432"/>
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/0d86d5a1-913c-4cde-b850-c9f711cfb432" Width=400/>
     
-    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/fc265785-5ab0-4665-8d03-654da995a944"/>
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/fc265785-5ab0-4665-8d03-654da995a944" Width=400/>
     
     - Member만 List<Order> 객체를 참조할 수 있으므로 단방향 관계
     - 엔티티가 관리하는 외래 키가 다른 테이블에 있음
@@ -477,8 +479,10 @@ false 설정시 DDL 생성시에 NOT NULL 제약조건 붙음 |
 
 ### 일대일[1:1] : @OneToOne
 
+
+
 ### 다대다[N:M] : @ManyToMany
-<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/40b7fb14-34ca-4864-a7a3-900d0d4094a1">
+<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/40b7fb14-34ca-4864-a7a3-900d0d4094a1" Width=400/>
 
 - 실무에서 거의 사용하지 않으므로 이런게 있다 정도만 참고!
 
