@@ -77,25 +77,25 @@ author_profile: true
 | 고객 ↔ Resevation    | 1:N       | 1:N     |
 | 고객 ↔ Review        | X         | N:M     |
 
-<br>이렇게 생각했는데
+<br>
 
-Reservation과 ticket은
-
-하나의 티켓은 하나의 예약만을 가지고
-
-하나의 예약은 하나의 티켓이라 생각해서 1:1이라고 생각했는데
-
-하나의 예매에 여러장의 티켓을 출력할 일이 생길 수도 있어서
-
-일대다라고 한다...!
-
-또한 하나의 상영관은 하나의 영화만 튼다고 생각했는데
-
-하나의 상영관이 여러 영화를 트는 경우가 생길 수있으므로 1:N
-
-이게 여러 경우가 많고 어떤걸 기준으로 
-
-생각하면 달라질 수도 있어서 어려운 것 같다.
+    이렇게 생각했는데 Reservation과 ticket은
+    
+    하나의 티켓은 하나의 예약만을 가지고
+    
+    하나의 예약은 하나의 티켓이라 생각해서 1:1이라고 생각했는데
+    
+    하나의 예매에 여러장의 티켓을 출력할 일이 생길 수도 있어서
+    
+    일대다라고 한다...!
+    
+    또한 하나의 상영관은 하나의 영화만 튼다고 생각했는데
+    
+    하나의 상영관이 여러 영화를 트는 경우가 생길 수있으므로 1:N
+    
+    이게 여러 경우가 많고 어떤걸 기준으로 
+    
+    생각하면 달라질 수도 있어서 어려운 것 같다.
 
 **[한번 더 짚어보기!✔️✨✨]**
 
@@ -155,39 +155,40 @@ N에 해당하는 경우가 삼지창이 향하고,
 
 
 
-
+<br>
 
 ### 도서관리시스템
 
 처음에는 책과 대출시스템은 일대다 관계라고 생각함.
 
-왜냐면 책은 하나만 빌릴 수 있는지?  >
+왜냐면 책은 하나만 빌릴 수 있는지?<br>
 
-하나의 대출은 여러 개의 책을 가져서라고 생각했는데 하나의 책만 빌릴 수 있는 것이 아니라서 (나는 여러 개의 책을 빌릴 수 있음) 그렇기때문에 다대다 관계이다.
+➡️ 하나의 대출은 여러 개의 책을 가져서라고 생각했는데 하나의 책만 빌릴 수 있는 것이 아니라서 (나는 여러 개의 책을 빌릴 수 있음) 그렇기때문에 다대다 관계이다.
 
 다대다는 조인테이블이 필요한데
 
-일대다 일 경우에는 그때도 해당 PK를 참조키로 가져오는건지? > 다가 일의 PK를 FK로 가져옴
+일대다 일 경우에는 그때도 해당 PK를 참조키로 가져오는건지? <br>
+➡️다가 일의 PK를 FK로 가져옴
 
 <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/e69e591e-e03c-4d26-9cbd-b9ce8103df63"/>
 
 **[Reference]**
 
-<img src="![image-20240621135633863](../assets/images/image-20240621135633863.png)"/>
+
 
 <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/db97d1e4-1e4a-46e7-9d84-c70e439d03b2">
 
-![Untitled](%5BDBMS%5D%20ERD%20%E1%84%89%E1%85%B5%E1%86%AF%E1%84%89%E1%85%B3%E1%86%B8%20af97101cf9f14c3db07c88ef1bd02f07/Untitled%203.png)
+
 
 Loan은 null값이 들어 올 수 있음 = 반납을 안하는 동안은 null
 
 실제 조회는 Book, Loan, Book_Loan 여기서 빈번하게 발생
 
-Book - Author     N:M
-Book-Publisher   N:1
-Book-Category   N:M
-Book-Loan          N:M
-Member - Loan   1:N
+Book - Author     N:M <br>
+Book-Publisher   N:1 <br>
+Book-Category   N:M <br>
+Book-Loan          N:M <br>
+Member - Loan   1:N <br>
 
 예약기능이라던지 확장을 많이 하게되면 고려할 것이 더 많아짐 ⇒ 성능이슈도 고려
 
@@ -213,13 +214,13 @@ Theater와 Review는 상관x
 
 예매시스템이기때문에 Movie와 Member는 상관x - 관람객은 영화를 보는 것도 예약이라는 행위를 통해서만 함.
 
-Theater ↔ Movie N:M
+**Theater ↔ Movie N:M**
 
 하나의 영화관에서는 하나의 영화 ? X
 
 하나의 영화는 하나의 영화관에서? X
 
-ScreeningHall↔movie 1:1
+**ScreeningHall↔movie 1:1**
 
 하나의 상영관에서 하나의 영화? o
 
@@ -227,25 +228,25 @@ ScreeningHall↔movie 1:1
 
 갈릴 수 있지만 1:1
 
-Movie ↔ Resevation N:1
+**Movie ↔ Resevation N:1**
 
 하나의 영화는 하나의 예약만? X
 
 하나의 예약은 하나의 영화만? O
 
-Reservation ↔ Ticket 1:1
+**Reservation ↔ Ticket 1:1**
 
 하나의 예약은 하나의 티켓? O 
 
 하나의 티켓은 하나의 예약? O
 
-Member↔ Resevation 1:N
+**Member↔ Resevation 1:N**
 
 하나의 멤버는 하나의 예약만? 여러개를 예약할 수 있지않나. ???
 
 하나의 예약은 하나의 멤버만? O
 
-Movie ↔ Review N:1
+**Movie ↔ Review N:1**
 
 하나의 영화는 하나의 리뷰? X M
 
@@ -259,19 +260,19 @@ Movie ↔ Review N:1
 
 Member/Movie/Ticket/Order/Cinema(영화관)/Theater(상영관)/
 
-Member - Order - Ticket
+**Member - Order - Ticket**
 
- 1——— N,1———N
+ 1——— N, 1———N
 
-Cinema - theater
+**Cinema - theater**
 
  1——— N
 
-Ticket - MovIe
+**Ticket - MovIe**
 
 N————1
 
-Movie - Theater
+**Movie - Theater**
 
 1———-N
 
@@ -283,13 +284,11 @@ Movie - Theater
 
 cinema와 movie의 조인테이블 역할로 theater를 사용할 수 있음
 
-seat를 넣게 되면 티켓에 seat가 다다르게 오기때문에  티켓은 다 다른 걸로 봐야해서
+seat를 넣게 되면 티켓에 seat가 다다르게 오기때문에  티켓은 다 다른 걸로 봐야해서 전부 틀어짐
 
-전부 틀어짐
+**Reference와의 차이점**
 
-나랑 강사님의 차이점
-
-| 관계 | 강사님 | 나 |
+| 관계 | Reference | 나 |
 | --- | --- | --- |
 | 영화 ↔ 상영관 | 1:N | 1:1 |
 | 영화 ↔ 영화관 | N:M | N:M |
@@ -299,7 +298,8 @@ seat를 넣게 되면 티켓에 seat가 다다르게 오기때문에  티켓은 
 | 고객 ↔ Resevation | 1:N | 1:N |
 | 고객 ↔ Review | X | N:M |
 
-강사님은 영화와 영화관의 조인테이블로 상영관을 넣었고
+
+Reference 영화와 영화관의 조인테이블로 상영관을 넣었고
 
 나는 상영관과 영화를 1대1이라 생각함 왜냐면 상영관에서 영화는 하나만 트니까,
 
@@ -311,49 +311,55 @@ seat를 넣게 되면 티켓에 seat가 다다르게 오기때문에  티켓은 
 
 또 경우에 따라서는 여러장의 티켓을 가질 수도 있어서 일대 다가 올 수도 있다….!
 
-나는 영화와 예매를 엮었는데 강사님은 엮지 않음.
+나는 영화와 예매를 엮었는데 Reference에서는 엮지 않음.
 
-- 인스타그램
+<br>
 
-    좋아요, 댓글, 팔로워 팔로잉 구현 W
 
-    대댓 스토리은 없음 X
 
-    해쉬태그 - 해쉬태그달려있는 글 조회 O
+### 인스타그램
 
-    게시글
+- 인스타그램 구현조건
 
-    사진
+    - 좋아요, 댓글, 팔로워 팔로잉 구현 W
 
-    멤버 , 회원가입
+    - 대댓 스토리은 없음 X
+
+    - 해쉬태그 - 해쉬태그달려있는 글 조회 O
+
+    - 게시글
+
+    - 사진
+
+    - 멤버 , 회원가입
 
     미리 큰 주요기능을 잡고 부가기능 구현.
 
     좋아요는 한번누르면 좋아요, 두번누르면 취소됨. - 구현하기
 
     1. 글작성 → 파생
+    
     2. 부가기능
         1. 사진추가
         2. 좋아요
         3. 댓글
         4. 해시태그
+
     3. 팔로, 팔로잉
 
-    [내가 작성한 인스타그램 ]
+        <br>
+
+    **[내가 작성한 인스타그램 ERD]**
 
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/81ed75dd-9e81-4785-b6e2-c801a5c66968"/>
 
     Member를 기준으로 작성
 
-    [강사님 ERD]
+    **[Reference ERD]**
 
-    좋아요는 있고 없고로(true or false) 데이터를 만들 수 있음.
+    **좋아요**는 있고 없고로(true or false) 데이터를 만들 수 있음.
 
-    게시글id 
-
-    하나의 사진이 하나의 게시글에 올라감 ⇒사진이 여러개의 게시글에 올라간다는 것은
-
-    내가 올렸는데 다른 게시글에서도 사진이 올라가는것.
+    게시글id ➡️ 하나의 사진이 하나의 게시글에 올라감 ⇒ 사진이 여러개의 게시글에 올라간다는 것은 내가 올렸는데 다른 게시글에서도 사진이 올라가는것.
 
     게시글 사진은 따로 저장해두고 주소값만 저장하고 찾아오는 방식임
 
@@ -361,12 +367,10 @@ seat를 넣게 되면 티켓에 seat가 다다르게 오기때문에  티켓은 
 
     포스트를FK로 받아서 포스트가 받는 MEMBER  ID로 올리는 멤버를 참조할 수 있음.
 
-    팔로우 팔로워는 즐겨찾기라고 생각
-
-    팔로우 팔로워는 단방향임.
+    팔로우 팔로워는 즐겨찾기라고 생각 , 팔로우 팔로워는 단방향임.
 
     멤버와 멤버의 관계로 봐야함 . 심지어 다대다
-
+    
     src(source)  = 원본대상
-
+    
     dst(destination) =복사대상
