@@ -30,6 +30,7 @@ https://docs.spring.io/spring-data/jpa/reference/jpa.html
 - Layerd Architecture에서 데이터 액세스 계층의 상단에 위치
 - 데이터 저장, 조회 등의 작업은 JPA를 거쳐 JPA의 구현체인 Hibernate ORM을 통해서 이루어짐
 - Hibernate ORM은 내부적으로 JDBC API를 이용해서 데이터베이스에 접근
+
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/02b8be12-6e26-4574-9d75-0c287c234e87" width=300/>
 
 ## Persistence
@@ -130,7 +131,7 @@ https://docs.spring.io/spring-data/jpa/reference/jpa.html
     
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/ef9e7ce9-f701-492d-ae3e-7d5e49df7b2c" />
     
-    - 애플리케이션이 시작되면서 [hibernate.hbm2ddl.auto](http://hibernate.hbm2ddl.auto) : create 속성에 따라 기존 테이블을 삭제하고 새로 생성함 (@Entity 가 붙은 클래스를 테이블로 만들어준다)
+    - 애플리케이션이 시작되면서 [hibernate.hbm2ddl.auto](http://hibernate.hbm2ddl.auto) : create 속성에 따라 기존 테이블을 삭제하고 새로 생성함<br>(@Entity 가 붙은 클래스를 테이블로 만들어준다)
     - 분홍박스의 em.persist(member);  → 여기서 member가 1차 캐시에 저장되고 쓰기지연저장소에 insert쿼리가 저장되고(영속성컨텍스트에 저장)
         
         <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/c4c9d5a4-2aef-429c-b9e4-8ad361e24333" width=250/>

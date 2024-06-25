@@ -282,9 +282,11 @@ Stamp는 내가 뭘해도 자꾸 null이 들어옴,,,
 
 ### Stamp 생성 후 적립시 시간 변경 안됨.
 
-1. Stamp 추가 등록시 modifiedAt에서 시간 수정안됨. ⇒  stamp 갯수는 변경되는데 CREATED_At의 시간과 LAST_MODIFIED_AT의 시간과 동일함.
+1. Stamp 추가 등록시 modifiedAt에서 시간 수정안됨. 
 
-   ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/9ab05c64-4cc8-45a6-b418-a3bfecc2bbcc/Untitled.png)
+   ⇒  stamp 갯수는 변경되는데 CREATED_At의 시간과 LAST_MODIFIED_AT의 시간과 동일함.
+
+   <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/0be68bed-7d2a-4c9e-88cf-9997cea535d9" width=400/>
 
    CreateOrder에서 Stamp 갯수 적립하고 있으니 여기서 수정하면 된다.
 
@@ -352,7 +354,7 @@ Stamp는 내가 뭘해도 자꾸 null이 들어옴,,,
 
    - 주문했는데 Stamp 갯수가 안 들어옴
 
-     ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/234cac6b-7d6b-4044-bcd8-0eee321e63ad/Untitled.png)
+     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/e92c6448-daed-47fb-beb6-448e13086a6e" width=400/>
 
    - Stamp 갯수와는 상관없을 것 같긴한데 Persist보다는 All이 맞는 것 같아서 변경
 
@@ -366,7 +368,7 @@ Stamp는 내가 뭘해도 자꾸 null이 들어옴,,,
 
    - 디버깅 해봄
 
-     ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/4d4a7429-eab0-4925-b320-117ed294e015/Untitled.png)
+     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/ee6ea134-630f-473f-92b0-7f6c7bd515b3" width=400/>
 
      - stampCount는 잘 들어오는 것 같은데
      - 원래 잘 되던 메서드가 분리했다고 안되는 것이 이상해서 아마 검증하던 메서드가 없어서 발생하던 일 같았다.
@@ -374,7 +376,7 @@ Stamp는 내가 뭘해도 자꾸 null이 들어옴,,,
 
    - OrderService 클래스에서 스탬프 적립하는 메서드 새로 수정
 
-     ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/862a3d83-c303-4b31-a348-caaf49c19a90/Untitled.png)
+     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/e40c4004-af5d-4d89-8d4f-469f2e4aca92" width=400/>
 
      그리고 하나 놓친것이 또 있는데 여기에 추가로 Stamp를 적립했으면 DB에 명시적으로 저장하는 것이 맞다고 한다. →  표에는 잘들어오더라도 여기선 되다가 문제가 발생할 수 있으니 명시적으로 꼭 업데이트하기!
 

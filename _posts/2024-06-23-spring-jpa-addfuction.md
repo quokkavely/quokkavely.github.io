@@ -2,7 +2,7 @@
 layout : single
 title : "[JPA] 영속성 전이,연관관계 매핑(일관성)"
 categories: Spring
-tag : [Spring, 실습]
+tag : [Spring, 실습, JPA]
 author_profile: true
 ---
 
@@ -44,7 +44,7 @@ author_profile: true
 ### Order 와 Member
 
 1. Order와 Member = N : 1 
-    
+   
     Order에 @ManyToOne, Member 는 OneToMany 로 다대일 양방향으로 구현.
     
     ```java
@@ -73,22 +73,20 @@ author_profile: true
         }
     ```
     
-
 1. 일관성 유지 위해 Setter와 비슷한 기능을 하는 Method 추가
     - 양방향 연관관계에서는 서로를 참조하고 있기 때문에 Member에 새로운 객체가 생성되었다면 Order도 그 객체를 가져야하고 반대의 경우도 동일
     - Member나 Order에 새로운 객체가 생성될 경우 이미 있다면 추가하지 않고 없으면 추가하도록 조건문으로 설정
     
-    ![Untitled](%5BJPA%5D%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%80%E1%85%AA%E1%86%AB%E1%84%80%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A8%20%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC,%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC%20%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%B5%20cb3293b2c4ce43529aa6702ddec5f6bb/Untitled%2017.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/e5b4bbf4-9e30-4432-99c7-13416b5d5b26" width=500/>
     
 2. 2번 처럼 종료시점을 정하지 않으면 무한루프에 빠지게 됨 - **StackOverflow 발생**
-    
-    ![Untitled](%5BJPA%5D%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%80%E1%85%AA%E1%86%AB%E1%84%80%E1%85%AA%E1%86%AB%E1%84%80%E1%85%A8%20%E1%84%86%E1%85%A2%E1%84%91%E1%85%B5%E1%86%BC,%20%E1%84%8B%E1%85%A7%E1%86%BC%E1%84%89%E1%85%A9%E1%86%A8%E1%84%89%E1%85%A5%E1%86%BC%20%E1%84%8C%E1%85%A5%E1%86%AB%E1%84%8B%E1%85%B5%20cb3293b2c4ce43529aa6702ddec5f6bb/Untitled%2018.png)
-    
+   
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/b17e56d5-e14d-4bb0-970f-d8d0248ba7da" width=500/>
 
 ### Order 와 OrderCoffee
 
 1. OrderCoffee는 Join table로 , Order - OrderCoffee 관계는 1:N
-    
+   
     ```java
     //OrderCoffee 클래스
        @ManyToOne
@@ -117,6 +115,17 @@ author_profile: true
     ```
     
 2. 마찬가지로 다대일 양방향이라서 일관성 유지를 위해, Setter 기능과 비슷한 역할을 하는 메서드를 추가하였음.
+
+
+
+## JPA Repository
+
+JDBC에서는 CrudRepository를 상속받았으나, JPA는 JPARepository 상속받아 사용
+
+JPARepository는 CrudRepository인터페이스를 상속받음.
+
+메서드를 findByID 등으로 명명하면 알아서 조회 가능, 명명은 카멜케이스로 작성해야 함. 
+
 
 
 ## Comment
