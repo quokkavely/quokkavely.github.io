@@ -38,7 +38,12 @@ author_profile: true
 
 1. 지속성(Durability)
     - 트랜잭션이 완료되면 그 결과는 지속되어야 한다는 의미
+    
     - 즉, 지속성은  데이터베이스가 종료되어도 데이터는 물리적인 저장소에 저장되어 지속적으로 유지되어야 한다는 의미
+    
+      
+    
+      <br/>
 
 ## 트랜잭션 커밋(commit)과 롤백(rollback)
 
@@ -60,7 +65,7 @@ author_profile: true
 
 🍒 JPA tx.commit() 호출 과정 이해를 위한 클래스 다이어그램 관계도
 
-![Untitled](%5BJPA%5D%20@Transactional%20ec791fadcff3441fb6875ba0120bbdb6/Untitled.png)
+​	<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/190e1617-9bbb-4c7c-b5b0-256acc748b8c"/>
 
 - 추상화되어있어서 구현체를 쭉 지나가다보면 마지막에 Command가 있음.
 - 우리가 JPA API를 사용해서 commit을 수행하는 작업은 너무나도 간단한 작업인데, 내부적으로는 아주 복잡한 과정을 거쳐서 최종적으로 commit 명령이 데이터베이스에 전달
@@ -73,22 +78,23 @@ author_profile: true
 
 ✔️ Class level과 Method level에 설정 가능, 둘 다 설정했을 경우에는 Method가 우선순위를 가지게 된다
 
-✔️ ****Checked exception는 **@Transactional** 애너테이션만 추가해서는 rollback이 되지 않음 → 속성에 rollbackFor로 지정해 주어야 함
+✔️ **Checked exception는 @Transactional** 애너테이션만 추가해서는 rollback이 되지 않음 
+    	→ 속성에 rollbackFor로 지정해 주어야 함
 
-Ex ) @Transactional(rollbackFor = {SQLException.class, DataFormatException.class}) 
+✔️ Ex ) @Transactional(rollbackFor = {SQLException.class, DataFormatException.class}) 
 
- ✔️
+
 
 ### 애너테이션 방식 @Transactional
 
-1. class level에 적용
-    
+1. **class level에 적용**
+   
     ```java
     ...
     **import org.springframework.transaction.annotation.Transactional;**
     
     @Service
-    **@Transactional**   // (1)
+    @Transactional   // (1)
     public class MemberService {
         private final MemberRepository memberRepository;
     
@@ -107,8 +113,8 @@ Ex ) @Transactional(rollbackFor = {SQLException.class, DataFormatException.class
     
     - MemberRepository의 기능을 이용하는 모든 메서드에 트랜잭션이 적용
     
-2. JPA 로그레벨 설정
-    
+2. **JPA 로그레벨 설정**
+   
     ```yaml
     spring:
       h2:
@@ -130,7 +136,8 @@ Ex ) @Transactional(rollbackFor = {SQLException.class, DataFormatException.class
               jpa: DEBUG
     ```
     
-3. 콘솔 log 확인
+3. **콘솔 log 확인**
+   
     - application 실행하여 Postman으로 회원 등록 후 log 확인
     
     ```yaml
@@ -159,15 +166,14 @@ Ex ) @Transactional(rollbackFor = {SQLException.class, DataFormatException.class
     - (4) : JPA의 EntityManager를 종료
 4. roolback 동작 유무 확인
     - createMember() 메서드에서 회원 정보 저장하고 메서드가 종료되기 전에 강제로 예외 발생시키기.
-        
-        ![Untitled](%5BJPA%5D%20@Transactional%20ec791fadcff3441fb6875ba0120bbdb6/Untitled%201.png)
+      
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/e3be0019-01f9-48bb-bdad-61391570c9ea" width=400/>
         
          롤백 후 예외 던짐.
         
-        ![Untitled](%5BJPA%5D%20@Transactional%20ec791fadcff3441fb6875ba0120bbdb6/Untitled%202.png)
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/241a1239-d955-42b8-aa84-9e9ab6588ab5" width=400/>
         
-        ![Untitled](%5BJPA%5D%20@Transactional%20ec791fadcff3441fb6875ba0120bbdb6/Untitled%203.png)
-        
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/5d8c66db-3027-49a1-be9b-86b1dc890917" width=400/>
     
     ### Checked Exception
     
@@ -175,8 +181,7 @@ Ex ) @Transactional(rollbackFor = {SQLException.class, DataFormatException.class
     
     이 예외도 롤백해주세요 라고 attribute 넣어야 함 →  안 넣으면 롤백 안됨!
     
-    ![Untitled](%5BJPA%5D%20@Transactional%20ec791fadcff3441fb6875ba0120bbdb6/Untitled%204.png)
-    
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/51be4a6c-6aaa-4018-874a-b907d4f88620" width=400/>
 
 ### Class Level 과  Method Level에 적용시
 
@@ -187,7 +192,7 @@ Ex ) @Transactional(rollbackFor = {SQLException.class, DataFormatException.class
         - 메서드 레벨의 `@Transactional` 애너테이션이 적용됨
         - 만약 메서드 레벨에 `@Transactional` 애너테이션이 적용되지 않았을 경우, 클래스 레벨의 `@Transactional` 애너테이션이 적용
 2. 메서드레벨에서 @Transactional(readOnly = true) 적용
-    
+   
     → 읽기 전용으로 설정 하는 것 :
     
     → 이유 : commit이 되지 않아 영속성 컨텍스트에 flush도 하지 않고 스냅샷을 생성하지 않으므로 불필요한 추가동작을 줄일 수 있음.
@@ -197,12 +202,12 @@ Ex ) @Transactional(rollbackFor = {SQLException.class, DataFormatException.class
 
 ### 여러 작업이 하나의 트랜잭션으로 묶일 경우
 
-![Untitled](%5BJPA%5D%20@Transactional%20ec791fadcff3441fb6875ba0120bbdb6/Untitled%205.png)
+​	<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/4c0308df-9e3c-4237-b5b3-12292814a47f"/>
 
 - OrderService에서 createOrder() 메서드를 호출할 경우, 내부에서 **주문 정보 저장을 위한 트랜잭션이 하나 시작**되며, 다음으로 memberService.updateStamp() 메서드 호출을 통해서 MemberService에서 **스탬프 업데이트를 위한 트랜잭션이 하나 더 시작됨**
 - 만약 독립적으로 실행된다면 updateStamp() 동작에서 예외가 발생할 경우 스탬프 숫자는 업데이트되지 않았는데 주문 정보는 저장되는 원치 않는 상황이 발생함
 
-![Untitled](%5BJPA%5D%20@Transactional%20ec791fadcff3441fb6875ba0120bbdb6/Untitled%206.png)
+​	<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/e564b1c4-a1f7-4aed-af57-2f2f153a03ba"/>
 
 - 트랜잭션이 하나로 묶이면 `MemberService`의 `updateStamp(`) 메서드 작업을 처리하는 도중에 예외가 발생해도 두 클래스에서 작업을 처리하는 메서드들이 모두 하나의 트랜잭션 경계 내에 있으므로 모두 rollbacK 됨
 
@@ -240,10 +245,10 @@ Ex ) @Transactional(rollbackFor = {SQLException.class, DataFormatException.class
 4. **@Transactional(Isolation.REPEATABLE_READ)**
 트랜잭션 내에서 한 번 조회한 데이터를 반복해서 조회해도 같은 데이터가 조회되도록 함
 5. **@Transactional(Isolation.SERIALIZABLE)**
-동일한 데이터에 대해서 동시에 두 개 이상의 트랜잭션이 수행되지 못하도록 함
-    
+   동일한 데이터에 대해서 동시에 두 개 이상의 트랜잭션이 수행되지 못하도록 함
+   
     트랜잭션의 격리 레벨은 일반적으로 데이터베이스나 데이터소스에 설정된 격리 레벨을 따르는 것이 권장되므로, 이러한 격리 레벨이 있다고 이해하면 된다.
-    
+   
 
 ### AOP 방식의 트랜잭션 적용
 
@@ -316,15 +321,15 @@ public class TxConfig {
 **AOP 방식으로 트랜잭션을 적용하는 순서**
 
 1. **AOP 방식으로 트랜잭션을 적용하기 위한 Configuration 클래스 정의**
-    
+   
     (1)과 같이 @Configuration 애너테이션을 추가하며 Configuration 클래스를 정의
     
 2. TransactionManager DI
-    
+   
     애플리케이션에 트랜잭션을 적용하기 위해서는 TransactionManager  객체가 필요 → (2)와 같이 TransactionManager  객체를 DI 받습니다.
     
 3. **트랜잭션 어드바이스용 TransactionInterceptor 빈 등록**
-    
+   
     Spring에서는 TransactionInterceptor를 이용해서 대상 클래스 또는 인터페이스에 트랜잭션 경계를 설정하고 트랜잭션을 적용할 수 있다.
     
     - 트랜잭션 애트리뷰트 지정
@@ -344,23 +349,16 @@ public class TxConfig {
         - (8)과 같이 AspectJExpressionPointcut 객체를 생성한 후, 포인트 컷 표현식으로 CoffeeService 클래스를 타깃 클래스로 지정
     
     - Advisor 객체 생성
+      
+        마지막으로 (9)와 같이 `DefaultPointcutAdvisor`의 생성자 파라미터로 포인트컷과 어드바이스를 전달해 준다.
         
-        마지막으로 (9)와 같이 `DefaultPointcutAdvisor`의 생성자 파라미터로 포인트컷과 어드바이스를 전달해 줍니다.
-        
 
-AOP가 적용되어있다는 것은 프록시패턴이 적용되어있다는것.
-
-프록시객체는 원본객체와 달리 부가기능이 포함되어잇음.
-
-SPRING AOP는 가상의 프록시객체를 만들어서 중간에 낚아 챈 후  프록시객체가 실행됨 → 얘를 미리 만들어 놓지 않고 요청이 왔을 때 동적으로 만듬. 가상의 인위의 객체를 만들고 다쓰면 지워버림
-
-내부적으로 GCLIB라는 기술을 사용,,
-
-AOP를 써서 TRANSACTION을 사용하고 있다는 것을 알아야 함. (Spring AOP ⇒ SPRING Transaction)
-
-프록시는 앞단에 먼저 처리하는 과정을 처리하는 가상의 서버
-
-로그를 남기는 것도 프록시 - AOP가 적용된 것.
+- AOP가 적용되어있다는 것은 프록시패턴이 적용되어있다는것.
+- 프록시객체는 원본객체와 달리 부가기능이 포함되어잇음.
+- SPRING AOP는 가상의 프록시객체를 만들어서 중간에 낚아 챈 후  프록시객체가 실행됨 → 얘를 미리 만들어 놓지 않고 요청이 왔을 때 동적으로 만듬. 가상의 인위의 객체를 만들고 다쓰면 지워버림
+- 내부적으로 GCLIB라는 기술을 사용,,
+- AOP를 써서 TRANSACTION을 사용하고 있다는 것을 알아야 함. (Spring AOP ⇒ SPRING Transaction)
+- 프록시는 앞단에 먼저 처리하는 과정을 처리하는 가상의 서버, 로그를 남기는 것도 프록시 - AOP가 적용된 것.
 
 ### (참고) Springboot을 사용하지 않을 경우
 
@@ -406,7 +404,3 @@ public class JpaConfig{
 - (1)과 같이 데이터베이스 커넥션 정보를 포함하고 있는 Datasource가 기본적으로 필요
 - Spring에서 트랜잭션은 기본적으로 `PlatformTransactionManager`에 의해 관리되며, `PlatformTransactionManager` 인터페이스를 구현해서 해당 데이터 액세스 기술에 맞게 유연하게 트랜잭션을 적용할 수 있도록 추상화되어 있음
 - 데이터 액세스 기술이 JPA이기 때문에 (2)와 같이 `PlatformTransactionManager`의 구현 클래스인 `JpaTransactionManager`를 사용
-
-동기와 비동기 차이
-
-throw 와 throws 차이
