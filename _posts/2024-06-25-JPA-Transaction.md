@@ -74,14 +74,14 @@ author_profile: true
 
 ## 선언형 방식의 트랜잭션
 
-🔑 요약
+🔑 <span style="color:Orange">**요약**</span>
 
 ✔️ Class level과 Method level에 설정 가능, 둘 다 설정했을 경우에는 Method가 우선순위를 가지게 된다
 
 ✔️ **Checked exception는 @Transactional** 애너테이션만 추가해서는 rollback이 되지 않음 
     	→ 속성에 rollbackFor로 지정해 주어야 함
 
-✔️ Ex ) @Transactional(rollbackFor = {SQLException.class, DataFormatException.class}) 
+✔️ Ex ) @Transactional(<span style="color:Blue">**rollbackFor** </span>= {SQLException.class, DataFormatException.class}) 
 
 
 
@@ -222,18 +222,18 @@ author_profile: true
 
 트랜잭션의 경계에서 진행 중인 트랜잭션이 존재할 때 또는 존재하지 않을 때, 어떻게 동작할 것인지 결정하는 방식을 의미
 
-1. **@Transactional(propagation = Propagation.REQUIRED)**
+1. @Transactional<span style="color:Blue">**(propagation = Propagation.REQUIRED)** </span>
     - 현재 진행 중인 트랜잭션이 존재하면 해당 트랜잭션을 사용하고, 존재하지 않으면 새 트랜잭션을 생성하도록 해줌
     - 일반적으로 가장 많이 사용되는 propagation 유형의 디폴트 값
-2. **@Transactional(Propagation.REQUIRES_NEW)**
+2. @Transactional<span style="color:Blue">**(Propagation.REQUIRES_NEW)**</span>
     - 이미 진행 중인 트랜잭션과 무관하게 새로운 트랜잭션이 시작
     - 기존에 진행 중이던 트랜잭션은 새로 시작된 트랜잭션이 종료할 때까지 중지됨
-3. **@Transactional(Propagation.MANDATORY)**
+3. @Transactional<span style="color:Blue">**(Propagation.MANDATORY)**</span>
     - 진행 중인 트랜잭션이 없으면 예외를 발생시킴
-4. **@Transactional(Propagation.NOT_SUPPORTED)**
+4. @Transactional<span style="color:Blue">**(Propagation.NOT_SUPPORTED)**</span>
     - 트랜잭션을 필요로 하지 않음을 의미
     - 진행 중인 트랜잭션이 있으면 메서드 실행이 종료될 때까지 진행 중인 트랜잭션은 중지되며, 메서드 실행이 종료되면 트랜잭션을 계속 진행
-5. **@Transactional(Propagation.NEVER)**
+5. @Transactional<span style="color:Blue">**(Propagation.NEVER)**</span>
     - 트랜잭션을 필요로 하지 않음을 의미
     - 진행 중인 트랜잭션이 존재할 경우에는 예외를 발생시킴
 
@@ -241,20 +241,27 @@ author_profile: true
 
 트랜잭션은 다른 트랜잭션에 영향을 주지 않고, 독립적으로 실행되어야 하는 격리성이 보장되어야 하는데 Spring은 이러한 격리성을 조정할 수 있는 옵션을 `@Transactional` 애너테이션의 isolation 애트리뷰트를 통해 제공함
 
-1. **@Transactional(Isolation.DEFAULT)**
-    
+1. @Transactional <span style="color:Blue">**(Isolation.DEFAULT)**</span>
+
     - 데이터베이스에서 제공하는 기본 값
-2. **@Transactional(Isolation.READ_UNCOMMITTED)**
-다른 트랜잭션에서 커밋하지 않은 데이터를 읽는 것을 허용함
-3. **@Transactional(Isolation.READ_COMMITTED)**
-다른 트랜잭션에 의해 커밋된 데이터를 읽는 것을 허용함
-4. **@Transactional(Isolation.REPEATABLE_READ)**
-트랜잭션 내에서 한 번 조회한 데이터를 반복해서 조회해도 같은 데이터가 조회되도록 함
-5. **@Transactional(Isolation.SERIALIZABLE)**
+
+2. @Transactional<span style="color:Blue">**(Isolation.READ_UNCOMMITTED)**</span>
+  다른 트랜잭션에서 커밋하지 않은 데이터를 읽는 것을 허용함
+
+3. @Transactional<span style="color:Blue">**(Isolation.READ_COMMITTED)**</span>
+  다른 트랜잭션에 의해 커밋된 데이터를 읽는 것을 허용함
+
+4. @Transactional<span style="color:Blue">**(Isolation.REPEATABLE_READ)**</span>
+  트랜잭션 내에서 한 번 조회한 데이터를 반복해서 조회해도 같은 데이터가 조회되도록 함
+
+5. @Transactional<span style="color:Blue">**(Isolation.SERIALIZABLE)**</span>
    동일한 데이터에 대해서 동시에 두 개 이상의 트랜잭션이 수행되지 못하도록 함
+
    
-    트랜잭션의 격리 레벨은 일반적으로 데이터베이스나 데이터소스에 설정된 격리 레벨을 따르는 것이 권장되므로, 이러한 격리 레벨이 있다고 이해하면 된다.
-   
+
+   트랜잭션의 격리 레벨은 일반적으로 데이터베이스나 데이터소스에 설정된 격리 레벨을 따르는 것이 권장되므로, 이러한 격리 레벨이 있다고 이해하면 된다.
+
+   <br>
 
 ### AOP 방식의 트랜잭션 적용
 
