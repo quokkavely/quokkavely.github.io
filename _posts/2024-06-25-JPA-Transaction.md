@@ -165,7 +165,7 @@ author_profile: true
     - (3) : 트랜잭션이 종료됨
     - (4) : JPA의 EntityManager를 종료
 4. **roolback 동작 유무 확인**
-    
+   
     - createMember() 메서드에서 회원 정보 저장하고 메서드가 종료되기 전에 강제로 예외 발생시키기.
       
         <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/e3be0019-01f9-48bb-bdad-61391570c9ea" width=400/>
@@ -218,7 +218,7 @@ author_profile: true
 
 ### Attribute 설정으로 Transaction 전파와 격리가 가능.
 
-**🔎 트랜잭션 전파 (Transaction Propagation)**
+<span style="color:Orange">**🔎 트랜잭션 전파 (Transaction Propagation)**</span>
 
 트랜잭션의 경계에서 진행 중인 트랜잭션이 존재할 때 또는 존재하지 않을 때, 어떻게 동작할 것인지 결정하는 방식을 의미
 
@@ -235,13 +235,14 @@ author_profile: true
     - 진행 중인 트랜잭션이 있으면 메서드 실행이 종료될 때까지 진행 중인 트랜잭션은 중지되며, 메서드 실행이 종료되면 트랜잭션을 계속 진행
 5. **@Transactional(Propagation.NEVER)**
     - 트랜잭션을 필요로 하지 않음을 의미
-    - 진행 중인 트랜잭션이 존재할 경우에는 예외를 발생시킴\
+    - 진행 중인 트랜잭션이 존재할 경우에는 예외를 발생시킴
 
-**🔎 트랜잭션 격리 레벨(Isolation Level)**
+<span style="color:Orange">**🔎 트랜잭션 격리 레벨(Isolation Level)**</span>
 
 트랜잭션은 다른 트랜잭션에 영향을 주지 않고, 독립적으로 실행되어야 하는 격리성이 보장되어야 하는데 Spring은 이러한 격리성을 조정할 수 있는 옵션을 `@Transactional` 애너테이션의 isolation 애트리뷰트를 통해 제공함
 
 1. **@Transactional(Isolation.DEFAULT)**
+    
     - 데이터베이스에서 제공하는 기본 값
 2. **@Transactional(Isolation.READ_UNCOMMITTED)**
 다른 트랜잭션에서 커밋하지 않은 데이터를 읽는 것을 허용함
@@ -323,13 +324,13 @@ public class TxConfig {
 
 ```
 
-**AOP 방식으로 트랜잭션을 적용하는 순서**
+<span style="color:Orange">**AOP 방식으로 트랜잭션을 적용하는 순서**</span>
 
 1. **AOP 방식으로 트랜잭션을 적용하기 위한 Configuration 클래스 정의**
    
     (1)과 같이 @Configuration 애너테이션을 추가하며 Configuration 클래스를 정의
     
-2. TransactionManager DI
+2. **TransactionManager DI**
    
     애플리케이션에 트랜잭션을 적용하기 위해서는 TransactionManager  객체가 필요 → (2)와 같이 TransactionManager  객체를 DI 받습니다.
     
@@ -340,30 +341,42 @@ public class TxConfig {
     - 트랜잭션 애트리뷰트 지정
         - 트랜잭션 애트리뷰트는 메서드 이름 패턴에 따라 구분해서 적용 가능하기 때문에 (3), (4)와 같이 트랜잭션 애트리뷰트를 설정할 수 있다.
         - (3)은 조회 메서드를 제외한 공통 트랜잭션 애트리뷰트이고, (4)는 조회 메서드에 적용하기 위한 트랜잭션 애트리뷰트
-
-- 트랜잭션을 적용할 메서드에 트랜잭션 애트리뷰트 매핑
-    - 설정한 트랜잭션 애트리뷰트는 (5)와 같이 Map에 추가하는데, Map의 key를 메서드 이름 패턴으로 지정해서 각각의 트랜잭션 애트리뷰트를 추가
-    - 트랜잭션 애트리뷰트를 추가한 Map 객체를 (6)과 같이 txAttributeSource.setNameMap(txMethods)으로 넘겨줌
-
-- TransactionInterceptor 객체 생성
-    - (7)과 같이 TransactionInterceptor의 생성자 파라미터로 transactionManager와 txAttributeSource를 전달
-
-1. **Advisor 빈 등록**
-    - 포인트 컷 지정
-        - 이제 트랜잭션 어드바이스인 `TransactionInterceptor`를 타깃 클래스에 적용하기 위해 포인트 컷을 지정
-        - (8)과 같이 AspectJExpressionPointcut 객체를 생성한 후, 포인트 컷 표현식으로 CoffeeService 클래스를 타깃 클래스로 지정
     
-    - Advisor 객체 생성
-      
-        마지막으로 (9)와 같이 `DefaultPointcutAdvisor`의 생성자 파라미터로 포인트컷과 어드바이스를 전달해 준다.
-        
+    - 트랜잭션을 적용할 메서드에 트랜잭션 애트리뷰트 매핑
+        - 설정한 트랜잭션 애트리뷰트는 (5)와 같이 Map에 추가하는데, Map의 key를 메서드 이름 패턴으로 지정해서 각각의 트랜잭션 애트리뷰트를 추가
+        - 트랜잭션 애트리뷰트를 추가한 Map 객체를 (6)과 같이 txAttributeSource.setNameMap(txMethods)으로 넘겨줌
+    
+    
+    - TransactionInterceptor 객체 생성
+        - (7)과 같이 TransactionInterceptor의 생성자 파라미터로 transactionManager와 txAttributeSource를 전달
+    
+
+4. **Advisor 빈 등록**
+
+   - 포인트 컷 지정
+       - 이제 트랜잭션 어드바이스인 `TransactionInterceptor`를 타깃 클래스에 적용하기 위해 포인트 컷을 지정
+       - (8)과 같이 AspectJExpressionPointcut 객체를 생성한 후, 포인트 컷 표현식으로 CoffeeService 클래스를 타깃 클래스로 지정
+
+
+   - Advisor 객체 생성
+     
+       마지막으로 (9)와 같이 `DefaultPointcutAdvisor`의 생성자 파라미터로 포인트컷과 어드바이스를 전달해 준다.
+       
+       <br>
 
 - AOP가 적용되어있다는 것은 프록시패턴이 적용되어있다는것.
+
 - 프록시객체는 원본객체와 달리 부가기능이 포함되어잇음.
+
 - SPRING AOP는 가상의 프록시객체를 만들어서 중간에 낚아 챈 후  프록시객체가 실행됨 → 얘를 미리 만들어 놓지 않고 요청이 왔을 때 동적으로 만듬. 가상의 인위의 객체를 만들고 다쓰면 지워버림
+
 - 내부적으로 GCLIB라는 기술을 사용,,
+
 - AOP를 써서 TRANSACTION을 사용하고 있다는 것을 알아야 함. (Spring AOP ⇒ SPRING Transaction)
+
 - 프록시는 앞단에 먼저 처리하는 과정을 처리하는 가상의 서버, 로그를 남기는 것도 프록시 - AOP가 적용된 것.
+
+  <br/>
 
 ### (참고) Springboot을 사용하지 않을 경우
 
