@@ -65,7 +65,7 @@ author_profile: true
 
 🍒 JPA tx.commit() 호출 과정 이해를 위한 클래스 다이어그램 관계도
 
-​	<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/190e1617-9bbb-4c7c-b5b0-256acc748b8c"/>
+​	<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/190e1617-9bbb-4c7c-b5b0-256acc748b8c" width=500/><br/>
 
 - 추상화되어있어서 구현체를 쭉 지나가다보면 마지막에 Command가 있음.
 - 우리가 JPA API를 사용해서 commit을 수행하는 작업은 너무나도 간단한 작업인데, 내부적으로는 아주 복잡한 과정을 거쳐서 최종적으로 commit 명령이 데이터베이스에 전달
@@ -164,7 +164,8 @@ author_profile: true
     - (2) : 트랜잭션에서 commit이 일어나고 있음
     - (3) : 트랜잭션이 종료됨
     - (4) : JPA의 EntityManager를 종료
-4. roolback 동작 유무 확인
+4. **roolback 동작 유무 확인**
+    
     - createMember() 메서드에서 회원 정보 저장하고 메서드가 종료되기 전에 강제로 예외 발생시키기.
       
         <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/e3be0019-01f9-48bb-bdad-61391570c9ea" width=400/>
@@ -174,6 +175,10 @@ author_profile: true
         <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/241a1239-d955-42b8-aa84-9e9ab6588ab5" width=400/>
         
         <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/5d8c66db-3027-49a1-be9b-86b1dc890917" width=400/>
+    
+    <br/>
+    
+    <br/>
     
     ### Checked Exception
     
