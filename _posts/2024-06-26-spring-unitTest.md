@@ -10,7 +10,7 @@ author_profile: true
 
 ## TestIntro
 
-<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/3e61cadc-746f-4ded-84c3-59dab3d005a4"/>
+<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/3e61cadc-746f-4ded-84c3-59dab3d005a4" width=200/>
 
 main과 test 가 분리 되어 있는 이유는 test는 bulid 앞에서 test만 하고 실제 패키징에는 포함되지 않음.
 
@@ -25,8 +25,8 @@ test 코드는 꼭 test 내에서만 작성해야 한다~!
     - 테스트를 위한 입력 데이터, 실행 조건, 기대 결과를 표현하기 위한 명세를 의미하는데,
     - 한마디로 메서드 등 하나의 단위를  테스트하기 위해 작성하는 테스트 코드
 3. 테스트 분류
-    
-    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/8418c78e-7df7-4f20-919d-af8c1e914e14"/>
+   
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/8418c78e-7df7-4f20-919d-af8c1e914e14" width=500/>
     
     1️⃣ 기능 테스트
     
@@ -59,23 +59,23 @@ test 코드는 꼭 test 내에서만 작성해야 한다~!
     - 버그가 발생한 기능의 테스트 케이스를 돌려보면서 문제가 발생한 원인을 단계적으로 찾아가기가 용이
 2. **F.I.R.S.T 원칙**
     - **Fast(빠르게)**
-        
+      
         일반적으로 작성한 테스트 케이스는 빨라야 한다는 의미
         
     - **Independent(독립적으로)**
-        
+      
         test1 () → test2 () 를 통과했는데 반대로는 통과하지 않는 경우에는 독립적이지 않음, 영향을 끼치면 안됨 ➡️ 롤백 기능 추가 또는 ~~등 독립적으로 통과할 수 있도록 해야 함. 
         
     - **Repeatable(반복 가능하도록)**
-        
+      
         어떤 환경에서도 반복해서 실행이 가능해야 된다는 의미
         
     - **Self-validating(셀프 검증이 되도록)**
-        
+      
         단위 테스트는 성공 또는 실패라는 자체 검증 결과를 보여주어야 한다는 의미
         
     - **Timely(시기적절하게)**
-        
+      
         단위 테스트는 테스트하려는 기능 구현을 하기 직전에 작성해야 한다
         
         많이 안짜봤거나 프로젝트에서 이걸 보통 안 지키는 경우가 많음 
@@ -93,18 +93,18 @@ test 코드는 꼭 test 내에서만 작성해야 한다~!
 
 - 단위 테스트를 제일 쉽고 빠르게 적용할 수 있는 부분은 바로 헬퍼(helper) 클래스 또는 유틸리티(utility) 클래스
 - Spring Framework에서 StringUtils, BeanUtils 같은 유틸리티 클래스를 지원
-    
-    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/3ca7c665-8533-41ad-b749-fbb0283b1f2d"/>
+  
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/3ca7c665-8533-41ad-b749-fbb0283b1f2d" width=500/>
     
     - static이 아닌이유는 하나임⇒  제네릭이라서 !, 타입 매개변수를 받아야 하기 때문에 , 아니라면 정적으로 사용 → 왜냐면 전역에서 사용하는 것이기 때문
     
-    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/0162c944-12ba-452c-9040-3b09798d9994"/>
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/0162c944-12ba-452c-9040-3b09798d9994" width=700/>
     
     - static 사용 시 에러 발생
     
     - 커피 주문 프로그램의 MemberService에 구현할 경우 DI를 받아서 사용해야 함
     
-    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/c753b942-262d-4dfd-aa9b-a84746a9c3e0"/>
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/c753b942-262d-4dfd-aa9b-a84746a9c3e0"  width=500/>
     
     - BeanUtils의 기능은 업데이트 할 때 원본이랑  비교 후  변경해주는 것
     - 3줄을(Optional) →   한줄로 사용 가능,코드를 줄일 수 있다는 것이 큰 장점. -코드의 중복을 줄여줌
@@ -125,10 +125,10 @@ test 코드는 꼭 test 내에서만 작성해야 한다~!
     - 일반적으로 예상하는 값(**expected**)과 테스트 대상 메서드의 동작 수행 결과(**actual**) 값을 비교해서 기대한 대로 동작을 수행하는지 검증(**Assertion**)하는 코드들이 포함된다.
 4. 예제
     - Test 생성
-        
+      
         StampCalculator가 구현되어 있는 클래스에서 Alt+Insert 누르면 Test를 생성할 수 있음 → 이렇게 하면  Test 폴더에 기존에 있던 클래스의 패키지 아래에 클래스를 생성시켜줌.
         
-        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/c3d66a4a-003a-44a8-8b2a-8b846f90aefc"/>
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/c3d66a4a-003a-44a8-8b2a-8b846f90aefc"  width=400/>
         
     - 테스트 코드 작성
     
@@ -177,13 +177,13 @@ test 코드는 꼭 test 내에서만 작성해야 한다~!
     ```
     
     - **given**
-        
+      
         주문한 커피의 수량이 필요하기 때문에 Order와 OrderCoffee 객체를 직접 만들어서 테스트에 필요한 데이터를 생성
         
     - **when**
         - StampCalculator.calculateEarnedStampCount()에 given에서 생성한 테스트 데이터를 입력값으로 전달 →  StampCalculator.calculateEarnedStampCount() 메서드가 잘 동작하는지를 확인하기 위함.
     - **then**
-        
+      
         주문한 커피 수량만큼의 스탬프가 계산되는지를 **Assertion**
         
 
@@ -192,7 +192,7 @@ test 코드는 꼭 test 내에서만 작성해야 한다~!
 1. JUnit이란?
     - Unit은 Java 언어로 만들어진 애플리케이션을 테스트하기 위한 오픈 소스 테스트 프레임워크
 2. 테스트 케이스의 기본 구조
-    
+   
     ```java
     import org.junit.jupiter.api.Test;
     
@@ -253,7 +253,7 @@ Assertion은  ‘**예상하는 결과 값이 참(true)이길 바라는 논리�
     
 3. **`Assertions.*assertTrue` :*** 
 4. **`assertEquals()`:** 기대하는 값과 실제 결과 값이 같은 지를 검증
-    
+   
     ```java
     package com.springboot.helper;
     
@@ -341,23 +341,23 @@ public class AssumptionTest {
 - PC의 운영체제(OS)가 윈도우(Windows)라면 `assumeTrue()` 메서드의 파라미터 값이 `true`가 될 것이므로 `assumeTrue()` 아래 나머지 로직들이 실행이 될 것이고,  PC 운영체제(OS)가 윈도우(Windows)가 아니라면 `assumeTrue()` 아래 나머지 로직들이 실행되지 않음!
 - 아래 사진에 대한 코드는 윈도우에서  빨간박스 부분이 실행되지 않는다
 
-<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/eda94ab3-12eb-4a6d-ba17-917775ca72bb"/>
+<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/eda94ab3-12eb-4a6d-ba17-917775ca72bb"  width=500/>
 
 ### Test케이스 실행 전 전처리
 
 1. **@BeforeEach**
-    
+   
     테스트 케이스가 각각 실행될 때마다 테스트 케이스 실행 직전에 먼저 실행되어 초기화 작업 등을 진행
     
-    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/af597036-f880-41e1-a0fb-b80841d63fb2"/>
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/af597036-f880-41e1-a0fb-b80841d63fb2"  width=400/>
     
     - Test_1은 passed, Test_2는 Failed
     - Test case1에서 map에 **“XRP”를 추가했다 하더라도 추가한 “XRP”는 Test case2 실행 전에 init() 메서드가 다시 호출되면서 map이 초기화되기 때문에 초기화된 상태로 되돌아간다.**
 2. **@BeforeAll**
-    
+   
     클래스 레벨에서 테스트 케이스를 한꺼번에 실행시키면 테스트 케이스가 실행되기 전에 딱 한 번만 초기화 작업을 할 수 있도록 해주는 애너테이션
     
-    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/19e217d1-7465-4059-bea0-e8494b171e7b"/>
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/19e217d1-7465-4059-bea0-e8494b171e7b"  width=400/>
     
     - @BeforeAll로 실행할 수 있는 메서드는 static 메서드이다, 상태가 항상 공유되어야 함.
 3. @AfterEach - 하나 끝날때마다 실행
