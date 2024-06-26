@@ -185,11 +185,13 @@ author_profile: true
     
 ### Checked Exception
     
-    Checked 예외로 할려면 실행조차 되지 않기 때문에 throw로 던져야 실행할 수 잇음.
+  Checked 예외로 할려면 실행조차 되지 않기 때문에 throw로 던져야 실행할 수 잇음.
     
-    이 예외도 롤백해주세요 라고 attribute 넣어야 함 →  안 넣으면 롤백 안됨!
+  이 예외도 롤백해주세요 라고 attribute 넣어야 함 →  안 넣으면 롤백 안됨!
     
-    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/51be4a6c-6aaa-4018-874a-b907d4f88620" width=400/>
+  <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/51be4a6c-6aaa-4018-874a-b907d4f88620" width=400/>
+
+<br/>
 
 ### Class Level 과  Method Level에 적용시
 
