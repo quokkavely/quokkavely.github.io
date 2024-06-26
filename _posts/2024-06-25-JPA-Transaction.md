@@ -74,7 +74,7 @@ author_profile: true
 
 ## 선언형 방식의 트랜잭션
 
-🔑 <span style="color:Orange">**요약**</span>
+🔑 <span style="color:OrangeRed">**요약**</span>
 
 ✔️ Class level과 Method level에 설정 가능, 둘 다 설정했을 경우에는 Method가 우선순위를 가지게 된다
 
@@ -184,12 +184,12 @@ author_profile: true
     <br/>
     
 ### Checked Exception
+
+  - Checked 예외로 할려면 실행조차 되지 않기 때문에 throw로 던져야 실행할 수 잇음.
     
-  Checked 예외로 할려면 실행조차 되지 않기 때문에 throw로 던져야 실행할 수 잇음.
+  - 이 예외도 롤백해주세요 라고 attribute 넣어야 함 →  안 넣으면 롤백 안됨!
     
-  이 예외도 롤백해주세요 라고 attribute 넣어야 함 →  안 넣으면 롤백 안됨!
-    
-  <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/51be4a6c-6aaa-4018-874a-b907d4f88620" width=400/>
+      <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/51be4a6c-6aaa-4018-874a-b907d4f88620" width=400/>
 
 <br/>
 
@@ -223,7 +223,7 @@ author_profile: true
 
 ### Attribute 설정으로 Transaction 전파와 격리가 가능.
 
-<span style="color:Orange">**🔎 트랜잭션 전파 (Transaction Propagation)**</span>
+<span style="color:OrangeRed">**🔎 트랜잭션 전파 (Transaction Propagation)**</span>
 
 트랜잭션의 경계에서 진행 중인 트랜잭션이 존재할 때 또는 존재하지 않을 때, 어떻게 동작할 것인지 결정하는 방식을 의미
 
@@ -242,7 +242,7 @@ author_profile: true
     - 트랜잭션을 필요로 하지 않음을 의미
     - 진행 중인 트랜잭션이 존재할 경우에는 예외를 발생시킴
 
-<span style="color:Orange">**🔎 트랜잭션 격리 레벨(Isolation Level)**</span>
+<span style="color:OrangeRed">**🔎 트랜잭션 격리 레벨(Isolation Level)**</span>
 
 트랜잭션은 다른 트랜잭션에 영향을 주지 않고, 독립적으로 실행되어야 하는 격리성이 보장되어야 하는데 Spring은 이러한 격리성을 조정할 수 있는 옵션을 `@Transactional` 애너테이션의 isolation 애트리뷰트를 통해 제공함
 
@@ -251,13 +251,13 @@ author_profile: true
     - 데이터베이스에서 제공하는 기본 값
 
 2. @Transactional<span style="color:Blue">**(Isolation.READ_UNCOMMITTED)**</span>
-  다른 트랜잭션에서 커밋하지 않은 데이터를 읽는 것을 허용함
+    다른 트랜잭션에서 커밋하지 않은 데이터를 읽는 것을 허용함
 
 3. @Transactional<span style="color:Blue">**(Isolation.READ_COMMITTED)**</span>
-  다른 트랜잭션에 의해 커밋된 데이터를 읽는 것을 허용함
+    다른 트랜잭션에 의해 커밋된 데이터를 읽는 것을 허용함
 
 4. @Transactional<span style="color:Blue">**(Isolation.REPEATABLE_READ)**</span>
-  트랜잭션 내에서 한 번 조회한 데이터를 반복해서 조회해도 같은 데이터가 조회되도록 함
+    트랜잭션 내에서 한 번 조회한 데이터를 반복해서 조회해도 같은 데이터가 조회되도록 함
 
 5. @Transactional<span style="color:Blue">**(Isolation.SERIALIZABLE)**</span>
    동일한 데이터에 대해서 동시에 두 개 이상의 트랜잭션이 수행되지 못하도록 함
@@ -336,7 +336,7 @@ public class TxConfig {
 
 ```
 
-<span style="color:Orange">**AOP 방식으로 트랜잭션을 적용하는 순서**</span>
+<span style="color:OrangeRed">**AOP 방식으로 트랜잭션을 적용하는 순서**</span>
 
 1. **AOP 방식으로 트랜잭션을 적용하기 위한 Configuration 클래스 정의**
    
@@ -362,7 +362,6 @@ public class TxConfig {
     - TransactionInterceptor 객체 생성
         - (7)과 같이 TransactionInterceptor의 생성자 파라미터로 transactionManager와 txAttributeSource를 전달
     
-
 4. **Advisor 빈 등록**
 
    - 포인트 컷 지정

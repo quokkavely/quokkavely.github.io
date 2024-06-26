@@ -2,7 +2,7 @@
 layout : single
 title : "[JPA] Persistence, 매핑"
 categories: Spring
-tag : [Spring, 실습]
+tag : [Spring, 실습,JPA]
 author_profile: true
 ---
 
@@ -142,7 +142,7 @@ https://docs.spring.io/spring-data/jpa/reference/jpa.html
         
         <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/89aa373c-054a-485a-b287-6140905350f8" width=250/>
         
-    - Member result =em.find(Member.class, 1L); 에서 1차 캐시에 member가 존재하기 때문에 select 쿼리를 날리지 않아도 조회 가능 → 콘솔에 출력도 잘 됨.
+    - Member result =em.find(Member.class, 1L);<br> 에서 1차 캐시에 member가 존재하기 때문에 select 쿼리를 날리지 않아도 조회 가능 → 콘솔에 출력도 잘 됨.
     - 그러나 member_Id가 2인 객체는 1차 캐시에 없으므로 select 쿼리를 날려서 DB를 조회 하고 없기 때문에 null 이 맞음.
     
 2. **엔티티 업데이트**
