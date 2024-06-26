@@ -164,6 +164,9 @@ author_profile: true
     - (2) : 트랜잭션에서 commit이 일어나고 있음
     - (3) : 트랜잭션이 종료됨
     - (4) : JPA의 EntityManager를 종료
+    
+    <br/>
+    
 4. **roolback 동작 유무 확인**
    
     - createMember() 메서드에서 회원 정보 저장하고 메서드가 종료되기 전에 강제로 예외 발생시키기.
@@ -180,7 +183,7 @@ author_profile: true
     
     <br/>
     
-    ### Checked Exception
+### Checked Exception
     
     Checked 예외로 할려면 실행조차 되지 않기 때문에 throw로 던져야 실행할 수 잇음.
     
