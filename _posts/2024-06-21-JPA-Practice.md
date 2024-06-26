@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[JPA] 연관관계 매핑, 기능 추가 실습"
-categories: Spring
+categories: Practice
 tag : [Spring, 실습]
 author_profile: true
 ---

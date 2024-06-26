@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "JDBC-Practice service계층 구현 +Optional"
-categories: Spring
+categories: Practice
 tag : [Spring, 실습]
 author_profile: true
 ---
