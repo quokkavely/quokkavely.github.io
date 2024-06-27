@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[Spring] UnitTest"
+title : "[Spring] Hamcrest , SliceTest"
 categories: Spring
 tag : [Spring, 개념, JPA, Testing]
 author_profile: true
