@@ -16,6 +16,8 @@ main과 test 가 분리 되어 있는 이유는 test는 bulid 앞에서 test만 
 
 test 코드는 꼭 test 내에서만 작성해야 한다~!
 
+----
+
 **테스트는 어떤 대상에 대한 일정 기준을 정해놓고, 그 대상이 정해진 기준에 부합하는지 부합하지 못하는지를 검증하는 과정**
 
 1. 테스트를 해야 하는 이유
@@ -58,34 +60,36 @@ test 코드는 꼭 test 내에서만 작성해야 한다~!
     - 문제의 원인을 찾아내는 것보다 상대적으로 더 적은 시간 안에 문제를 찾아낼 가능성 ↑
     - 버그가 발생한 기능의 테스트 케이스를 돌려보면서 문제가 발생한 원인을 단계적으로 찾아가기가 용이
 2. **F.I.R.S.T 원칙**
-    - **Fast(빠르게)**
-      
-        일반적으로 작성한 테스트 케이스는 빨라야 한다는 의미
-        
-    - **Independent(독립적으로)**
-      
-        test1 () → test2 () 를 통과했는데 반대로는 통과하지 않는 경우에는 독립적이지 않음, 영향을 끼치면 안됨 ➡️ 롤백 기능 추가 또는 ~~등 독립적으로 통과할 수 있도록 해야 함. 
-        
-    - **Repeatable(반복 가능하도록)**
-      
-        어떤 환경에서도 반복해서 실행이 가능해야 된다는 의미
-        
-    - **Self-validating(셀프 검증이 되도록)**
-      
-        단위 테스트는 성공 또는 실패라는 자체 검증 결과를 보여주어야 한다는 의미
-        
-    - **Timely(시기적절하게)**
-      
-        단위 테스트는 테스트하려는 기능 구현을 하기 직전에 작성해야 한다
-        
-        많이 안짜봤거나 프로젝트에서 이걸 보통 안 지키는 경우가 많음 
-        
-        ⇒ 반례를 떠오르지 못하기 때문에 테스트를 통과하기 위한 코드를 작성하는 경우가 생김
-        
-        개발 끝나고 테스트 코드를 짜면 안됨 → 코드를 짜면서 테스트를 짜야 함. (커밋 내역으로 확인 가능하니 숨길 수 없음)
-        
-        **구현하고자 하는 기능을 단계적으로 조금씩 업그레이드하면서 그때그때 테스트 케이스 역시 단계적으로 업그레이드하는 방식이 더 낫다!!**
-        
+    
+    ✔️<span style="color:Blue">**Fast(빠르게)**</span>
+    
+    일반적으로 작성한 테스트 케이스는 빨라야 한다는 의미
+    
+    ✔️<span style="color:Blue">**Independent(독립적으로)**</span>
+    
+    test1 () → test2 () 를 통과했는데 반대로는 통과하지 않는 경우에는 독립적이지 않음, 영향을 끼치면 안됨<br/> ➡️ 롤백 기능 추가 또는 ~~등 독립적으로 통과할 수 있도록 해야 함. 
+    
+    ✔️<span style="color:Blue">**Repeatable(반복 가능하도록)**</span>
+    
+    어떤 환경에서도 반복해서 실행이 가능해야 된다는 의미
+    
+    ✔️<span style="color:Blue">**Self-validating(셀프 검증이 되도록)**</span>
+    
+    단위 테스트는 성공 또는 실패라는 자체 검증 결과를 보여주어야 한다는 의미
+    
+    ✔️**<span style="color:Blue">Timely(시기적절하게)</span>**
+    
+    단위 테스트는 테스트하려는 기능 구현을 하기 직전에 작성해야 한다
+    
+    많이 안짜봤거나 프로젝트에서 이걸 보통 안 지키는 경우가 많음 
+    
+    ⇒ 반례를 떠오르지 못하기 때문에 테스트를 통과하기 위한 코드를 작성하는 경우가 생김
+    
+    개발 끝나고 테스트 코드를 짜면 안됨 → 코드를 짜면서 테스트를 짜야 함. (커밋 내역으로 확인 가능하니 숨길 수 없음)
+    
+    **구현하고자 하는 기능을 단계적으로 조금씩 업그레이드하면서 그때그때 테스트 케이스 역시 단계적으로 업그레이드하는 방식이 더 낫다!!**
+    
+    <br/>
 
 ## JUnit 없이 단위테스트 적용
 
@@ -111,16 +115,19 @@ test 코드는 꼭 test 내에서만 작성해야 한다~!
 
 ### Given-When-Then 표현 스타일
 
-`given - when - then`이라는 용어는 BDD(Behavior Driven Development)라는 테스트 방식에서 사용하는 용어
+<span style="color:OrangeRed">`given - when - then`</span>이라는 용어는 BDD(Behavior Driven Development)라는 테스트 방식에서 사용하는 용어
 
-1. given 
+1. <span style="color:OrangeRed">given</span>
+    
     - 테스트를 위한 준비 과정을 명시
     - 테스트에 필요한 전제 조건들이 포함
     - 테스트 대상에 전달되는 입력 값(테스트 데이터) 역시 Given에 포함
-2. when
+2. <span style="color:OrangeRed">when</span>
+    
     - 테스트할 동작(대상)을 지정
     - 일반적으로 메서드 호출을 통해 테스트를 진행
-3. then
+3. <span style="color:OrangeRed">then</span>
+    
     - 테스트의 결과를 검증하는 영역
     - 일반적으로 예상하는 값(**expected**)과 테스트 대상 메서드의 동작 수행 결과(**actual**) 값을 비교해서 기대한 대로 동작을 수행하는지 검증(**Assertion**)하는 코드들이 포함된다.
 4. 예제
@@ -223,8 +230,9 @@ test 코드는 꼭 test 내에서만 작성해야 한다~!
 
 Assertion은  ‘**예상하는 결과 값이 참(true)이길 바라는 논리적인 표현**’
 
-1. **`assertNotNull()` : Null 여부 테스트**
-2. **`assertThrows()` : 예외(Exception) 테스트**
+1. <span style="color:OrangeRed">**`assertNotNull()`**</span> : Null 여부 테스트
+2. <span style="color:OrangeRed">**`assertThrows()`**</span> : 예외(Exception) 테스트
+    
     - **assertThrows()**의 첫 번째 파라미터에는 발생이 기대되는 예외 클래스를 입력하고, 두 번째 파라미터인 람다 표현식에서는 테스트 대상 메서드를 호출하면 된다.
     
     ```java
@@ -251,8 +259,8 @@ Assertion은  ‘**예상하는 결과 값이 참(true)이길 바라는 논리�
     - (2) assertTrows는 예외가 발생하는지 그리고 실제로 NPE가 발생하는지 봄 → fail이 나오면 예외가 발생하지 않은 것임
     - (3) Exception은 NPE의 상위 클래스이므로 동일하게 작동함. → **예외 클래스의 상속 관계를 이해한 상태에서 테스트 실행 결과를 예상해야 된다,**
     
-3. **`Assertions.*assertTrue` :*** 
-4. **`assertEquals()`:** 기대하는 값과 실제 결과 값이 같은 지를 검증
+3. <span style="color:OrangeRed">**`Assertions.assertTrue` :**</span>
+4. <span style="color:OrangeRed">**`assertEquals()`:**</span> 기대하는 값과 실제 결과 값이 같은 지를 검증
    
     ```java
     package com.springboot.helper;
@@ -311,7 +319,7 @@ Assertion은  ‘**예상하는 결과 값이 참(true)이길 바라는 논리�
 
 (Assertions.assertTrue랑 헷갈리지 않기)
 
-**assumeTrue()**  메서드는 파라미터로 입력된 값이 **`true`**이면 나머지 아래 로직들을 실행
+<span style="color:OrangeRed">**assumeTrue()** </span> 메서드는 파라미터로 입력된 값이<u> **`true`**이면 나머지 아래 로직들을 실행</u>
 
 ```java
 import org.junit.jupiter.api.DisplayName;
@@ -345,7 +353,7 @@ public class AssumptionTest {
 
 ### Test케이스 실행 전 전처리
 
-1. **@BeforeEach**
+1. <span style="color:OrangeRed">**@BeforeEach**</span>
    
     테스트 케이스가 각각 실행될 때마다 테스트 케이스 실행 직전에 먼저 실행되어 초기화 작업 등을 진행
     
@@ -353,12 +361,13 @@ public class AssumptionTest {
     
     - Test_1은 passed, Test_2는 Failed
     - Test case1에서 map에 **“XRP”를 추가했다 하더라도 추가한 “XRP”는 Test case2 실행 전에 init() 메서드가 다시 호출되면서 map이 초기화되기 때문에 초기화된 상태로 되돌아간다.**
-2. **@BeforeAll**
+2. <span style="color:OrangeRed">**@BeforeAll**</span>
    
     클래스 레벨에서 테스트 케이스를 한꺼번에 실행시키면 테스트 케이스가 실행되기 전에 딱 한 번만 초기화 작업을 할 수 있도록 해주는 애너테이션
     
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/19e217d1-7465-4059-bea0-e8494b171e7b"  width=400/>
     
     - @BeforeAll로 실행할 수 있는 메서드는 static 메서드이다, 상태가 항상 공유되어야 함.
-3. @AfterEach - 하나 끝날때마다 실행
-4. @AfterAll - 제일 마지막에 한번만 실행
+3. <span style="color:OrangeRed">@AfterEach</span> - 하나 끝날때마다 실행
+4. <span style="color:OrangeRed">@AfterAll</span> - 제일 마지막에 한번만 실행
+
