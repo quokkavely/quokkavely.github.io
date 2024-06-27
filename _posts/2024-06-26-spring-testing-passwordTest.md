@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[Spring] Test Case 작성"
+title : "[Spring]JUnit 활용한 Test Case 작성"
 categories: Practice
 tag : [Spring, 실습, JPA, Testing]
 author_profile: true
@@ -170,7 +170,7 @@ return (int) password.chars().filter( c -> !Character.isLetterOrDigit(c)).count(
     
 2. 숫자/ 대문자/ 소문자/ 특수문자 별로 나눠서 통과 되었다는 Test가 필요할 것 같음. @BeforeAll 사용해서 테스트 초기화를 한번만 하도록 사용하면 가능 
     
-    ![Untitled](%5BTesting%5D%20%E1%84%89%E1%85%B5%E1%86%AF%E1%84%89%E1%85%B3%E1%86%B8%20ec7b64b1a21d4eec832d54312786bd3f/Untitled.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/9d18ec68-b6e9-4744-a8c4-a8b013f5255c"/>
     
 3. 특수문자를 대충 검증하고 있는데 세밀하게 검증 할 필요가 있음.
     
@@ -180,10 +180,10 @@ return (int) password.chars().filter( c -> !Character.isLetterOrDigit(c)).count(
     String specialChars = RandomStringUtils.random(numberOfSpecialChars, 33, 47, false, false);
     ```
     
-    ![Untitled](%5BTesting%5D%20%E1%84%89%E1%85%B5%E1%86%AF%E1%84%89%E1%85%B3%E1%86%B8%20ec7b64b1a21d4eec832d54312786bd3f/Untitled%201.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/25c1a86a-182d-4abc-a4a1-ff793f3d446b" width=400/>
     
 
-### 레퍼런스 코드
+### 개선 후 코드
 
 ```java
 package com.springboot.homework;
@@ -258,3 +258,9 @@ public class RandomPasswordGeneratorTest {
 }
 
 ```
+- 초기화 해야 할 코드 양이 늘었지만 아래와 같이 테스트 메세지가 명확하게 나옴
+    
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/a46b9e54-ac6e-403c-9781-2e7526e39cec"/>
+
+## COMMENT
+    여태껏 하던 것 보다는 자바만 잘하면 되는 문제라고 생각되어서 쉬운듯 어려운듯 했다. 테스트 코드를 직접 내가 숫자로 할당해서 이게 맞는지 확인하는 것이었는데 여러개의 테스트 케이스가 더 들어와야 하는 것 아닌 가 싶은데 만약 그렇게 되면 랜덤으로 수를 받는 것인지 어떤지는 모르겠다! 코딩테스트 할때처럼 내가 케이스를 만드는 것과 비슷하다고 느껴져서 조금 흥미로웠다, 정말 내가 예외를 잡기위한 테스팅 코드를 짜는 것이 중요해서 코드를 쳐야할 양이 앞으로 더 많아질 것 같다.
