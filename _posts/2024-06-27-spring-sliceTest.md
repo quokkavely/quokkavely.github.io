@@ -46,7 +46,7 @@ author_profile: true
         - 두 번째 파라미터 : 기대하는 값입니다. 즉, 이런 값일 거라고 기대(예상)하는 값
 2. Not Null 테스트 : Hamcrest의 `is()`, `notNullValue()` 매쳐를 함께 사용
     
-    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/6ff4c785-2bbd-4af1-ba4d-cd7159e6c2b0" witdh=500/>
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/6ff4c785-2bbd-4af1-ba4d-cd7159e6c2b0" width=400/>
     
 
 # 슬라이스 테스트(Slice Test)
@@ -59,7 +59,7 @@ author_profile: true
 
 ### 기본 구조(with @SpringBootTest , @AutoConfigureMockMvc)
 
-<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/6268f8a5-bdb7-4bab-9e4f-8db2799df07a" witdh=500/>
+<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/6268f8a5-bdb7-4bab-9e4f-8db2799df07a" width=400/>
 
 1. **`@SpringBootTest`** 
     - `@SpringBootTest` 애너테이션은 Spring Boot 기반의 애플리케이션을 테스트하기 위한 Application Context를 생성한다.
@@ -78,7 +78,7 @@ author_profile: true
     - 서블릿. 하나의 서블릿 객체(자바에서 웹 요청을 처리하는 객체)가 실행
     - 서블릿을 담당하는게 서블릿 컨테이너 (= tomcat)
         
-        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/5a962a9b-acab-40dc-a81f-2bf8f8278cb8" witdh=500/>
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/5a962a9b-acab-40dc-a81f-2bf8f8278cb8" width=450/>
         
     - 디스패처 서블릿 앞에 서블릿 컨테이너가 있음. was라고도하고 tomcat이라고도 함.
     - 웹의 요청을 수행하는 역할을 담당하는 것이 서블릿이고. 이걸 담당하는게 서블릿 컨테이너  (서블릿컨테이너의 대표적인 예 : 톰캣)
@@ -89,27 +89,26 @@ author_profile: true
     - 그래서 환경설정이 필요해서 AutoConfigureMockMVC와 SpringBootTest 애너테이션이 필요하게 된다.
     <br/>
     - 🔎 참고
-        1. **서블릿과 서블릿 컨테이너**
             
-            **서블릿(Servlet)**
+        **서블릿(Servlet)**
             
-            - 자바에서 웹 요청을 처리하는 객체
-            - 클라이언트의 HTTP 요청을 받아서 적절한 응답을 생성하는 역할을 합니다.
+        - 자바에서 웹 요청을 처리하는 객체
+        - 클라이언트의 HTTP 요청을 받아서 적절한 응답을 생성하는 역할을 합니다.
             
-            **서블릿 컨테이너(Servlet Container)**
+        **서블릿 컨테이너(Servlet Container)**
             
-            - 서블릿을 관리하고 실행하는 환경
-            - 대표적인 예로 Tomcat
-            - 서블릿 컨테이너는 웹 서버와 서블릿 사이의 통신을 관리하며, 서블릿의 생명주기를 관리
+        - 서블릿을 관리하고 실행하는 환경
+         - 대표적인 예로 Tomcat
+        - 서블릿 컨테이너는 웹 서버와 서블릿 사이의 통신을 관리하며, 서블릿의 생명주기를 관리
             
-            **DispatcherServlet**
+         **DispatcherServlet**
             
-            - 스프링 MVC의 핵심 서블릿으로, 모든 HTTP 요청을 받아 적절한 컨트롤러로 요청을 전달하고, 응답을 생성
+        - 스프링 MVC의 핵심 서블릿으로, 모든 HTTP 요청을 받아 적절한 컨트롤러로 요청을 전달하고, 응답을 생성
             
-            **MockMVC**
+        **MockMVC**
             
-            - 서블릿 컨테이너를 실행하지 않고도 스프링 MVC의 동작을 테스트할 수 있는 도구
-            - MockMVC를 사용하면 실제 서버를 실행하지 않고도 컨트롤러의 동작을 테스트할 수 있다.
+        - 서블릿 컨테이너를 실행하지 않고도 스프링 MVC의 동작을 테스트할 수 있는 도구
+        - MockMVC를 사용하면 실제 서버를 실행하지 않고도 컨트롤러의 동작을 테스트할 수 있다.
     
 4. **MokcMvc**
     - `MockMvc`는 Tomcat 같은 서버를 실행하지 않고 Spring 기반 애플리케이션의 Controller를 테스트할 수 있는 완벽한 환경을 지원해 주는 일종의 Spring MVC 테스트 프레임워크
@@ -121,13 +120,13 @@ author_profile: true
     
     1. Gson 추가
         
-        !<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/2af45685-2f83-4c75-9313-df975466c6a7" witdh=500/>
+        !<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/2af45685-2f83-4c75-9313-df975466c6a7" width=500/>
         
     2. MemberDto 클래스
         
         기존 Dto클래스는 다 나눠져 있었는데  하나의 dto클래스에  post/patch/response를 이너클래스로  통합해서 만들어 놓음
         
-        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/5a844426-8c7b-4b49-b2ea-209977b29c5c" witdh=500/>
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/5a844426-8c7b-4b49-b2ea-209977b29c5c" width=500/>
         
     
     1.  MemberController의 postMember() 테스트
@@ -187,7 +186,7 @@ author_profile: true
     
     - Postman을 사용할 때 request body에 포함시키는 요청 데이터와 동일한 역할
         
-        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/429a5ab4-3c1e-4fca-8ba4-e260cbc94eee" witdh=500/>
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/429a5ab4-3c1e-4fca-8ba4-e260cbc94eee" width=400/>
         
     - Postman 사용시 JSON 포맷으로 바디에 포함시켰던 것처럼 Gson이라는 JSON 변환 라이브러리를 사용하기 위해 MemberDto.Post 객체를 JSON포맷으로 변환
     
@@ -205,7 +204,7 @@ author_profile: true
     - MockMvc의 **perform()** 메서드는 **ResultActions 타입의 객체를 리턴**하는데, 이 ResultActions 객체를 이용해서 우리가 전송한 request에 대한 검증을 수행
     - **[ResultActions 인터페이스 →  andExpect라는 메서드를 통해 검증]**
         
-        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/979f8520-28b7-4de7-bf2c-70ec76f4f31e" witdh=500/>
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/979f8520-28b7-4de7-bf2c-70ec76f4f31e" width=500/>
         
         - andExpect() 메서드를 통해 파라미터로 입력한 매처(Matcher)로 예상되는 기대 결과를 검증, 해당 메서드는 throw로 예외도 함께 던져야 한다!
     - `status().isCreated()`를 통해 response status를 매치
@@ -213,15 +212,15 @@ author_profile: true
 5. 실제 결과 
     - Body에 status 값 확인 해야 함. Postman사용할 때와 마찬가지로 @Valid 검증이 들어가서 오류가 뜨는 것.
         
-        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/35b1aef9-ddd6-4e73-8f44-0b4e29efdeb6" witdh=500/>
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/35b1aef9-ddd6-4e73-8f44-0b4e29efdeb6" width=500/>
         
     - 테스트 실행시 서블릿 컨테이너에 대한 내용이 없음.
         
-        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/13afa694-b87d-425a-be3b-30c0ba06ff9a" witdh=500/>
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/13afa694-b87d-425a-be3b-30c0ba06ff9a" width=500/>
         
     - cotroller의 테스트만 해야하는데 Hibernate의 도움을 받고 잇음.
         
-       <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/01acd42b-980e-4c3a-bbf8-dacd249c0794" witdh=500/>
+       <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/01acd42b-980e-4c3a-bbf8-dacd249c0794" width=500/>
         
     
     ### MemberCotroller 테스트 → **HTTP get request에 대한 테스트**
@@ -275,13 +274,13 @@ author_profile: true
     
     - 전부 테스트 하면 get만 통과함 왜냐면 post할 Member는 이미 존재하는 멤버이기 때문
         
-       <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/9b4c564f-8aa8-42e3-b6a9-5f5c16a96005" witdh=500/>
+       <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/9b4c564f-8aa8-42e3-b6a9-5f5c16a96005" width=450/>
         
-        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/a00424c9-d114-4ab5-b86b-7a150a57624f" witdh=500/>
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/a00424c9-d114-4ab5-b86b-7a150a57624f" width=450/>
         
     - @Transactional 추가시 모두 통과함. → 몇가지 문제가 있음.
         
-        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/47de4c73-ce36-4bac-a275-8f3821fde88f" witdh=500/>
+        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/47de4c73-ce36-4bac-a275-8f3821fde88f" width=450/>
         
     
     **🤔 각각의 Test  케이스는 독립적인 역할을 해야하는데 원칙을 벗어나고 있음**
@@ -371,7 +370,7 @@ class MemberRepositoryTest {
     
     데이터 액세스 계층에 필요한 자동 구성을 활성화 하는 기능
     
-    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/c502b411-e61a-4007-8824-63d7fe8ab500" witdh=500/>
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/c502b411-e61a-4007-8824-63d7fe8ab500" width=400/>
     
     - @Transactional 을 가지고 있어 하나의 테스트 케이스 실행이 종료되는 시점에 데이터베이스에 저장된 데이터는 rollback 처리된다. → 자동으로 롤백됨.
 2. 테스트 대상 클래스인 `MemberRepository`를 DI 받는다.
