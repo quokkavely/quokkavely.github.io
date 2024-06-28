@@ -6,6 +6,13 @@ tag : [Spring, 개념, JPA, Testing]
 author_profile: true
 ---
 
+
+📌 개인적인 공간으로 공부를 기록하고 복습하기 위해 사용하는 블로그입니다. <br>
+정확하지 않은 정보가 있을 수 있으니 참고바랍니다 :😸 <br>
+[틀린 내용은 댓글로 남겨주시면 복받으실거에요]  
+{: .notice--primary}
+
+
 # Hamcrest
 
 ## Hamcrest를 사용하는 이유
@@ -115,71 +122,60 @@ author_profile: true
     - MockMvc로 테스트 대상 Controller의 핸들러 메서드에 요청을 전송하기 위해서는 기본적으로 `perform()` 메서드를 먼저 호출 해야 함. (아래  postMember( ) 예제의 then 부분 참고)
     - MockMvcRequestBuilders 클래스를 이용해서 빌더 패턴을 통해 request 정보를 채워 넣을 수 있다.
     - MockMvc의 `perform()` 메서드가 리턴하는 `ResultActions` 타입의 객체를 이용해서 request에 대한 검증을 수행 가능
+
+<Br/>
+
+### MemberCotroller 테스트 → **HTTP Post request에 대한 테스트**
+
+1. Gson 추가
+        
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/2af45685-2f83-4c75-9313-df975466c6a7" width=500/>
+        
+2. MemberDto 클래스
+        
+    기존 Dto클래스는 다 나눠져 있었는데  하나의 dto클래스에  post/patch/response를 이너클래스로  통합해서 만들어 놓음
+        
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/5a844426-8c7b-4b49-b2ea-209977b29c5c" width=500/>
+        
     
-    ### MemberCotroller 테스트 → **HTTP Post request에 대한 테스트**
-    
-    1. Gson 추가
+3.  MemberController의 postMember() 테스트
         
-        !<img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/2af45685-2f83-4c75-9313-df975466c6a7" width=500/>
+    ```java
+    package com.springboot.member.controller;
+    //...
+    ...import com.google.gson.Gson;
+    //...
         
-    2. MemberDto 클래스
+    @SpringBootTest
+    @AutoConfigureMockMvc
+    class MemberControllerTest {
+        @Autowired
+        private MockMvc mockMvc;
+        @Autowired
+        private Gson gson;
         
-        기존 Dto클래스는 다 나눠져 있었는데  하나의 dto클래스에  post/patch/response를 이너클래스로  통합해서 만들어 놓음
-        
-        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/5a844426-8c7b-4b49-b2ea-209977b29c5c" width=500/>
-        
-    
-    1.  MemberController의 postMember() 테스트
-        
-        ```java
-        package com.springboot.member.controller;
-        
-        import com.google.gson.Gson;
-        import com.springboot.member.dto.MemberDto;
-        import org.junit.jupiter.api.Test;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-        import org.springframework.boot.test.context.SpringBootTest;
-        import org.springframework.http.MediaType;
-        import org.springframework.test.web.servlet.MockMvc;
-        import org.springframework.test.web.servlet.ResultActions;
-        
-        import static org.hamcrest.Matchers.is;
-        import static org.hamcrest.Matchers.startsWith;
-        import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-        import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
-        import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-        
-        @SpringBootTest
-        @AutoConfigureMockMvc
-        class MemberControllerTest {
-            @Autowired
-            private MockMvc mockMvc;
-            @Autowired
-            private Gson gson;
-        
-            @Test
-            void postMemberTest() throws Exception {
-                //(1) given
-                MemberDto.Post post = new MemberDto.Post
-                        ("jerry@gmail.com", "박제리", "010-1111-1111");
-                String content = gson.toJson(post);
+        @Test
+        void postMemberTest() throws Exception {
+             //(1) given
+            MemberDto.Post post = new MemberDto.Post
+                    ("jerry@gmail.com", "박제리", "010-1111-1111");
+            String content = gson.toJson(post);
                 
-                //(2) when
-                //실제 api 요청을 보내는 것과 유사하게 테스트를 진행
-                ResultActions actions = mockMvc.perform(
-                      //(3)  
-        	              post("/v11/members")
-                                .accept(MediaType.APPLICATION_JSON) //응답은 JSON
-                                .contentType(MediaType.APPLICATION_JSON) 
-                                .content(content)
+            //(2) when
+            //실제 api 요청을 보내는 것과 유사하게 테스트를 진행
+            ResultActions actions = mockMvc.perform(
+            //(3)  
+        	        post("/v11/members")
+                        .accept(MediaType.APPLICATION_JSON) //응답은 JSON
+                        .contentType(MediaType.APPLICATION_JSON) 
+                        .content(content)
                 );
                 //then
-                actions.andExpect(status().isCreated())
-                        .andExpect(header().string("Location",is(startsWith("/v11/members/"))));
+            actions.andExpect(status().isCreated())
+                    .andExpect(header().string("Location",is(startsWith("/v11/members/"))));
             }
         }
-        ```
+    ```
         
     
     1️⃣ Given
@@ -223,75 +219,76 @@ author_profile: true
        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/01acd42b-980e-4c3a-bbf8-dacd249c0794" width=500/>
         
     
-    ### MemberCotroller 테스트 → **HTTP get request에 대한 테스트**
+### MemberCotroller 테스트 → **HTTP get request에 대한 테스트**
     
-    ```java
-        @Test
-        void getMemberTest() throws Exception {
+ ```java
+    @Test
+    void getMemberTest() throws Exception {
     	     
-    	     //Given , 앞서 작성했던 postMember()를 이용한 테스트 데이터 시작   
-            MemberDto.Post post = new MemberDto.Post("jerry@gmail.com","wpfl","010-5555-5555");
-            String content = gson.toJson(post);
-            ResultActions postActions=  mockMvc.perform(post("/v11/members")
-                    .accept(MediaType.APPLICATION_JSON)
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content(content));
+     //Given , 앞서 작성했던 postMember()를 이용한 테스트 데이터 시작   
+        MemberDto.Post post = new MemberDto.Post("jerry@gmail.com","wpfl","010-5555-5555");
+        String content = gson.toJson(post);
+        ResultActions postActions=  mockMvc.perform(post("/v11/members")
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(content));
     
-            postActions.andExpect(status().isCreated())
-                    .andExpect(header().string("Location", is(startsWith("/v11/members"))));
+        postActions.andExpect(status().isCreated())
+                .andExpect(header().string("Location", is(startsWith("/v11/members"))));
     
             
-            //"v11/member/1"
-            String location = postActions.andReturn().getResponse().getHeader("Location");
+        //"v11/member/1"
+        String location = postActions.andReturn().getResponse().getHeader("Location");
             
-            //when then
-            ResultActions response =  mockMvc.perform(get(location).accept(MediaType.APPLICATION_JSON));
-            response.andExpect(status().isOk())
-                    .andExpect(jsonPath("$.data.email").value(post.getEmail()))
-                    .andExpect(jsonPath("$.data.name").value(post.getName()))
-                    .andExpect(jsonPath("$.data.phone").value(post.getPhone()));
+        //when then
+        ResultActions response =  mockMvc.perform(get(location).accept(MediaType.APPLICATION_JSON));
+        response.andExpect(status().isOk())
+                .andExpect(jsonPath("$.data.email").value(post.getEmail()))
+                .andExpect(jsonPath("$.data.name").value(post.getName()))
+                .andExpect(jsonPath("$.data.phone").value(post.getPhone()));
     
-            //get 요청을 보내야한다 db에 값을 가져올 수 있는지
+        //get 요청을 보내야한다 db에 값을 가져올 수 있는지
     }}
-    ```
+
+```
     
-    1️⃣ **Given** 
+1️⃣ **Given** 
     
-    - postMember()와 동일한 코드, 테스트 데이터를 백엔드 서버 측의 데이터베이스에 먼저 저장
-    - `postActions.andReturn().getResponse().getHeader("Location")`로 접근해서 Location header의 값을 얻어 올 수 있음
+- postMember()와 동일한 코드, 테스트 데이터를 백엔드 서버 측의 데이터베이스에 먼저 저장
+- `postActions.andReturn().getResponse().getHeader("Location")`로 접근해서 Location header의 값을 얻어 올 수 있음
     
-    2️⃣ **When** 
+2️⃣ **When** 
     
-    - location header 값을 get의 URI로 전달
-    - Location header에서 얻게 되는 값이 given에서 등록한 회원정보의 위치를 의미 (`”/v11/members/1”`)
+- location header 값을 get의 URI로 전달
+- Location header에서 얻게 되는 값이 given에서 등록한 회원정보의 위치를 의미 (`”/v11/members/1”`)
     
-    3️⃣ **Then**
+3️⃣ **Then**
     
-    - 기대하는 Http statusrk 200 OK인지 검증
-    - jsonPath()메서드를 통해 response body(JSON 형식)의 각 프로퍼티로 응답받는 데이터가 response body로 전송한 값과 일치하는지 검증
+- 기대하는 Http statusrk 200 OK인지 검증
+- jsonPath()메서드를 통해 response body(JSON 형식)의 각 프로퍼티로 응답받는 데이터가 response body로 전송한 값과 일치하는지 검증
     
-    ✔️ 테스트 결과
+✔️ 테스트 결과
     
-    - 전부 테스트 하면 get만 통과함 왜냐면 post할 Member는 이미 존재하는 멤버이기 때문
+- 전부 테스트 하면 get만 통과함 왜냐면 post할 Member는 이미 존재하는 멤버이기 때문
         
-       <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/9b4c564f-8aa8-42e3-b6a9-5f5c16a96005" width=450/>
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/9b4c564f-8aa8-42e3-b6a9-5f5c16a96005" width=450/>
         
-        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/a00424c9-d114-4ab5-b86b-7a150a57624f" width=450/>
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/a00424c9-d114-4ab5-b86b-7a150a57624f" width=450/>
         
-    - @Transactional 추가시 모두 통과함. → 몇가지 문제가 있음.
+- @Transactional 추가시 모두 통과함. → 몇가지 문제가 있음.
         
-        <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/47de4c73-ce36-4bac-a275-8f3821fde88f" width=450/>
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/47de4c73-ce36-4bac-a275-8f3821fde88f" width=450/>
         
     
-    **🤔 각각의 Test  케이스는 독립적인 역할을 해야하는데 원칙을 벗어나고 있음**
+**🤔 각각의 Test  케이스는 독립적인 역할을 해야하는데 원칙을 벗어나고 있음**
     
-    - 슬라이스테스트는 독립적으 컨트롤러만을 테스트해야되는데 DB도 접근하고 있고, DB에 접근하려면 서비스도 거쳐야 함.
-    - controller service repository까지 모두 구현되어야 테스트 가능  (Timely 불가)
-    - 사실상 슬라이스테스트라기 보다 서블릿을 사용하지 않는 통합테스트라고 볼 수 있음
+- 슬라이스테스트는 독립적으 컨트롤러만을 테스트해야되는데 DB도 접근하고 있고, DB에 접근하려면 서비스도 거쳐야 함.
+- controller service repository까지 모두 구현되어야 테스트 가능  (Timely 불가)
+- 사실상 슬라이스테스트라기 보다 서블릿을 사용하지 않는 통합테스트라고 볼 수 있음
     
-    ✔️ 이러한 문제들은 **Mock(가짜) 객체를 사용해 계층 간의 연결을 끊어줌으로써 해결이 가능 →  다음에 배울 내용!**
+✔️ 이러한 문제들은 **Mock(가짜) 객체를 사용해 계층 간의 연결을 끊어줌으로써 해결이 가능 →  다음에 배울 내용!**
     
-    ✔️ `@AutoConfigureMockMvc` 말고 @webMvcTest 라는 것도 있는데 DI등 설정해줘야 할게 많아서 테스트 코드에는 사용하지 않음→ 문서화할 때 나중에 사용할 것.
+✔️ `@AutoConfigureMockMvc` 말고 @webMvcTest 라는 것도 있는데 DI등 설정해줘야 할게 많아서 테스트 코드에는 사용하지 않음→ 문서화할 때 나중에 사용할 것.
     
    
 
