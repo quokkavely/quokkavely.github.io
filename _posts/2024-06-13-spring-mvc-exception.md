@@ -30,7 +30,8 @@ author_profile: true
 
 ```
 
-- MethodArgumentNotValidException은  request를 잘못 했을 때 발생 (필드 누락이나 바디가 형식에 맞지 않거나 유효성 검증 조건에 맞지 않으면 발생할 수 있음.)
+- <span style="color:OrangeRed">**MethodArgumentNotValidException**</span>은  request를 잘못 했을 때 발생 (필드 누락이나 바디가 형식에 맞지 않거나 유효성 검증 조건에 맞지 않으면 발생할 수 있음.)
+    
     - 예를 들어, DTO클래스에서 `*@NotSpace*(message = "커피명(한글)은 공백이 아니어야 합니다.")` 를 name위에 적용하고 Controller에 @Valid를 적용했는는데 postman에서 postman에서 Request body에 attruibute에 blank 작성 하고  요청했을 경우에  발생할 수 있다.
 - 매개인자로 들어온 `MethodArgumentNotValidException` 객체에서 `getBindingResult().getFieldErrors()`를 통해 발생한 에러 정보를 확인 가능
 - List<<FieldError>>fieldErrros에서 FieldError는?? 저런 클래스를 작성한 것이 없는데..! 찾아보니
@@ -46,7 +47,7 @@ author_profile: true
 - 위에서 확인한 정보를 `ResponseEntity`를 통해 Response Body로 전달
 - postman을 이용해 body를 잘못 입력 후 post요청하면 하기와 같이 메세지가 뜬다.
   
-    ![Untitled](%5Bspring%20MVC%5D%20Exception(@RestControllerAdvice,@Exce%2045ac29926691473b902e4cb2c5e369ba/Untitled.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/83721171-17e4-42d4-b64a-25d85ebb8268" width=300/>
     
 - 위의 메세지는 너무 길고 필요 없는 데이터가 많음
 
@@ -236,23 +237,26 @@ public class ErrorResponse {
 
 1. 우선 ErrorResponse는 Exception을 관리하는 클래스라고 볼 수 있고 더 등록할 예외가 있으면 여기에  추가해야함.
 2. (1) 과 (2)의 인스턴스변수는 각각 static Member class(FieldError와 ConstraintViolationError) 객체의 List를 참조.
-    - (1) 은 `MethodArgumentNotValidException`으로부터 발생하는 에러 정보를 담는 멤버 변수, 즉 DTO 멤버 변수 필드의 유효성 검증 실패로 발생한 에러정보를 담음.
+    - (1) 은 **`MethodArgumentNotValidException`**으로부터 발생하는 에러 정보를 담는 멤버 변수, 즉 DTO 멤버 변수 필드의 유효성 검증 실패로 발생한 에러정보를 담음.
     - (2)는 `ConstraintViolationException`으로부터 발생하는 에러 정보를 담는 멤버 변수이고 URI 변수 값의 유효성 검증에 실패로 발생한 에러정보를 담음
 3. (3)은 ErrorResponse의 생성자인데 private가 붙어 다른 곳에서는 호출이 불가능하고 해당 클래스 내에서만 사용 가능 (=캡슐화), 외부에서 new로 객체 생성할 수 없음
 4. (4)와 (5)는 메서드 오버로딩에 해당됨 (메서드 오버로딩은 메서드명이 같고 매개변수의 타입이 다르다)
-5. (4)에서 of()는 메서드 이름이며 ErrorResponse의 객체를 생성함.,  bindingResult 가 들어오면 (3)을 실행하고 ErrorResponse로 반환됨.
-6. BindingResult 는 스프링에서 제공하는 유효성검사 정보를 담는 객체이다. BindingResult 객체를 가지고 에러 정보를 추출하고 가공하는 일은 ErrorResponse 클래스의 static 멤버 클래스인 **FieldError 클래스에게 위임**
-7. (5)에서는 of메서드에  Set<ConstraintViolation<?>>violations 가 매개변수로 들어가면 (3)을 실행하고 ErrorResponse로 반환됨, 
-8.  ConstrainViolation<?>violations의 ?는 제네릭의 와일드카드로 다양한 타입에 대한 유효성검사를 진행하기 위함.
-9. Set을 사용한 이유는 중복방지와 빠른 조회가 가능하기 때문, Set<ConstraintViolation<?>> 객체를 가지고 에러 정보를 추출하고 가공하는 일은 **ConstraintViolationError 클래스에게 위임**
+5. (4)에서 of()는 메서드 이름이며 ErrorResponse의 객체를 생성함.,  bindingResult 가 들어오면 (3)을 실행하고 **ErrorResponse**로 반환됨.
+6. <u>**BindingResult** 는 스프링에서 제공하는 유효성검사 정보를 담는 객체</u>이다. BindingResult 객체를 가지고 에러 정보를 추출하고 가공하는 일은 **ErrorResponse** 클래스의 static 멤버 클래스인 **FieldError 클래스에게 위임**
+7. (5)에서는 of메서드에  **Set<ConstraintViolation<?>>violations** 가 매개변수로 들어가면 (3)을 실행하고 **ErrorResponse**로 반환됨, 
+8.  ConstrainViolation<?>violations의 **?**는 제네릭의 와일드카드로 다양한 타입에 대한 유효성검사를 진행하기 위함.
+9. Set을 사용한 이유는 중복방지와 빠른 조회가 가능하기 때문, **Set<ConstraintViolation<?>>** 객체를 가지고 에러 정보를 추출하고 가공하는 일은 **ConstraintViolationError 클래스에게 위임**
 10. (6)의 FieldError 클래스는  ErrorReponse의 static Member 클래스에 해당하고
 11. FieldError의 of메서드는 BindingResult에서 필드 에러들을 추출하여 FieldError객체로 변환하고 List로 반환
 12. (7)의 ConstraintViolationError는 ErrorReponse의 static Member 클래스에 해당하고 
 13. ConstraintViolationError의 of메서드는 constraintViolation(유효성검사에서 발생한 위반사항을 모아둔 집합)을 ConstraintViolationError객체로 변환하고 리스트로 반환함.
 
 > ConstrainViolation, BindingResult, FieldError 뭐가 다른지 잘 이해가 안가서 비교해봄.  
-전부 유효성 검사 결과를 담는 객체인 것 같은데….다른 역할을 한다고 함.
-> 
+> 전부 유효성 검사 결과를 담는 객체인 것 같은데….다른 역할을 한다고 함.
+>
+> <span style="color:OrangeRed">**`MethodArgumentNotValidException`**</span> @Valid 애너테이션이 달린 메서드 파라미터에 대한 검증에 실패했을 경우 생기는 예외 ( BindExcpetion을 상속받음) https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/bind/MethodArgumentNotValidException.html
+>
+> <span style="color:OrangeRed">**`ConstraintViolationException`**</span> 데이터베이스의 무결성 제약 조건이 위반될 때 발생하는 예외입니다. 이를 적절히 처리하기 위해서는 예외를 잡아 롤백하고 사용자에게 알맞은 메시지를 제공하거나 로그를 남기는 등의 조치가 필요 https://docs.oracle.com/javaee/7/api/javax/validation/ConstraintViolationException.html
 
 |  | ConstrainViolation | BindingResult | FieldError |
 | --- | --- | --- | --- |
@@ -262,6 +266,8 @@ public class ErrorResponse {
 |  | 유효성 검사가 실패한 값 (getInvalidValue()). | 특정 필드의 오류 여부 (hasFieldErrors()). | 오류 메시지 (getDefaultMessage()). |
 |  | 위반된 제약 조건의 메시지 (getMessage()). | 전체 오류 여부 (hasErrors()). | 거부된 값 (getRejectedValue()). |
 |  | 유효성 검사가 실패한 속성 경로 (getPropertyPath()). |  |  |
+
+
 
 ### 4. **Exception 핸들러 메서드 수정(**GlobalExceptionAdvice)
 
@@ -322,6 +328,7 @@ reponse클래스의 static Member class 라고 하네!<br/>
 <br/>
 <br/>
         
+
 <div class="notice" markdown="1">
 🍒 `공지` 
 <h4> - <u>정보 공유가 아닌 개인이 공부하고 기록하기 복습하기 위한 용도입니다.</u></h4>
