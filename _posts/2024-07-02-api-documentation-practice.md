@@ -48,13 +48,18 @@ author_profile: true
 
 <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/c09aa3b3-a8a6-4ce4-9c0c-01a66c8ef219">
 
-- 처음에는 index 넣으려다가 찾아보니까 data는 배열형태이고 이 배열 안에 요소를 가져얼 때는 data[ ]로 가져올 수 있다. 이건 문서화 할 때 문법이라고 생각하면 된다. 배열 안에 객체의 요소를 가져올 때 사용!
+1. Page<Member> members 도 Mockito에 빈 객체로 넣고 싶었는데 찾지 못해서 원래대로 new PageImpl<>로 생성함.
+- 이렇게 하면 되려나 하고  willReturn에 new PageImpl<>(List.of())  를 넣어봤는데 테스트 통과!
+   
+2. ResponseField 부분 ➡️ 처음에는 index 넣으려다가 찾아보니까 data는 배열형태이고<br/> 이 배열 안에 요소를 가져얼 때는 data[ ]로 가져올 수 있다.<br/> 이건 문서화 할 때 문법이라고 생각하면 된다.<Br/> 배열 안에 객체의 요소를 가져올 때 사용!
 
-1. 오류 발생 
+3. 오류 발생 
     
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/47c635b5-7c91-4b82-a423-1eb6d309e7e7">
     
     - pageInfo를 문서화할 때 하나하나 다 넣어주어야 하는데 넣지 않아서 생기는 오류
+    - 몰라서 page를 잘못 입력했나 했는데 docs에서 문제가 생긴 것은 맞아서 계속 찾아봤더니,
+    문서화 할 때는 사전 처럼 모든 정보가 다 들어있어야 한다고 한다! 
 
 ### 문서 스니펫을 웹 브라우저로 확인
 
@@ -76,3 +81,16 @@ author_profile: true
     
 4. 완성
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/784cf966-fcd8-4f93-b901-9f1c796e6a22" width=400>
+
+<Br/>
+<br/>
+<br/>
+
+### Comment
+
+이전에 testing 코드를 몇번 짜서 그런지 저번보다는 크게 어렵지 않게 구현 해낸 것 같다.
+(물론 조금 오래 걸리긴 했지만..)
+이보다 더 복잡한 코드라면 얘기가 좀 달라지겠지만, 문서화 하는 것에 있어서는 
+그래도 뭔가 할 수 있다는 자신감이 생긴 것 같다...
+뭔가 금방 금방 해결했던 코드들이라 딱히 어려움을 겪지 못해서
+다른 과제보다 부연 설명이 없는 편인데 다음엔 아무런 코드 없이도 금방 구현해 낼 수 있으면 좋겠다.. 
