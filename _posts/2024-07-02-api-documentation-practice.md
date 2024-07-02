@@ -49,7 +49,8 @@ author_profile: true
 <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/c09aa3b3-a8a6-4ce4-9c0c-01a66c8ef219">
 
 1. Page<Member> members 도 Mockito에 빈 객체로 넣고 싶었는데 찾지 못해서 원래대로 new PageImpl<>로 생성함.
-- 이렇게 하면 되려나 하고  willReturn에 new PageImpl<>(List.of())  를 넣어봤는데 테스트 통과!
+    - 이렇게 하면 되려나 하고  willReturn에 new PageImpl<>(List.of())  를 넣어봤는데 테스트 통과!
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/8bb7f3fa-cd76-4698-bbdb-fced070c0bce">
    
 2. ResponseField 부분 ➡️ 처음에는 index 넣으려다가 찾아보니까 data는 배열형태이고<br/> 이 배열 안에 요소를 가져얼 때는 data[ ]로 가져올 수 있다.<br/> 이건 문서화 할 때 문법이라고 생각하면 된다.<Br/> 배열 안에 객체의 요소를 가져올 때 사용!
 
@@ -63,23 +64,23 @@ author_profile: true
 
 ### 문서 스니펫을 웹 브라우저로 확인
 
-1. src-docs-asciidoc에 index.adoc 생성
+1. **src-docs-asciidoc에 index.adoc 생성**
     
    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/b6794c7c-17dd-4686-93a0-ccaf329e18d2">
     
 
-1. Testing 코드에서 and Do(Document ~ 로 생성된 파일을 index.adoc에 넣어준다.
+1. **Testing 코드에서 and Do(Document ~ 로 생성된 파일을 index.adoc에 넣어준다.**
     
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/ce8cb04f-fd21-4266-8564-ebaa2c17a72b" width=300>
     
-2. index.adoc → 템플릿 문서에 내용 추가
+2. **index.adoc → 템플릿 문서에 내용 추가**
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/1776a92a-e818-4fac-98a4-c60262f6f2eb" width=400>
     
-3.  `:build` 또는 `:bootJar` task 명령을 실행해서 `index.adoc` 파일을 `index.html` 파일로 변환
+3.  **`:build` 또는 `:bootJar` task 명령을 실행해서 `index.adoc` 파일을 `index.html` 파일로 변환**
     
     <img scr="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/dbd4fa65-beca-474b-bf3f-4ba74c0adf8a" width=400>
     
-4. 완성
+4. **완성**
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/784cf966-fcd8-4f93-b901-9f1c796e6a22" width=400>
 
 <Br/>
