@@ -66,7 +66,7 @@ author_profile: true
 
 1. **src-docs-asciidoc에 index.adoc 생성** <Br/>
     
-   <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/b6794c7c-17dd-4686-93a0-ccaf329e18d2">
+   <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/b6794c7c-17dd-4686-93a0-ccaf329e18d2" width=300>
 
 
 2. **Testing 코드에서 and Do(Document ~ 로 생성된 파일을 index.adoc에 넣어준다.** <Br/>
