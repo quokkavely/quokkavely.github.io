@@ -64,23 +64,25 @@ author_profile: true
 
 ### 문서 스니펫을 웹 브라우저로 확인
 
-1. **src-docs-asciidoc에 index.adoc 생성**
+1. **src-docs-asciidoc에 index.adoc 생성** <Br/>
     
    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/b6794c7c-17dd-4686-93a0-ccaf329e18d2">
-    
 
-1. **Testing 코드에서 and Do(Document ~ 로 생성된 파일을 index.adoc에 넣어준다.**
+
+2. **Testing 코드에서 and Do(Document ~ 로 생성된 파일을 index.adoc에 넣어준다.** <Br/>
     
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/ce8cb04f-fd21-4266-8564-ebaa2c17a72b" width=300>
     
-2. **index.adoc → 템플릿 문서에 내용 추가**
+3. **index.adoc → 템플릿 문서에 내용 추가** <Br/>
+
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/1776a92a-e818-4fac-98a4-c60262f6f2eb" width=400>
     
-3.  **`:build` 또는 `:bootJar` task 명령을 실행해서 `index.adoc` 파일을 `index.html` 파일로 변환**
-    
+4.  **`:build` 또는 `:bootJar` task 명령을 실행해서 `index.adoc` 파일을 `index.html` 파일로 변환**<Br/>
+
     <img scr="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/dbd4fa65-beca-474b-bf3f-4ba74c0adf8a" width=400>
     
-4. **완성**
+5. **완성** <br/>
+
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/784cf966-fcd8-4f93-b901-9f1c796e6a22" width=400>
 
 <Br/>
