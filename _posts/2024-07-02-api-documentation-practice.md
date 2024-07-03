@@ -48,7 +48,7 @@ author_profile: true
 
 <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/c09aa3b3-a8a6-4ce4-9c0c-01a66c8ef219">
 
-1. **Page<Member> members** 도 Mockito에 빈 객체로 넣고 싶었는데 찾지 못해서 원래대로 new PageImpl<>로 생성함.
+1. Page<Member> members 도 Mockito에 빈 객체로 넣고 싶었는데 찾지 못해서 원래대로 new PageImpl<>로 생성함.
     - 이렇게 하면 되려나 하고  willReturn에 new PageImpl<>(List.of())  를 넣어봤는데 테스트 통과!
     <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/8bb7f3fa-cd76-4698-bbdb-fced070c0bce">
    
