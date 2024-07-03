@@ -54,9 +54,9 @@ author_profile: true
    
 2. **ResponseField 부분** ➡️ 처음에는 index 넣으려다가 찾아보니까 data는 배열형태이고<br/> 이 배열 안에 요소를 가져얼 때는 data[ ]로 가져올 수 있다.<br/> 이건 문서화 할 때 문법이라고 생각하면 된다.<Br/> 배열 안에 객체의 요소를 가져올 때 사용!
 
-3. 오류 발생 : SnippetException
+3. **오류 발생 : SnippetException**
     
-    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/47c635b5-7c91-4b82-a423-1eb6d309e7e7">
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/47c635b5-7c91-4b82-a423-1eb6d309e7e7" width=300>
     
     - pageInfo를 문서화할 때 하나하나 다 넣어주어야 하는데 넣지 않아서 생기는 오류
     - 몰라서 page를 잘못 입력했나 했는데 docs에서 문제가 생긴 것은 맞아서 계속 찾아봤더니,
