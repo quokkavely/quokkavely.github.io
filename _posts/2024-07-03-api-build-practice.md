@@ -18,27 +18,27 @@ author_profile: true
 
 1. **MySQL 로그인 후 database 생성 → example**
     
-    ![Untitled](240702%20cfa3508f0ea4411b9a6099c675cedc59/Untitled%204.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/b7c8ef1a-0e9d-49f3-90e8-ff365d2c9f1b" width=200 >
     
 2. **Build.gradle에 의존성 추가**
     
-    ![Untitled](240702%20cfa3508f0ea4411b9a6099c675cedc59/Untitled%205.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/b5348ca5-f095-4caf-9b11-596218ed7036" width=200>
     
 3. **application-server.yml 파일 작성 - datasorce 부분 추가**
     
-    ![Untitled](240702%20cfa3508f0ea4411b9a6099c675cedc59/Untitled%206.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/2cd2cd13-5dc7-45ed-979b-c93491d94f55" width=400>
     
 4. **profile 설정**
     
-    ![Untitled](240702%20cfa3508f0ea4411b9a6099c675cedc59/Untitled%207.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/8f4ccafa-a6f9-4877-bd86-e995eee3f4f8" width=400>
     
 5. **에러 발생**
     
-    ![Untitled](240702%20cfa3508f0ea4411b9a6099c675cedc59/Untitled%208.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/bc3a746a-c305-4761-92a9-40b168203160">
     
     - 아무리 시도해도 안되고 에러메세지도 이게 다 인가? 하고 계속 원인 찾다가 위로 올려 봤더니 비밀번호에서 에러가 났다.
     
-    ![Untitled](240702%20cfa3508f0ea4411b9a6099c675cedc59/Untitled%209.png)
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/cbec7c42-f819-4d56-bd71-f7cee5b8a5b9">
     
     - sql에서는 로그인 잘하고 DB도 새로 만들었는데 왜 자꾸 비밀번호에서 안되나 했더니 첫번째 문자가 특수문자로 되어있는데 여기서 문자열로 인식을 못한다고 함…! 그래서 “”로 감싸주어야 한다.
 
