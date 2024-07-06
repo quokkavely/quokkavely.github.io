@@ -38,7 +38,7 @@ author_profile: true
     
     - 아무리 시도해도 안되고 에러메세지도 이게 다 인가? 하고 계속 원인 찾다가 위로 올려 봤더니 비밀번호에서 에러가 났다.
     
-    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/cbec7c42-f819-4d56-bd71-f7cee5b8a5b9">
+    <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/aea17c04-8743-47dc-b801-79e132e49668"witdh=400/>
     
     - sql에서는 로그인 잘하고 DB도 새로 만들었는데 왜 자꾸 비밀번호에서 안되나 했더니 첫번째 문자가 특수문자로 되어있는데 여기서 문자열로 인식을 못한다고 함…! 그래서 “”로 감싸주어야 한다.
 
