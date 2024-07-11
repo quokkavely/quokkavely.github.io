@@ -86,7 +86,7 @@
         <span class="nav__sub-title">CodingTest</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "CodingTest" %}
+                    {% if category[0] == "Programmers" %}
                         <li><a href="/categories/Programmers" class="">Programmers({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
