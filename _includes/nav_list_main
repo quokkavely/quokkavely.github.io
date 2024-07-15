@@ -77,8 +77,8 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "Security" %}
-                        <li><a href="/categories/Security" class="">Security({{category[1].size}})</a></li>
+                    {% if category[0] == "security" %}
+                        <li><a href="/categories/security" class="">Security({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
@@ -93,7 +93,7 @@
             <ul>
                 {% for category in site.categories %}
                     {% if category[0] == "aws" %}
-                        <li><a href="/categories/aws" class="">aws({{category[1].size}})</a></li>
+                        <li><a href="/categories/aws" class="">AWS({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
