@@ -6,6 +6,12 @@ tag : [CodingTest, 개념, java]
 author_profile: true
 ---
 
+📌 개인적인 공간으로 공부를 기록하고 복습하기 위해 사용하는 블로그입니다. <br>
+정확하지 않은 정보가 있을 수 있으니 참고바랍니다 :😸 <br>
+[틀린 내용은 댓글로 남겨주시면 복받으실거에요]  
+{: .notice--primary}
+
+
 ### StringBuilder
 
 프로그래머스에서 문제 풀다가 지난 번 StringBuilder를 많이 사용하길래
