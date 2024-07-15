@@ -1,5 +1,5 @@
 ---
-title: "Security"
+title: "Spring"
 layout: archive
 permalink: categories/Security
 author_profile: true

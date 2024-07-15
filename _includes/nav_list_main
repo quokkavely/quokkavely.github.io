@@ -92,8 +92,8 @@
             </ul>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "AWS" %}
-                        <li><a href="/categories/AWS" class="">AWS({{category[1].size}})</a></li>
+                    {% if category[0] == "aws" %}
+                        <li><a href="/categories/aws" class="">aws({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
