@@ -1,4 +1,11 @@
-# 제목 없음
+---
+layout : single
+title : "aws로 deploy 실습"
+categories: cloud
+tag : [AWS, Practice, cloud]
+author_profile: true
+---
+
 
 # 배포 실습
 
