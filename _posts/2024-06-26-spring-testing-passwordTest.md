@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[Spring]JUnit 활용한 Test Case 작성"
-categories: Practice
+categories: Spring
 tag : [Spring, 실습, JPA, Testing]
 author_profile: true
 ---

@@ -1,7 +1,7 @@
 ---
-title: "Practice"
+title: "Project"
 layout: archive
-permalink: categories/Practice
+permalink: categories/Project
 author_profile: true
 sidebar_main: true
 ---
@@ -10,5 +10,5 @@ sidebar_main: true
 
 ***
 
-{% assign posts = site.categories.Practice %}
+{% assign posts = site.categories.Project %}
 {% for post in posts %} {% include archive-single1.html type=page.entries_layout %} {% endfor %}
