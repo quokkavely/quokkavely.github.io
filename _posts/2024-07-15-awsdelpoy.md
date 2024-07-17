@@ -1,4 +1,4 @@
----
+<!-- ---
 layout : single
 title : "[aws] deploy 실습"
 categories: cloud
@@ -190,4 +190,4 @@ EC2의 퍼블릭IPv4 복사 후  > 주소+ :8080 으로 요청하면 된다.
         
         <img src="https://github.com/user-attachments/assets/08632d29-c787-47b1-99de-4fdffb5708f7"/>
         
-        <img src="https://github.com/user-attachments/assets/8fc223e6-1ceb-4904-9440-b6d12eb1e01a"/>
+        <img src="https://github.com/user-attachments/assets/8fc223e6-1ceb-4904-9440-b6d12eb1e01a"/> -->
