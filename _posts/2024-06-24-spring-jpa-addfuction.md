@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[JPA] 영속성 전이,연관관계 매핑(일관성)"
-categories: Practice
+categories: Spring
 tag : [Spring, 실습, JPA]
 author_profile: true
 ---
