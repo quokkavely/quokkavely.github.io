@@ -2,7 +2,7 @@
 layout : single
 title : "[Security] Spring Security-Flow"
 categories: Spring
-tag : [Spring, Practice, Security]
+tag : [Spring, Security]
 author_profile: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[Spring MVC] controller handlerMethod 실습"
-categories: Practice
+categories: MVC
 tag : [MVC,실습,Spring]
 author_profile: true
 ---

@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[MVC] API 문서화 실습"
-categories: Practice
+categories: Spring
 tag : [Spring, 실습, Testing, 문서화]
 author_profile: true
 ---

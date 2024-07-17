@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[Spring] UnitTest"
-categories: Practice
+categories: Spring
 tag : [Spring, 실습, JPA, Transaction]
 author_profile: true
 ---

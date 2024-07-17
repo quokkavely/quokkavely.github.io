@@ -1,8 +1,8 @@
 ---
 layout : single
 title : "[MVC] 애플리케이션 빌드/실행/배포 실습"
-categories: Practice
-tag : [Spring, Practice, JPA]
+categories: Spring
+tag : [Spring, 실습, JPA]
 author_profile: true
 ---
 

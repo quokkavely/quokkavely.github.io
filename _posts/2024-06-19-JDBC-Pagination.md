@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[JDBC] Pagination 실습"
-categories: Practice
+categories: Spring
 tag : [Spring, 실습,JBC]
 author_profile: true
 ---
