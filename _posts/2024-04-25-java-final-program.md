@@ -254,7 +254,7 @@ author_profile: true
         def라는 가게는 생성되었으나 비어있는 arraylist를 가지고 있음 <Br/>
         -> 그래서 다시 aaa를 추가했더니 등록된 메뉴라는 말도 안뜨고 정상적으로 추가됨
         <br/>
-        그래서 추가로 def에 bbb라는 메뉴를 추가했고 정상처리가 되었다.
+        그래서 추가로 def에 bbb라는 메뉴를 추가했고 정상처리가 되었다.<br/>
         결국 1번째 메뉴는 다른 shop에 등록되고, 2번째와 3번째 메뉴는 정상등록됨
         <Br/> 
 
@@ -292,10 +292,10 @@ author_profile: true
         
         >이유  orders  초기화 하는 거 깜 박 함…!
         
-        <img src="https://github.com/user-attachments/assets/ca3bd28d-41fe-476c-8e5a-f1f77c48b7ac" witdh =400/>
+        <img src="https://github.com/user-attachments/assets/ca3bd28d-41fe-476c-8e5a-f1f77c48b7ac" witdh =200/>
         
 2. Reference와 나의 차이점 
-    1. Arraylist를 초기화 할 때 강사님 : 필드에 VS 나 : 생성자
+    1. Arraylist를 초기화 할 때 Reference : 필드에서 초기화 VS 나 : 생성자
         1. 둘 다 객체를 생성해도 동일한 초기값을 가짐
         2. 필드에서 할 경우
             1. 모든 생성자에서 동일한 초기값을 사용하게 됨
