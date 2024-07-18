@@ -19,7 +19,7 @@ author_profile: true
 
 관련문서 : [https://docs.oracle.com/javase/tutorial/java/data/buffers.html](https://docs.oracle.com/javase/tutorial/java/data/buffers.html)
 
-1. **import** java.lang.StringBuilder;  ⇒ import 선언 필요
+1. java.lang.StringBuilder; 
 2. 예제 및 설명 포함
     
     ```java
