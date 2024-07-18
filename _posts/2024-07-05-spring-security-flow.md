@@ -283,8 +283,7 @@ public class UsernamePasswordAuthenticationToken extends AbstractAuthenticationT
 
 ```
 
-- UsernamePasswordAuthenticationToken은 ****AbstractAuthenticationToken을 상속하는 확장클래스이자,  Authentication 인터페이스의 메서드 일부를 구현하는 구현 클래스이다.
-****
+- UsernamePasswordAuthenticationToken은 **AbstractAuthenticationToken을 상속하는 확장클래스이자,  Authentication 인터페이스의 메서드 일부를 구현하는 구현 클래스이다.**
 
 ### Authentication
 
@@ -303,17 +302,16 @@ public interface Authentication extends Principal, Serializable {
 ```
 
 - **Principal**
-    - `Principal`은 사용자를 식별하는 고유 정보입니다.
+    - `Principal`은 사용자를 식별하는 고유 정보
     
-    일반적으로 Username/Password 기반 인증에서 `Username`이 Principal이 되며, 다른 인증 방식에서는  `UserDetails`가 Principal이 됩니다.
-    
-    UserDetails에 대해서는 뒤에서 다시 알아보겠습니다.
+    일반적으로 Username/Password 기반 인증에서 `Username`이 Principal이 되며, 다른 인증 방식에서는  `UserDetails`가 Principal이 된다
+
     
 - **Credentials**
-    - 사용자 인증에 필요한 Password를 의미하며 인증이 이루어지고 난 직후, `ProviderManager`**가 해당 Credentials를 삭제합니다.**
+    - 사용자 인증에 필요한 Password를 의미하며 인증이 이루어지고 난 직후, `ProviderManager`**가 해당 Credentials를 삭제한다.**
 - **Authorities**
-    - `AuthenticationProvider`에 의해 부여된 사용자의 접근 권한 목록입니다.
-    일반적으로 `GrantedAuthority` 인터페이스의 구현 클래스는 `SimpleGrantedAuthority`입니다.
+    - `AuthenticationProvider`에 의해 부여된 사용자의 접근 권한 목록이다.
+    일반적으로 `GrantedAuthority` 인터페이스의 구현 클래스는 `SimpleGrantedAuthority`
 
 ### AuthenticationManager
 
@@ -533,7 +531,7 @@ public interface UserDetailsService {
 
 `SecurityContext`는 인증된 Authentication 객체를 저장하는 컴포넌트이고,  `SecurityContextHolder`는 SecurityContext를 관리하는 역할을 담당
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/8e9220df-02f1-4823-813e-f8e3fb085343/Untitled.png)
+<img src="https://github.com/user-attachments/assets/93207d07-62cd-4d9f-91b3-6272bb7f5fb8" width=500/>
 
 - `SecurityContextHolder`를 통해 인증된 Authentication을 SecurityContext에 설정할 수 있고 또한 `SecurityContextHolder`를 통해 인증된 Authentication 객체에 접근할 수 있다는 것을 의미
 - ⭐ Spring Security 입장에서는 SecurityContextHolder에 의해 **SecurityContext에 값이 채워져 있다면 인증된 사용자로 간주**
@@ -575,26 +573,26 @@ public class SecurityContextHolder {
 
 <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/b75a718b-2e16-4cb8-8097-3be2fee83f87"/>
 
-- (1)에서 사용자가 로그인 폼 등을 이용해 Username(로그인 ID)과 Password를 포함한 request를 Spring Security가 적용된 애플리케이션에 전송
+- (1)에서 사용자가 로그인을 하면 Spring Security가 적용된 애플리케이션에 Username(로그인 ID)과 Password를 포함한 request가 전송된다.
 - 사용자의 로그인 요청이 Spring Security의 Filter Chain까지 들어오면 여러 Filter들 중에서 `UsernamePasswordAuthenticationFilter`가 해당 요청을 전달받는다.
-    - 사용자의 로그인 요청을 처리하는 Spring Security Filter는 UsernamePasswordAuthenticationFilter
+    - 사용자의 로그인 요청을 처리하는 Spring Security Filter는 UsernamePasswordAuthenticationFilter 이다.
 - spring Security에서의 실질적인 인증 처리는 지금부터 시작
 - 로그인 요청을 전달받은 UsernamePasswordAuthenticationFilter는 Username과 Password를 이용해 (2)와 같이 `UsernamePasswordAuthenticationToken`을 생성
     - UsernamePasswordAuthenticationToken은 Authentication 인터페이스를 구현한 구현 클래스이며, 여기에서 Authentication은 ⭐ **`아직 인증이 되지 않은 Authentication`이다.**
 - 아직 인증되지 않은 Authentication을 가지고 있는 **UsernamePasswordAuthenticationFilter**는 (3)과 같이 해당 **Authentication**을 AuthenticationManager에게 전달
-- AuthenticationManager는 인증 처리를 총괄하는 매니저 역할을 하는 인터페이스이고, AuthenticationManager를 구현한 구현 클래스가 바로 ProviderManager 이다. 즉, `ProviderManager가 **인증이라는 작업을 총괄하는 실질적인 매니저**`인 것
+- AuthenticationManager는 인증 처리를 총괄하는 매니저 역할을 하는 인터페이스이고, AuthenticationManager를 구현한 구현 클래스가 바로 ProviderManager 이다. 즉, `ProviderManager가 **인증이라는 작업을 총괄하는 실질적인 매니저**인 것
 - (4)와 같이 `ProviderManager`로부터 **Authentication**을 전달받은 `AuthenticationProvider`는 (5)와 같이 `UserDetailsService`를 이용해 `UserDetails`를 조회
     - `UserDetails`는 **데이터베이스 등의 저장소에 저장된 사용자의 Username과 사용자의 자격을 증명해 주는 `크리덴셜(Credential)`인 Password, 그리고 사용자의 권한 정보를 포함하고 있는 컴포넌트**
 - `UserDetailsService`는 (5)에서 처럼 데이터베이스 등의 저장소에서 사용자의 크리덴셜(Credential)을 포함한 사용자의 정보를 조회
 - 데이터베이스 등의 저장소에서 조회한 사용자의 크리덴셜(Credential)을 포함한 사용자의 정보를 기반으로 (7)과 같이 `UserDetails`를 생성한 후, 생성된 `UserDetails`를 다시 `AuthenticationProvider`에게 전달
 - **UserDetails**를 전달받은 `AuthenticationProvider`는 **PasswordEncoder**를 이용해 `UserDetails`에 포함된 **암호화된 Password**와 **인증을 위한** `Authentication`**안에 포함된 Password**가 일치하는지 검증
-    - 검증에 성공하면 **UserDetails를 이용해 인증된 Authentication을 생성**합니다(9).
-    - 만약 검증에 성공하지 못하면 Exception을 발생시키고 인증 처리를 중단합니다
-- `AuthenticationProvider`는 **인증된 Authentication을** `ProviderManager`에게 전달합니다(10).
+    - 검증에 성공(9) → **인증된 Authentication을 생성** (UserDetails를 통해).
+    - 실패 → Exception을 발생시키고 인증 처리를 중단
+- `AuthenticationProvider`는 **인증된 Authentication을** `ProviderManager`에게 전달(10).
     - (2)에서의 `Authentication`은 **인증을 위해 필요한 사용자의 로그인 정보**
     - `ProviderManager`에게 전달한  **Authentication**은 **인증에 성공한 사용자의 정보**
 - **Authentication**을 전달받은 **UsernamePasswordAuthenticationFilter**는 마지막으로 (12)와 같이 `SecurityContextHolder`를 이용해 `SecurityContext`에 **인증된 Authentication**을 저장
-- ⭐ 그리고 SecurityContext는 이후에 Spring Security의 세션 정책에 따라서 HttpSession에 저장되어 사용자의 인증 상태를 유지하기도 하고, HttpSession을 생성하지 않고 무상태를 유지하기도 함
+- ⭐ 그리고 SecurityContext는 이후에 Spring Security의 세션 정책에 따라서 HttpSession에 저장되어 사용자의 인증 상태를 유지하기도 하고, HttpSession을 생성하지 않고 무상태를 유지하기도 한다.
 
 <br/>
 
