@@ -48,20 +48,22 @@ author_profile: true
         4. 동일shop인지 검증할때 빈배열이면 null밖에 존재하지 않으니 null도 함께 검증해야한다
         5. 그래서 결국엔 null인지 먼저 검증 후 shop이 일치하는지 여부를 찾거나 이미 등록된 shop인지 검증하는 메서드에서 null값을 걸러내야하는데, 그것보단 전자가 나을 것 같다.!
         
-        ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled.png)
+        <img src="https://github.com/user-attachments/assets/ab12612c-b015-4eb1-9943-04707437f363" width=500 />
+        
         
 
 1. **안되는 부분 -2 /1번과 내용 비슷**
     1. isValidShop에서 for문 돌때 shop.length 사용 안하고  길이 따로 넣는 이유
         
-        ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled%201.png)
-        
+        <img src="https://github.com/user-attachments/assets/56b24131-4933-4dd9-adb0-66ed4a584703" width=500/>
+   
+
+
     2. 등록된 가게가 있는지 찾을때 사용하는 메서드인데 등록된 가게만큼만 돌게 해야된다.
     3. 왜냐면 빈배열일경우 null값이 존재하기때문에 nullpoint exception이 발생하기 때문
     4. 그래서 빈배열을 다 “”빈 문자열로 초기화 하거나 , null이 존재하지 않게 배열의 길이를 따로 구해서
     5. 매개인자로 넣어줘야함.
-        
-        ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled%202.png)
+        <img src="https://github.com/user-attachments/assets/8520e089-f0b2-4102-a89c-f8bc2bd208a1" width=500/>
         
     6. 여기서는 빈배열이 존재하는지 만약 존재한다면 몇번째 인덱스에 존재하는지 찾는 메서드를 이용하여 maxlength를 구한 후
     7. 매개인자로 넣어주고 있다.
@@ -107,7 +109,7 @@ author_profile: true
     2. **`shop에서 menu,price등록하는 메서드를 boolean type으로 만들었을 때 메서드에서 true, false만 반환하고 메서드 내에서 출력해야하는 건 안됨,`** 
         1. 그래서 if절에서 메서드를 추가하면 안되고 따로 메서드 실행 해야함.
             
-            ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled%203.png)
+            <img src="https://github.com/user-attachments/assets/be82ce00-4710-4388-8c95-c6e02bf371ab" width=500 />
             
             1. 그래서 addFood메서드를 활용해서
             2. addFood가 성공했을때만  출력문이 발생하게끔함.
@@ -115,9 +117,9 @@ author_profile: true
             4. 실패하면 false로 바뀐다.
     3. addfood 메서드에서도 nullpoint Exception 발생했는데 메뉴나 price 에서 빈 배열의 경우 null값이 들어가기 때문이다, 그래서 초기화할때 빈 배열은 모두 “”빈문자열로 변경해줘야함.
         
-        ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled%204.png)
+        <img src="https://github.com/user-attachments/assets/4706c09e-6cfb-431c-be2f-ce15dd9d1777" width = 500 />
         
-        ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled%205.png)
+        <img src="https://github.com/user-attachments/assets/392ff127-25c6-487f-997f-d3d9f207b4d3" width = 500/>
         
     
 
@@ -131,24 +133,24 @@ author_profile: true
 3. 1번 음식점+메뉴등록시
     1. NPE 발생
         
-        ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled%206.png)
+        <img src="https://github.com/user-attachments/assets/1da0084c-74e7-46eb-b2de-3e2388b1772e" width=400/>
         
         1. 이유-1 메인에서 생성자에서 초기화 안함(1)
             
             기껏 initValues 메서드 만들어 놓고 생성자에서 초기화 안했음….
             
-            ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled%207.png)
+            <img src="https://github.com/user-attachments/assets/323d2f70-9431-48e4-baec-7778ec784cad" width=400/>
             
         2. 이유-2 Shop 클래스 생성자에서 초기화 안함(2)
             
             기껏 initalMenuAndPrice 메서드로 초기화 만들어 놓고 생성자에서 초기화 안했음….
             
-            ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled%208.png)
+            <img src="https://github.com/user-attachments/assets/824884d1-7466-40b2-9f13-2efaa3ed060a" width = 400/>
             
 4. 리뷰등록 할 때 1-5점만 입력하게 하고 싶을 때
     1. 메서드 하나 더 만들어서 등록
         
-        ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled%209.png)
+        <img src="https://github.com/user-attachments/assets/66c96acb-4c15-4011-8b9a-11065a8cae53" width=500 />
         
     
 
@@ -276,25 +278,25 @@ author_profile: true
             
     2. 아무래도 노란박스로 넘어오는듯…
         
-        ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled%2010.png)
+        <img src="https://github.com/user-attachments/assets/3d30afe6-4875-4a48-b294-b104fa52b0d6" width=500 />
         
     3. def 가게에 aaa가 def에 등록되어야하는데, 기존에 있던 aaa에 등록됨.
     4. 노란박스부분에 수정해줌.
         
-        ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled%2011.png)
-        
+        <img src="https://github.com/user-attachments/assets/fb4f8464-18d0-491b-982b-d23479dd9b45" width=400/>
+         
         1. Arraylist의 마지막 배열에 추가 하고싶을 때 shops.add(size()-1,object)이 아니라 shops.add(object)또는 shops.add(shops.size(),object)로 추가해야 함. 
     5. 결국 노란박스 부분만 살리면 되고 위에  빨간 박스 부분은 삭제하면 됨 
         1. arraylist에서 index 를 꼭 알아야 add할 수 있다고 생각했는데 index몰라도 add하면 어짜피 맨 마지막 index에 추가 됨
         
-        ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled%2012.png)
+        <img src="https://github.com/user-attachments/assets/b06d46c6-7f59-43cd-a1b0-93d285459782" width=400/>
         
 
-1. 안되는 부분 -2,  NPA 발생
+1. 안되는 부분 -2,  NPE 발생
     
-    ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled%2013.png)
+    <img src="https://github.com/user-attachments/assets/cf210bd5-acf9-4405-b910-448dd76e1d32" width=400 />
     
-    1. NPA발생
+    1. NPE발생
         
         ```sql
         Exception in thread "main" java.lang.NullPointerException: 
@@ -308,9 +310,9 @@ author_profile: true
         
         >이유  orders  초기화 하는 거 깜 박 함…!
         
-        ![Untitled](20240403%20(32)%20e30acd93cece4f19b8ea929bbea93254/Untitled%2014.png)
+        <img src="https://github.com/user-attachments/assets/ca3bd28d-41fe-476c-8e5a-f1f77c48b7ac" witdh =400/>
         
-2. 강사님과 나의 차이점 
+2. Reference와 나의 차이점 
     1. Arraylist를 초기화 할 때 강사님 : 필드에 VS 나 : 생성자
         1. 둘 다 객체를 생성해도 동일한 초기값을 가짐
         2. 필드에서 할 경우
