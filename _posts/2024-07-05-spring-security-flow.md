@@ -129,7 +129,7 @@ public class FirstFilter implements Filter {
 
 <br/>
 
-## Spring Security의 인증 컴포넌트
+## **Spring Security의 인증 컴포넌트**
 
 ### UsernamePasswordAuthenticationFilter
 
@@ -569,7 +569,7 @@ public class SecurityContextHolder {
 
 <br/>
 
-## Spring Security의 권한 부여 처리 흐름
+## **Spring Security의 권한 부여 처리 흐름**
 
 <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/b75a718b-2e16-4cb8-8097-3be2fee83f87"/>
 
@@ -597,8 +597,7 @@ public class SecurityContextHolder {
 <br/>
 
 
-## Spring Security의 컴포넌트로 보는 권한 부여(Authorization) 처리 흐름
-
+## **Spring Security의 컴포넌트로 보는 권한 부여(Authorization) 처리 흐름**
 아래는 사용자가 로그인 인증에 성공한 이후,  Spring Security에서 인증된 사용자에게 어떻게 권한을 부여하는지 그 처리 흐름을 나타내는 그림이다.
 
 <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/6f880dee-f3e6-47f5-a5d4-555901d1761f"/>
@@ -620,7 +619,7 @@ public class SecurityContextHolder {
 <br/>
 
 
-## Spring Security의 권한 부여 컴포넌트
+## **Spring Security의 권한 부여 컴포넌트**
 
 ### AuthorizationFilter
 
@@ -680,7 +679,7 @@ public interface AuthorizationManager<T> {
 	AuthorizationDecision check(Supplier<Authentication> authentication, T object);
 	 
 	 // AuthorizationManager 인터페이스는 check() 메서드 하나만 정의되어 있으며, 
-	 // Supplier<Authentication>와 제너릭 타입의 객체를 파라미터로 가	
+	 // Supplier<Authentication>와 제너릭 타입의 객체를 파라미터로 가짐	
 }
 
 ```
