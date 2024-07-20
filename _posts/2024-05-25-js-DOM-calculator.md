@@ -131,4 +131,6 @@ const buttons = calculator.querySelector('.calculator__buttons');
 
 ### 완성작
 
-<img src="https://github.com/user-attachments/assets/58f91f21-68d2-4671-8647-760b4bdb1b09" width=300>
+https://github.com/user-attachments/assets/678ddf9f-256a-4a3c-946e-5343f1767ed9
+
+gif 는 안올라가서 링크로 올려본당...
