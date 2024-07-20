@@ -133,4 +133,3 @@ const buttons = calculator.querySelector('.calculator__buttons');
 
 https://github.com/user-attachments/assets/678ddf9f-256a-4a3c-946e-5343f1767ed9
 
-gif 는 안올라가서 링크로 올려본당...
