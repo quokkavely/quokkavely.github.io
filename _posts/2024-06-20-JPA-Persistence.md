@@ -480,12 +480,14 @@ false 설정시 DDL 생성시에 NOT NULL 제약조건 붙음 |
 
 ### 일대일[1:1] : @OneToOne
 
-
+- 일대일은 단방향 관계는 JPA에서 지원하지 않는다.
+- 다대일 양방향 매핑 처럼 구현하면 된다.
 
 ### 다대다[N:M] : @ManyToMany
 <img src="https://github.com/quokkavely/quokkavely.github.io/assets/165968530/40b7fb14-34ca-4864-a7a3-900d0d4094a1" Width=400/>
 
 - 실무에서 거의 사용하지 않으므로 이런게 있다 정도만 참고!
+
 
 ### Comment
     

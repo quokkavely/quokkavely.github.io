@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "Java StringBuilder "
+title : "[Java] StringBuilder 사용하는 법"
 categories: Programmers
 tag : [CodingTest, 개념, java]
 author_profile: true
