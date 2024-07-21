@@ -25,7 +25,7 @@ author_profile: true
 속성은 면접에서 많이 물어봄  - 면접단골질문
 
 1. **Transaction 개념 및 속성 - ACID**
-    
+   
     1. 하나 이상의 데이터베이스 연산이 묶여서 하나의 논리적인 작업 단위로 처리되는 것을 말함. 
     2. 트랜잭션은 일련의 연산 중 하나라도 실패하면 전체 연산이 취소되는 원자성(Atomicity) 가짐.
     3. 데이터베이스에서 트랜잭션은 다음과 같은 4가지 특성을 가지고 있다.
@@ -53,7 +53,7 @@ author_profile: true
 ### ACID 실무 사례
 
 1. 은행 애플리케이션
-    
+   
     <img src="../assets/images/image-20240721170740205.png" alt="image-20240721170740205" width=500/>
     
     1. **원자성(Atomicity)**: 계좌 이체 작업은 출금 연산과 입금 연산으로 이루어지는데 출금 연산이 성공하고 입금 연산이 실패하면, 계좌 간 이체 작업이 완전하지 않으므로 이전 상태로 롤백되어야 한다. 이를 위해 애플리케이션에서는 출금 연산과 입금 연산을 하나의 트랜잭션으로 묶어서 처리하고, `하나의 연산이 실패하면 전체 작업이 롤백` 된다.
@@ -61,7 +61,7 @@ author_profile: true
     2. **일관성(Consistency)**: 계좌 이체 작업은 출금 연산과 입금 연산이 일어나기 때문에 데이터베이스의 일관성이 유지되어야 한다. 이를 위해 애플리케이션에서는 `트랜잭션 실행 전에 데이터베이스를 락(lock)하여 다른 사용자가 데이터를 수정하지 못하도록 한다.`
     
     3. **격리성(Isolation)**: 동시에 여러 개의 계좌 이체 작업이 발생할 수 있으므로, 트랜잭션 간 상호 간섭을 방지해야 gksek. 이를 위해 애플리케이션에서는 트랜잭션 간 **격리 수준(Isolation level)을 설정하여 다른 트랜잭션의 영향을 받지 않도록** 해야한다.
-      <br/>
+        <br/>
 
     4. **지속성(Durability)**: 계좌 이체 작업이 완료되면 데이터베이스에 반영되어야 한다. 이를 위해 애플리케이션에서는 `트랜잭션이 완료되었을 때, 데이터베이스에 변경 내용을 저장하고, 장애가 발생해도 이전 상태로 롤백되지 않도록 복구와 백업 작업을 수행`한다.
     
@@ -109,8 +109,7 @@ author_profile: true
     
     즉 COMMIT에 도달하지 못하고  ROLLBACK 되어 트랜잭션 이전의 상태로 돌아간 후 종료됨.
     
-    ![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%202.png)
-    
+    <img src="../assets/images/image-20240721173634242.png" alt="image-20240721173634242" width=400 />
 
 # 집합연산자
 
@@ -132,11 +131,17 @@ MySQL은 다음 세 가지 집합연산자를 제공합니다.
 | INTERSECT | 교집합 | 양쪽 모두에서 포함된 행을 검색 |
 | MINUS | 차집합 | 첫 번째 검색 결과에서 두 번째 검색 결과를 제외한 나머지를 검색 |
 
-![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%203.png)
+<img src="../assets/images/image-20240721173822035.png" alt="image-20240721173822035" width=300 />
+
+
 
 - JOIN과 비슷함, JOIN보다 성능이 좋고 하는 역할이 다르다
+
 - UNION ALL이 성능이 더 좋음, 합치기만 하면 되기 때문
+
 - JOIN은 컬럼을 합쳐서 열을 늘린다면, UNIONALL은 행을 늘림
+
+  
 
 
 ### **1. UNION**
@@ -155,7 +160,7 @@ FROM Publishers;
 
 >실행결과
 
-![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%204.png)
+<img src="../assets/images/image-20240721173717526.png" alt="image-20240721173717526" width=200 />
 
 ### **2. UNION ALL**
 
@@ -171,7 +176,9 @@ FROM Publishers;
 
 >실행결과
 
-![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%204.png)
+<img src="../assets/images/image-20240721173853431.png" alt="image-20240721173853431" width=200 />
+
+
 
 ### **3. INTERSECT**
 
@@ -185,7 +192,11 @@ SELECT book_id FROM Books;
 
 >실행결과
 
-![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%205.png)
+<img src="../assets/images/image-20240721173940113.png" alt="image-20240721173940113" width=200 />
+
+
+
+
 
 # 그룹함수
 
@@ -215,19 +226,25 @@ SELECT book_id FROM Books;
     
     ```
     
-    WITH ROLLUP 사용X
+    **WITH ROLLUP 사용X**
     
-    ![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%206.png)
+    <img src="../assets/images/image-20240721174102663.png" alt="image-20240721174102663" width=440/>
     
-    WITH ROLLUP 사용O
+    **WITH ROLLUP 사용O**
     
-    ![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%207.png)
+    <img src="../assets/images/image-20240721174128991.png" alt="image-20240721174128991" width=440 />
     
-    데이터 변경 후 ROLLUP 적용
     
-    ![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%208.png)
     
-    ![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%209.png)
+    
+    
+    **데이터 변경 후 ROLLUP 적용**
+    
+    <img src="../assets/images/image-20240721174226250.png" alt="image-20240721174226250" width=400/>
+    
+    
+    
+    
     
 
 ### **2. GROUPING 함수**
@@ -244,6 +261,10 @@ JOIN
     Publishers p ON b.publisher_id = p.publisher_id 
 GROUP BY publisher_id, book_id;
 ```
+
+<img src="../assets/images/image-20240721200313991.png" alt="image-20240721200313991" width=300/>
+
+
 
 GROUPING 및 ROLLUP사용시
 
@@ -262,11 +283,11 @@ GROUP BY publisher_id, book_id **WITH ROLLUP**;
 
 >코드 실행시
 
-![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%2010.png)
+<img src="../assets/images/image-20240721200337282.png" alt="image-20240721200337282" width=300 />
 
-![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%2011.png)
+ 
 
- publisher_id, book_id별 대출 횟수 합계, publisher_id별 대출 횟수 합계, 그리고 전체 대출 횟수 합계를 반환
+publisher_id, book_id별 대출 횟수 합계, publisher_id별 대출 횟수 합계, 그리고 전체 대출 횟수 합계를 반환
 
 **`is_publisher_total`** 및 **`is_book_total`** 열을 사용하여 해당 행이 publisher_id 또는 book_id에 대한 합계인지 여부를 확인할 수 있음
 
@@ -301,27 +322,40 @@ FROM LoanRecords;
 ```
 
 1. **PARTITION BY**: 결과 집합을 지정된 열(여기서는 book_id)을 기준으로 여러 그룹으로 나누고 이를 통해 윈도우 함수는 각 그룹 내에서만 작동하게 되어 그룹별로 분석 작업을 수행할 수 있다
+
 2. **ROWS**: 현재 행과 관련된 행 수를 기준으로 윈도우 프레임의 범위를 설정
+
 3. **RANGE**: 현재 행과 관련된 값 범위를 기준으로 윈도우 프레임의 범위를 설정
+
 4. **PRECEDING** 및 **FOLLOWING**: 윈도우 프레임 범위를 설정할 때 사용되는 키워드로, 현재 행보다 이전 또는 다음에 있는 행을 포함하도록 범위를 지정한다.
 
 5. >실행결과
    
-    ![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%2012.png)
+    ![image-20240721200414994](../assets/images/image-20240721200414994.png)
     
     결과 해석 : 이 쿼리는 **`LoanRecords`** 테이블에서 대출 기록을 분석
     
     1. **`RANK() OVER`**: 각 책의 대출 날짜를 기준으로 등수를 매김
+    
     2. **`DENSE_RANK() OVER`**: 각 책의 대출 날짜를 기준으로 밀집된 등수를 매김
+    
     3. **`ROW_NUMBER() OVER`**: 각 책의 대출 날짜를 기준으로 행 번호를 매김
+    
     4. **`LEAD() OVER`**: 다음 대출 날짜를 가져온다
+    
     5. **`LAG() OVER`**: 이전 대출 날짜를 가져온다.
+    
     6. **`FIRST_VALUE() OVER`**: 각 책의 대출 날짜를 기준으로 첫 번째 대출 날짜를 가져온다.
+    
     7. **`LAST_VALUE() OVER`**: 각 책의 대출 날짜를 기준으로 마지막 대출 날짜를 가져온다.
+    
+       
 
 loan_date table
 
-![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%2013.png)
+<img src="../assets/images/image-20240721200432903.png" alt="image-20240721200432903" width=500 />
+
+
 
 # DCL (Data Control Language, 데이터 제어어)
 
@@ -586,10 +620,6 @@ MySQL의 프로시저와 사용자 정의 함수는 트랜잭션 처리를 통�
     
         
     
-        
-    
-        
-    
         1. Nested Loops
             - Nested Loop 조인, 줄여서 NL 조인은 이름에서 알 수 있듯이 루프(반복문)가 중첩되어 있는 형태로 작동하는 조인 방식
               
@@ -617,7 +647,7 @@ MySQL의 프로시저와 사용자 정의 함수는 트랜잭션 처리를 통�
                 전체적으로 수행 시간이 외부 테이블 행의 수 X 내부 테이블 행의 수 만큼 걸리게 됨
                 
                 따라서, NL 조인은 작은 테이블 간의 조인에 효율적이지만, 큰 테이블에 대해서는 다른 조인 방법을 고려해야 할 수도 있음
-    
+        
         2. Sort Merge Join
             - Sort Merge Join은 두 테이블을 조인할 때, 각 테이블의 조인 조건에 해당하는 열을 먼저 정렬한 후에 조인을 수행하는 방식
               
@@ -684,7 +714,7 @@ MySQL의 프로시저와 사용자 정의 함수는 트랜잭션 처리를 통�
         3. **인덱스 룩업(index lookup)** 
     
 3. **조건처리 순서**
-    
+   
     1. WHERE 절의 여러 조건이 처리되는 순서를 나타냄 
     2. 이 순서는 쿼리의 성능에 큰 영향을 미칠 수 있음
 4. **테이블과 인덱스의 엑세스 순서**
@@ -695,7 +725,7 @@ MySQL의 프로시저와 사용자 정의 함수는 트랜잭션 처리를 통�
 
 1. SQL 쿼리가 DBMS 내부에서 어떻게 처리되는지를 시각화한 도표
    
-    ![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%2014.png)
+    <img src="../assets/images/image-20240721200529548.png" alt="image-20240721200529548" width=500 />
     
 2. DBMS의 작동 방식을 이해하는 데 도움이 되며, 특히 쿼리 성능 최적화와 관련된 문제를 해결하는 데 유용
 3. 주요 단계
@@ -716,7 +746,7 @@ MySQL의 프로시저와 사용자 정의 함수는 트랜잭션 처리를 통�
 
 : ✨✨✨✨✨✨✨✨그림은 이해하고 있는 것이 좋음
 
-![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%2015.png)
+<img src="../assets/images/image-20240721200549920.png" alt="image-20240721200549920" width=500 />
 
 여기서 client는 쿼리를 요청한 클라이언트, 즉 SQL을 입력한 개발자
 
@@ -739,25 +769,7 @@ MySQL의 프로시저와 사용자 정의 함수는 트랜잭션 처리를 통�
 
 우리가 SQL을 작성 했을 때, parser와 preprocessor에 의해 분해되고, query optimizer에 의해 최상의 실행계획을 수립하여 실행된다는 것을 알 수 있음
 
-- 그럼 실행계획을 읽는 법을 확인해봅시다!
-  
-  
-    ![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%2016.png)
-    
-    ![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%2017.png)
-    
-    어떤 테이블은 full table scan이고, 어떤 테이블은 index range / full / unique scan인지 시각화 하여 보여줍니다. 어떤 방식으로 조인되었고, 
-    
-    결과 row는 몇 개 이며, group by 및 order by는 어떤 식으로 수행되었는지 확인할 수 있습니다.
-    
-    한 눈에 실행계획을 확인할 수 있기 때문에, 간단하게 쿼리 수행계획을 진단할 때 활용하기 좋습니다.
-    
-    ![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%2018.png)
-    
-    index가 추가 
-    
-    인덱싱 사용시 데이터 접근시간 단축
-    
+
 
 ### **실행 계획 이해하기**
 
@@ -807,7 +819,7 @@ MySQL의 프로시저와 사용자 정의 함수는 트랜잭션 처리를 통�
         2. 다른 자료 구조로는 Bitmap 인덱스, Hash 인덱스 등이 있습니다.
         - B- Tree 인덱스 : 균형이 잘 잡혀 있는 트리 구조로서 데이터베이스에서 널리 사용되는 인덱스 구조
           
-            ![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%2019.png)
+            <img src="../assets/images/image-20240721200658242.png" alt="image-20240721200658242" width=400 />
             
             1. B-Tree 인덱스의 특징
                 1. B-Tree는 Balanced Tree(균형 트리)의 약자로, 모든 노드의 깊이가 같음
@@ -916,7 +928,7 @@ MySQL의 프로시저와 사용자 정의 함수는 트랜잭션 처리를 통�
         SELECT * FROM board WHERE city = '강남구';
         ```
         
-        ![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%2020.png)
+        <img src="../assets/images/image-20240721200728245.png" alt="image-20240721200728245" width=300 />
         
     2. 쿼리 최적화 절차
         1. 쿼리 실행 계획 분석
@@ -948,7 +960,7 @@ MySQL의 프로시저와 사용자 정의 함수는 트랜잭션 처리를 통�
                 **CREATE INDEX** idx_city **ON** board(city);
                 ```
                 
-                ![Untitled](%5BSQL%5D%20Transaction%20%E1%84%86%E1%85%B5%E1%86%BE%20SQL%20%E1%84%92%E1%85%AA%E1%86%AF%E1%84%8B%E1%85%AD%E1%86%BC(%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1,%E1%84%80%E1%85%B3%2000eab804f941437fa83751870326a73f/Untitled%2021.png)
+                <img src="../assets/images/image-20240721200748984.png" alt="image-20240721200748984" width=400 />
     
 2. **예제 2 : CTE, 윈도우 함수 적용**
    
