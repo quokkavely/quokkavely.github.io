@@ -24,7 +24,7 @@ GROUP BY랑 와일드카드는 나중에 배운다해서
 잘 모르겠지만 GROUP BY는 풀어볼만해서 풀어봄...
 
 그리고 연습문제 맨마지막에 GROUP BY 써야 될 수도 있어서 참고하기!
-<img src="" width=500/>
+<img src="https://github.com/user-attachments/assets/2ee0818f-f355-41ca-880d-c3e303dc67d0" width=200/>
 
 ## 연습문제
 
@@ -88,10 +88,9 @@ part 2는 간단해서 금방 품.
 ### Part 3.
 
 다른 것은 길이가 길어서 힘들고 오탈자만 아니면 금방 통과했는데
-
 3-2-9랑 10은 COUNT를 안배워서 조금 생각하고 찾아봐야 했다.
 
-**3-2-9 **
+**3-2-9**
 
 3-2-9. teawoongna가 작성한 글의 개수 (컬럼명: ContentCount)를 출력하기 위한 SQL을 작성
 
@@ -106,20 +105,19 @@ WHERE user.name='teawoongna';
 
 - **Reference**
   
-    <img src="" width=400>
+    <img src="https://github.com/user-attachments/assets/e25f7076-7f12-4433-8f9c-e7db6e43cb33" width=400>
     
-    <img src="" width=400>
+    <img src="https://github.com/user-attachments/assets/3327a1bc-928e-424e-97c4-18cfdbb3f24f" width=400>
     
-    <img src="" width=400>
+    <img src="https://github.com/user-attachments/assets/84f519a4-76ed-4d30-b892-b0b65d6ccdf5" width=400>
     
-    <img src="" width=400>
+    <img src="https://github.com/user-attachments/assets/2d329e3d-6f78-46ba-8f62-fe2505e969d5" width=400>
     
 
-강사님은 대부분 AS로 약어 처럼 엔터티명을 사용함.
-
+AS로 약어 처럼 엔터티명을 사용함.
 대부분 실무에 가면 이렇게 작성 많이 한다고 해서 이렇게 쓰는 것을 권장.
 
-**3-2-10 **
+**3-2-10**
 
 각 user(컬럼명: name)가 작성한 글의 개수 (컬럼명: ContentCount)를 출력하기 위한 SQL을 작성
 
@@ -134,110 +132,30 @@ GROUP BY user.name;
 
 - **Reference**
   
-    count는 보통 GROUP BY 와 같이 사용되고
+    count는 보통 GROUP BY 와 같이 사용되고 처음에 9번처럼 count(*)사용해서 <br/>
+    SELECT u.name, count(*)FROM content RIGHT JOIN ~처럼 작성했는데 <br/>
+    u.name과 content가 같이 사용될 수 없어서 *를 사용하면 안된다고 한다. <br/>
+    count 쓸때 별을 넣으면 null일 경우 1을 반환. <br/>
+    특정 컬럼을 기준으로 해야 0을 반환함. <br/>
     
-    처음에 9번처럼 count(*)사용해서
-    
-    SELECT u.name, count(*)FROM content RIGHT JOIN ~
-    
-    처럼 작성했는데 u.name과 content가 같이 사용될 수 없어서 *를 사용하면
-    
-    안된다고 한다.
-    
-    count 쓸때 별을 넣으면 null일 경우 1을 반환.
-    
-    특정 컬럼을 기준으로 해야 0을 반환함.
-    
-    <img src="" width=400>
+    <img src="https://github.com/user-attachments/assets/93141232-534f-49e2-8fb6-7eb81514e116" width=400>
     
     c.* 해도 안됨.!
     
-    <img src="" width=400>
+    <img src="https://github.com/user-attachments/assets/5772e6be-ded5-40e9-8d23-947ae8848019" width=400>
     
     정답
     
-    <img src="" width=400>
+    <img src="https://github.com/user-attachments/assets/7aa7ee44-af5f-49a5-b563-696f8dbae3c9" width=400>
     
-- 이외 참고해서 볼 것. = TEST CODE
-  
-  
-    <img src="" width=400>
-    
-    Mysql - single ton pattern
-    
-    <img src="" width=400>
-    
-    null이면 새로만들고 널이 없으면 반환하겠따.
-    
-    데이터 베이스 접속  JDBC drivers.
-    
-    <img src="" width=400>
-    
-    <img src="" width=400>
-    
-    원래는 Result set으로 변환해서 받지만
-    
-    테이블에서는 map과 비슷 해서 내부에는 결과를 MAP에 맵핑 , key value 사용
-    
-    FactoryService 검증하는 클래스
-    
-    <img src="" width=400>
+
     
     
     
 
 ## Comment
 
-대부분의 문제풀고 테스트하는 시간이라서
-
-문제 많이 못풀었으면 현타왔을텐데
-
-이제는 이런 문제들에 단련이 되어서 그런가
-
-풀만해서 기분이 좋다....😊
+대부분의 문제풀고 테스트하는 시간이라서 문제 많이 못풀었으면 현타왔을텐데 <br/>
+이제는 이런 문제들에 단련이 되어서 그런가 풀만해서 기분이 좋다....😊 <br/>
 
 ---
-
-### **GROUP BY, ORDER BY**
-
-<img src="" width=400>
-
-GROUP BY는 그룹컬럼
-
-ORDER BY는 정렬컬럼
-
----
-
-<img src="" width=400>
-
-<img src="" width=400>
-
-직업(job) 별로 급여(sal) 총합계를 구하는 예제이다.
-
----
-
-<img src="" width=400>
-
-그룹 칼럼이 여러 개인 경우 첫 번째 칼럼(deptno)으로 먼저 그룹이 묶이고, 두 번째 칼럼(job)으로 집계가 된다.
-
-COUNT
-
-<img src="" width=400>
-
-***✨별표 *는 모든 행 , NULL이 있으면 값을 1로 가져옴***
-
-컬럼을 사용할 경우 NULL이 0으로 가져오거나 제외 될 수도 있음.
-
-SUM, AVG
-
-SUM 함수는 해당 칼럼의 모든 값을 합산하며, 수치형 칼럼에만 사용할 수 있다.
-
-AVG 함수는 칼럼 값의 평균을 구하며, 칼럼의 값이 NULL인 경우 제외를 하고 연산을 하니 주의해야 한다.
-
-<img src="" width=400>
-
-MIN, MAX
-
-MIN 함수는 해당 칼럼의 최솟값, MAX 함수는 해당 칼럼의 최댓값을 구한다.
-
-<img src="" width=400>
