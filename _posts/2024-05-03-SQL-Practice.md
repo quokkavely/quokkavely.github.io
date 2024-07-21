@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[SQL] Practice"
-categories: Databass
+categories: Database
 tag : [DBMS, SQL, 실습]
 author_profile: true
 ---

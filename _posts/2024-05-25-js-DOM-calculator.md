@@ -20,8 +20,8 @@ author_profile: true
 
 DOM도 배웠으니
 이전 Post에서 적용했던 계산기 디자인에 실제로 계산 기능을 추가해보기로 했다.<br/>
-아래 링크는 CSS 배우면서 만들었던 계산기 디자인만 구현한 것이다. <br/>
-https://quokkavely.github.io/html-css/css-02/
+아래 링크는 CSS 배우면서 만들었던  [계산기 디자인](https://quokkavely.github.io/html-css/css-02/)만 구현한 것이다. 
+<br/>
 
 ## 구현 전에 이해하기 (DOM, JS)
 
@@ -131,5 +131,5 @@ const buttons = calculator.querySelector('.calculator__buttons');
 
 ### 완성작
 
-https://github.com/user-attachments/assets/678ddf9f-256a-4a3c-946e-5343f1767ed9
+[완성 계산기](https://github.com/user-attachments/assets/678ddf9f-256a-4a3c-946e-5343f1767ed9)
 
