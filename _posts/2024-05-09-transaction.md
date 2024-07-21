@@ -48,8 +48,7 @@ author_profile: true
     
     - **지속성(Durability)**: 트랜잭션이 완료되면 그 결과가 영구적으로 반영
     
-      
-
+   
 ### ACID 실무 사례
 
 1. 은행 애플리케이션
