@@ -66,6 +66,7 @@ author_profile: true
     <br/>
 
     5. 매개인자로 넣어줘야함.
+        <br/>
         <img src="https://github.com/user-attachments/assets/8520e089-f0b2-4102-a89c-f8bc2bd208a1" width=300/>
     
     <br/>
@@ -292,7 +293,7 @@ author_profile: true
         
         >이유  orders  초기화 하는 거 깜 박 함…!
         
-        <img src="https://github.com/user-attachments/assets/ca3bd28d-41fe-476c-8e5a-f1f77c48b7ac" witdh =200/>
+        <img src="https://github.com/user-attachments/assets/ca3bd28d-41fe-476c-8e5a-f1f77c48b7ac" width=300/>
         
 2. Reference와 나의 차이점 
     1. Arraylist를 초기화 할 때 Reference : 필드에서 초기화 VS 나 : 생성자
