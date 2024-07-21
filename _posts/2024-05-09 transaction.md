@@ -2,7 +2,7 @@
 layout : single
 title : "[SQL] Transaction 및 SQL 활용(집합연산자,그룹함수,윈도우함수,DCL)"
 categories: Database
-tag : [DBMS, SQL, 실습]
+tag : [DBMS, SQL, 개념]
 author_profile: true
 ---
 
