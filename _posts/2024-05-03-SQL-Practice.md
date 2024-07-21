@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[SQL] Practice"
+title : "[SQL] Practice 1"
 categories: Database
 tag : [DBMS, SQL, 실습]
 author_profile: true
