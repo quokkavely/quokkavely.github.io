@@ -1,8 +1,16 @@
-# AJAX
+---
+layout : single
+title : "[react] Effect Hook"
+categories: html-css
+tag : [Project, react]
+author_profile: true
+---
 
-# AJAX
+📌 개인적인 공간으로 공부를 기록하고 복습하기 위해 사용하는 블로그입니다. <br>
+정확하지 않은 정보가 있을 수 있으니 참고바랍니다 :😸 <br>
+[틀린 내용은 댓글로 남겨주시면 복받으실거에요]  
+{: .notice--primary}
 
-## Side Effect
 
 React에서는 컴포넌트 내에서 fetch를 사용해 API 정보를 가져오거나 이벤트를 활용해 DOM 직접 조작할 때 Side Effect가 발생했다고 말한다.
 
@@ -63,7 +71,7 @@ React는 Side Effect를 다루기 위한 Hook인 Effect Hook을 제공합니다.
 
 ### 실행되는 시기
 
-![Untitled](AJAX%2099fdeb80f0c54fa6b8a8d596769ea173/Untitled.png)
+<img src="https://github.com/user-attachments/assets/c190ff55-ac85-4953-bc94-bab60bdd61ba" width=500 />
 
 - 컴포넌트 생성 후 처음 화면에 렌더링(표시)
 - 컴포넌트에 새로운 props가 전달되며 렌더링
