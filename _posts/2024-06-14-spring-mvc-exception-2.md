@@ -15,7 +15,7 @@ author_profile: true
 
 ### 예외는 크게 Checked Exception , Unchecked Exception
 
-![image-20240615095510345](../assets/images/image-20240615095510345.png)
+<img src="https://github.com/user-attachments/assets/19be77db-0e52-4d2a-806f-ca2d15ef77f5" width=500/>
 
 [출처][https://rollbar.com/blog/how-to-handle-checked-unchecked-exceptions-in-java/](https://rollbar.com/blog/how-to-handle-checked-unchecked-exceptions-in-java/)
 
@@ -56,7 +56,7 @@ author_profile: true
 - 서버쪽에서 발생한 예외를 조금 더 구체적으로 표현할 수 있는 Custom Exception을 만들어 예외를 던질 수 있음
 1. **ExceptionCode와 BuisinessLogicException 생성**
    
-    ![Untitled](%5Bspring%20MVC%5D%20%E1%84%87%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%82%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%85%E1%85%A9%E1%84%8C%E1%85%B5%E1%86%A8%20f594462116ee4ebd86191eb9274dc8c8/Untitled%201.png)
+    <img src="https://github.com/user-attachments/assets/9eeb3257-71a5-49dd-bd19-3e97d836e5b7"/>
     
     1. **ExceptionCode**
        
@@ -262,7 +262,7 @@ author_profile: true
     
 ### 해결방법 v1
 
-![Untitled](%5Bspring%20MVC%5D%20%E1%84%87%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%82%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%85%E1%85%A9%E1%84%8C%E1%85%B5%E1%86%A8%20f594462116ee4ebd86191eb9274dc8c8/Untitled%202.png)
+<img src="https://github.com/user-attachments/assets/efea5505-dec9-4e4b-8da1-e2ace381139a" width=500>
     
 - HttpsStats가 구현된 클래스로 이동해보면 **.value()** 로 상태코드 받아올 수 있고 **.getReasonPhrase()**로 상태메세지 가져올 수 있음.
   
@@ -290,9 +290,9 @@ author_profile: true
     ```
     
 
-### Refactory
+### Refactoring
 
-![Untitled](%5Bspring%20MVC%5D%20%E1%84%87%E1%85%B5%E1%84%8C%E1%85%B3%E1%84%82%E1%85%B5%E1%84%89%E1%85%B3%20%E1%84%85%E1%85%A9%E1%84%8C%E1%85%B5%E1%86%A8%20f594462116ee4ebd86191eb9274dc8c8/Untitled%203.png)
+<img src="https://github.com/user-attachments/assets/051be9ed-ca47-4429-a986-47b2ec56f6f0" width=500/>
 
 **GlobalExceptionAdvice**
 
@@ -310,7 +310,7 @@ public ErrorResponse handleException(NullpointerException e){
 }
 ```
 
-관련 예외들을 변수 사용 없이  바로 ErrorResponse로 반환하여 리팩토리 가능.
+관련 예외들을 변수 사용 없이  바로 ErrorResponse로 반환하여 리팩토링 가능.
 
 🔎 참고하기
 
