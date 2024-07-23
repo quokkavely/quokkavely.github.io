@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[JAVA] 컬렉션프레임워크, 예외처리"
+title : "[JAVA] 컬렉션프레임워크 연습문제"
 categories: JAVA-Practice
 tag : [JAVA, 실습]
 toc : true
