@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[react] React 흐름 - 상태끌어올리기 실습"
-categories: html-css
+categories: react
 tag : [Project, react, 실습]
 author_profile: true
 ---

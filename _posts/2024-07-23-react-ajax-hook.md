@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[react] Effect Hook"
-categories: html-css
+categories: react
 tag : [Project, react]
 author_profile: true
 ---
