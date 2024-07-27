@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[JAVA]Lv1_ 카카오인턴십 실패율, 비밀지도 "
+title : "[Java] Lv1_ 카카오인턴십 실패율, 비밀지도 "
 categories: Programmers
 tag : [CodingTest, 실습]
 author_profile: true
@@ -70,7 +70,7 @@ class Solution {
         
         <img src="https://github.com/user-attachments/assets/5990b0f3-aa8b-45dc-ba98-8ee9794f7def" width=500/>
         
-        > [**Double.compare](http://Double.compare)**
+        > [Double.compare](http://Double.compare)
         > 
         > 
         > `d1`>`d2`보다 크면 1 반환
