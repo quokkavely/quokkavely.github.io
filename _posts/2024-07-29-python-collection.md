@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[python] basic collection"
+title : "[python] collection"
 categories: python
 tag : [python, 실습, 개념]
 author_profile: true
