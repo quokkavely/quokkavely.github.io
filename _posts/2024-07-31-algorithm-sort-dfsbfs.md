@@ -24,7 +24,7 @@ author_profile: true
 
 반복문 2번 사용, 실무에서 사용하지 않음
 
-- 아래 값들을 정렬 할 수 있는가 ?  X ⇒ stable하지 않다. but 기준을 정해주면 정렬 가능
+- 아래 값들을 정렬 할 수 있는가 ?  X ⇒ stable하지 않다. but 기준을 정해주면 정렬 가능 <br/>
     <img src="https://github.com/user-attachments/assets/958d5c45-c9d9-4ec7-b9bc-a6f4e4480d4b" width=300/>
     
 - 자바로 구현한 버블 정렬

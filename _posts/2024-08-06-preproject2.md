@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[Project] 프로젝트 기획과 분석"
+title : "[Project] 프로젝트 설계"
 categories: Project
 tag : [project, practice]
 author_profile: true
