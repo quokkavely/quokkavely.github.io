@@ -109,7 +109,7 @@ https://docs.spring.io/spring-data/jpa/reference/jpa.html
 - **EntityManger**
     - JPA의 영속성 컨텍스트는 EntityManager 클래스에 의해서 관리된다.
     - EntityManager 클래스의 객체는 (1)과 같이 **EntityManagerFactory** 객체를 Spring으로부터 DI 받음
-- EntityManagerFactory의 **createEntityManager() 메서드**를 이용해서 EntityManager 클래스의 객체를 얻을 수 있다.
+    - EntityManagerFactory의 **createEntityManager() 메서드**를 이용해서 EntityManager 클래스의 객체를 얻을 수 있다.
     - createEntityManager는 @Entity 붙은 클래스를 데이터베이스 테이블로 자동으로 매핑되고, 애플리케이션 시작 시점에 테이블이 생성시켜줌.
     - [hibernate.hbm2ddl.auto](http://hibernate.hbm2ddl.auto) 속성에 따름. → 예제는 create가 적용되어 있음.
         - `create`: 애플리케이션이 실행될 때 기존 테이블을 삭제하고 새로 생성
