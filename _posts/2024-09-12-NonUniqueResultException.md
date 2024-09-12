@@ -14,25 +14,28 @@ author_profile: true
 ---
 
 
-오늘도 코드 만지다가 머리가 띵해졌다. 에러 메시지 보는데 `javax.persistence.NonUniqueResultException: query did not return a unique result: 2`라는 에러가 떠서 도대체 이게 뭔가 싶었다.
+오늘 OrderService 부분 마무리하려고 테스트해보다가 머리가 띵해졌다. 에러 메시지 보는데 `javax.persistence.NonUniqueResultException: query did not return a unique result: 2`라는 에러가 떠서 도대체 이게 뭔가 싶었다. 
 
-원래 Order 관련 부분은 전부 내가 건드리다가, 프론트에서 item쪽을 급하게 손봐달라고 해서
-하는 도중에 Order에 기본 키가 아닌 주문번호가 별도로 필요할 것 같다고 했다 
-item이 생각보다 오래걸려서 다른 팀원에게 양해를 구했고
-주문코드를 생성 후에 Post 요청이 들어오면 서비스층에서 코드 생성 후 set 해주기로 했는데
-코드는 잘 만들어졌다고 했는데 post 요청을 여러 번 하면 500 예외가 발생한다고 해서
+<Br>
+원래 Order 관련 부분은 전부 내가 건드리다가, 프론트에서 item쪽을 급하게 손봐달라고 해서<br>
+하는 도중에 Order에 기본 키가 아닌 주문번호가 별도로 필요할 것 같다고 했다 <br>
+item이 생각보다 오래걸려서 다른 팀원에게 양해를 구했고 <br>
+주문코드를 생성 후에 Post 요청이 들어오면 서비스층에서 코드 생성 후 set 해주기로 했는데 <br>
+코드는 잘 만들어졌다고 했는데 post 요청을 여러 번 하면 500 예외가 발생한다고 해서 <br>
 전에는 그런적이 없었는데 하고 이제 다시 Order 쪽 refactoring 후 test 해보니 NonUniqueResultException이 발생했다
-
 
 <img src="https://github.com/user-attachments/assets/3bc73035-67b3-4808-9765-6a12bd5a92ae" width=500/>
 
- `findTopByOrderCdStartingWithOrderByOrderCdDesc(date)` 이 쿼리가 원래 하나의 결과만 반환해야 하는데, 두 개 이상의 결과가 반환됐다는 것 같았다.
+ <br>
+ <br>
 
-Postman으로 연속해서 두 번의 POST 요청을 보냈는데, 주문번호 생성 부분에서만 자꾸 에러가 터지길래 주문번호 생성하는 부분을 주석 처리해보니까 예외가 안 터졌다. 이걸 보고 문제는 확실히 주문번호 생성 부분에 있다고 생각하게 됐다.
 <img src="https://github.com/user-attachments/assets/e95c8a08-08e4-4a37-ac5a-b1d6117f97bb" width=500/>
-
+Postman으로 연속해서 두 번의 POST 요청을 보냈는데, 자꾸 에러가 터지길래 <br> 크게 달라진 점이 주문번호를 생성하는 부분이라서 중복이 왜 발생하지 하고 주문번호 생성하는 부분을 주석 처리해보니까 예외가 안 터졌다. <br> 이걸 보고 문제는 확실히 주문번호 생성 부분에 있다고 생각하게 됐다.<br>
+<img src= "https://github.com/user-attachments/assets/e15de1e8-bbac-497d-ba2f-584120661910" width =500/>?
 
 ### 문제의 원인
+
+쭉 읽어보니  `findTopByOrderCdStartingWithOrderByOrderCdDesc(date)` 이 쿼리가 원래 하나의 결과만 반환해야 하는데, 두 개 이상의 결과가 반환됐다는 것 같았다.
 
 ```java
 // 주문 코드 생성 메서드
@@ -97,7 +100,9 @@ private String createOrderCd() {
 
 
 3. 내가 개선한 방법
-    -  위의 방법을 고집하려고 하니까 솔직히 주문번호 생성하는데 비용이 너무 많이 든다는 생각이들어 그냥 간단하게 구현하기로 결정했다,
+    -  위의 방법을 고집하려고 하니까 솔직히 주문번호 생성하는데 DB도 조회하는 등등의 비용이 너무 많이 든다는 생각이들어 그냥 간단하게 구현하기로 결정했다.
+    -  랜덤 생성할 수 있는 방법을 찾았더니 randonUUID가 거의 중복이 없다고 해서 이 방법으로 결정했고
+    -  기존의 주문코드 생성 방법처럼 회사의 생성규칙을 
     
     ```java
             // 주문 코드 생성 메서드
@@ -107,8 +112,8 @@ private String createOrderCd() {
             return "SHO" + uuid;
         }
     ```
-    진짜 간단해졌고 randomUUID가 중복이 거의 없다고해서 결국 이 방법을 선택하기로 했다..
-    단순 주문코드 생성인데 처음 보는 예외 때문에 시간이 사르르륵 녹아버렸다.
+   
+    단순 주문코드 생성인데 처음 보는 예외 발생 때문에 시간이 사르르륵 녹아버렸다.
     주문이 동시성 문제를 해결하기가 어렵다고 했는데 벌써 코드 하나 생성하는 것에서 만나서 당황스럽다..
 
 <br>
