@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[Project] "NonUniqueResultException 발생"
+title : "[Project] NonUniqueResultException 발생"
 categories: Project
 tag : [project2, practice]
 author_profile: true
