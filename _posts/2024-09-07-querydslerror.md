@@ -17,9 +17,9 @@ author_profile: true
 
 1. QueryDSL 을 적용하고 나서 바로 겪은 문제…!
     
-    <img src= "https://github.com/user-attachments/assets/5339461e-993e-4f8b-b4ce-2b78c007f979" width=500/>
+    <img src= "https://github.com/user-attachments/assets/5339461e-993e-4f8b-b4ce-2b78c007f979" width=700/>
     
-    <img src= "https://github.com/user-attachments/assets/4f4a0ea9-fc5a-41a4-9c59-ffed85548c37" width=500/>
+    <img src= "https://github.com/user-attachments/assets/4f4a0ea9-fc5a-41a4-9c59-ffed85548c37" width=700/>
     
     왜 그런가 하고 찾아보다가 혹시 순서가 중요한가 해서 수정했더니 해결되었다.
     
@@ -43,10 +43,11 @@ author_profile: true
         
 2. 해결
     - 원인
+        - 기존에 만들었던 OrderHeadersRepository 인터페이스에서 JPA가 자동으로 메서드를 생성하려고 시도해서 생긴 문제라는 것을 알게되었고 - 기존에 JPARepository를 상속받은 OrderHeadersRepository에서 `findByRequestDateBetweenAndOrderStatusAndBuyer_BuyerCdAndOrderItems_ItemCD` 메서드를 제거하고 
+        - OrderQueryRepositoryCustom에서도 상속도 지웠다.
+        - `OrderQueryRepositoryImpl` 클래스에서 QueryDSL로 쿼리를 구현하는 방식으로 처리했더니 해결되었다.
         
-        기존에 만들었던 OrderHeadersRepository 인터페이스에서 JPA가 자동으로 메서드를 생성하려고 시도하는 `findByRequestDateBetweenAndOrderStatusAndBuyer_BuyerCdAndOrderItems_ItemCD` 메서드를 제거하고 `OrderQueryRepositoryImpl` 클래스에서 QueryDSL로 쿼리를 구현하는 방식으로 처리했더니 해결되었다.
-        
-    - 결국 OrderHeadersRepository를 Custom에서 상속받아 사용햇는데 이를 제거했더니 null 이 들어와도 동적으로 잘 처리된다.
+    - 결국 OrderHeadersRepository (JPARepository)를 OrderQueryRepositoryCustom에서 상속받아 사용햇는데 이를 제거했더니 null 이 들어와도 동적으로 잘 처리된다.
 
 
 두가지 문제 모두 기존에 있던 OrderHeadersRepository를 상속받아 구현하였을때 발생한 문제인데 굳이 상속을 받지 않고 custom interface와 이를 구현하는 impl클래스만 있으면 모두 해결 된다.
