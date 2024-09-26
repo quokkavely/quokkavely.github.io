@@ -138,7 +138,8 @@ author_profile: true
 
 연관관계를 제거하고 **SaleHistory**와 **SaleItemHistory**를 각각 별도의 엔티티로 만들어 관리하기로 했다. 이 방법을 적용한 후, 문제없이 이력을 관리할 수 있게 되었고, 데이터베이스도 더 깔끔해졌다. 그러나 이렇게 분리한 후에는 또 다른 문제가 발생했다.
 
-1. 무한 참조 문제: 순환 참조로 인한 무한 데이터 발생
+1. 무한 참조 문제: 순환 참조로 인한 무한 데이터 발생 <br/>
+
     <img src= "https://github.com/user-attachments/assets/fee32b8c-173e-460d-b8e8-496c9c72dd60" width=500>
     
     연관관계를 끊은 후, 주문 내역을 조회하는 API를 호출했더니 **SaleHistory**와 **SaleItemHistory**가 서로를 무한히 참조하면서 끝없는 데이터가 반환되는 문제가 발생했다. 이는 서로가 서로를 계속 참조하면서 무한 루프가 발생한 것이다.
