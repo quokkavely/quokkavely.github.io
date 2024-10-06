@@ -116,7 +116,7 @@ author:
   avatar           : "/assets/images/abcd/hezzilog.png"
   bio              : "For my own study record"
   location         : "in hezziz study room"
-  email            :
+  email            : "yellowjerri@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
