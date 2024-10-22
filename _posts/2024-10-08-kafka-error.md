@@ -16,7 +16,7 @@ author_profile: true
 또 MSA 구조이다보니 어떻게 producer랑 consumer 생성하지에 대한 고민도 있었다. <br>
 어찌저찌 구현을 다하고 나서 전자결재 문서를 작성하고 올릴 시에 <br> 승인자에 해당하는 사람들에게 알림을 전송하는 기능을 구현하기 위해서
 
-알림에서 consumer 구현 한 다음 전자결재에서 producer를 구현했는데
+알림에서[ consumer 구현](https://quokkavely.github.io/project/kafka-consume/) 한 다음 [전자결재에서 producer](https://quokkavely.github.io/project/kafka-producer/)를 구현했는데
 무한으로 연결에러가 떠서 같이 정신이 없어지는 기분이었다.
 
 ## 1. 연결 실패 문제
@@ -81,7 +81,8 @@ com.fasterxml.jackson.databind.ser.std.serialization 은 Java 객체의 문자�
 
 
 
-알림을 보내는 부분에서는 여전히 문제가 있었다. **OUTPUT 에러**가 계속해서 나타나면서 로그에 에러 메시지가 출력되었다. 이 문제는 패키지 이름이 일치하지 않아서 발생한 것으로, 패키지 경로를 제대로 설정하지 않았기 때문이었다.
+알림을 보내는 부분에서는 여전히 문제가 있었다. **OUTPUT 에러**가 계속해서 나타나면서 로그에 에러 메시지가 출력되었다.<br> 
+이 문제는 패키지 이름이 일치하지 않아서 발생한 것으로, 패키지 경로를 제대로 설정하지 않았기 때문이었다.
 그래서 alarm과 core의 패키지명을 같게 하기 위해서 com.core.kafka에 있던 kafka 관련 클래스 를 밖으로 빼서 com.alarm.kafka 패키지를 생성 후 넣어주었다.
 
 
