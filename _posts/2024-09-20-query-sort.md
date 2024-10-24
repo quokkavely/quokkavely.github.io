@@ -104,4 +104,8 @@ author_profile: true
     - **`orderBy(orderSpecifiers.toArray(new OrderSpecifier[0]))`**:
         - 정렬 조건을 **OrderSpecifier 배열**로 변환하여 **orderBy**에 전달한다.
 
-.
+
+
+
+<br>
+<br><br><br><br><br>

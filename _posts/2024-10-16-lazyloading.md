@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[Project] 임시저장 후 제출 구현 시 문제 :HibernateException"
+title : "[Project] 임시저장 후 제출 구현 시 문제: HibernateException"
 categories: Project
 tag : [project3, practice]
 author_profile: true
@@ -140,11 +140,17 @@ public Document updateDocument(Document document) {
     - 따라서 트랜잭션 범위 내에서만 지연 로딩이 제대로 동작하게 되는 것이다.
     - 또한 데이터 일관성 문제가 생길 수 있다! (여러 데이터베이스 작업이 하나의 트랜잭션으로 묶이지 않아 중간에 오류가 발생하면 데이터 일관성이 깨질 수 있다.)
 
-무튼 아래와 같이 2가지 문제점을 해결했는데 조금 몰랐던 빈틈이 생겨서 다시 공부할 수 있는 시간이 되었다.,
-
+무튼 아래와 같이 2가지 문제점을 해결했는데 조금 몰랐던 빈틈이 생겨서 다시 공부할 수 있는 시간이 되었다.
 부족함을 다시 알게 되었고 지연로딩이랑 즉시로딩 등 jpa에서 발생했던 에러가 매번 프로젝트마다 생기는데 끝나고 더 깊이 공부할 수 있는 시간을 가지고 싶다.,,,
 
+---
 - workflow 수정 가능하도록 고아객체 문제 해결
 - 지연 로딩으로 인한 문제(approvals 나오지 않는 현상) [@entitygraph](https://github.com/entitygraph) 사용하여 개선
 
 [https://github.com/pingpong-works/core-api/issues/55](https://github.com/pingpong-works/core-api/issues/55)
+
+---
+
+
+<br>
+<br><br><br><br><br><br>

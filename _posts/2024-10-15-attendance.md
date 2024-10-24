@@ -195,3 +195,8 @@ private boolean isInternalIp(String ipAddress) {
 - [GitHub 커밋: 근태관리 구현](https://github.com/pingpong-works/core-api/commit/cdf2246c3a4426264502aa7702131e0a9baf8830)
 - [https://velog.io/@haron/Spring-최초-요청-IP-는-어떻게-가져오는-걸까-6aie0x11#-httpservletrequest의-getremoteaddr-이-클라이언트-ip를-전달하도록-스프링-설정을-하는-방법](https://velog.io/@haron/Spring-%EC%B5%9C%EC%B4%88-%EC%9A%94%EC%B2%AD-IP-%EB%8A%94-%EC%96%B4%EB%96%BB%EA%B2%8C-%EA%B0%80%EC%A0%B8%EC%98%A4%EB%8A%94-%EA%B1%B8%EA%B9%8C-6aie0x11#-httpservletrequest%EC%9D%98-getremoteaddr-%EC%9D%B4-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8-ip%EB%A5%BC-%EC%A0%84%EB%8B%AC%ED%95%98%EB%8F%84%EB%A1%9D-%EC%8A%A4%ED%94%84%EB%A7%81-%EC%84%A4%EC%A0%95%EC%9D%84-%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)
 - [https://velog.io/@mardi2020/Servelet으로-외부-IP-주소-얻기](https://velog.io/@mardi2020/Servelet%EC%9C%BC%EB%A1%9C-%EC%99%B8%EB%B6%80-IP-%EC%A3%BC%EC%86%8C-%EC%96%BB%EA%B8%B0)
+
+
+
+<br>
+<br><br><br><br><br>

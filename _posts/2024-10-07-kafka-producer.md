@@ -129,3 +129,7 @@ public class ApprovalProducer {
 Kafka를 사용해 `Producer`와 `Consumer`를 구현하면서, 메시지를 토픽별로 분리해 전송하는 것이 얼마나 중요한지 깨달았다. 특히 `ApprovalProducer` 클래스에서 전자결재와 문서 관련 알림을 각각 다른 토픽으로 관리함으로써, 메시지 흐름을 명확하게 구분할 수 있었고, 시스템 확장에도 유리하다는 점을 느꼈다.
 
 또한, `NotificationMessage` 객체를 일관되게 사용해 `Producer`와 `Consumer` 간의 데이터 호환성을 유지하는 방법도 배웠다. Kafka를 처음 접했지만, 이벤트 기반 아키텍처가 실시간 데이터 처리에 어떻게 유용하게 사용될 수 있는지 실감할 수 있는 기회였다
+
+
+<br>
+<br><br><br><br><br>
