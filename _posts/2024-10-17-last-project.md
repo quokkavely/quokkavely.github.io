@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[Project] 최종 프로젝트"
+title : "[Project] 최종 프로젝트 회고"
 categories: Project
 tag : [project3, practice]
 author_profile: true
