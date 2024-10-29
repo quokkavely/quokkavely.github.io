@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[MSA] chapter 1.5_Monolithic vs Microservice"
+title : "[MSA] chapter 1.5~1.6_Monolithic vs Microservice"
 categories: 
 tag : [MSA, SpringCloud]
 author_profile: true

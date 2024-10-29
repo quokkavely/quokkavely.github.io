@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[MSA] chapter 1.6_SOA vs MSA"
+title : "[MSA] chapter 1.8_MSA Component"
 categories: 
 tag : [MSA, SpringCloud]
 author_profile: true
@@ -22,10 +22,10 @@ author_profile: true
 
 ### 1. MSA 기본 구조 및 구성 요소
 
-<img src =”https://github.com/user-attachments/assets/8677f513-6654-4f9d-92a3-787a5caf78cb” width =500/>
+<img src ="https://github.com/user-attachments/assets/8677f513-6654-4f9d-92a3-787a5caf78cb" width =500/>
 
 - **API 게이트웨이**
-    - 클라이언트 요청을 수집하여 적절한 서비스로 라우팅하는 진입점 역할
+    - 클라이언트(그림상 Mobile App, Browser App) 요청을 수집하여 적절한 서비스로 라우팅하는 진입점 역할
     - API Gateway는 클라이언트가 마이크로서비스에 쉽게 접근하도록 하며, 서비스 위치를 관리하는 서비스 디스커버리와 통신한다.
 - **서비스 디스커버리**
     - 각 마이크로서비스의 위치를 저장하고 검색하는 기능으로,
