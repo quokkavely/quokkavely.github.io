@@ -11,7 +11,7 @@ author_profile: true
 [틀린 내용은 댓글로 남겨주시면 복받으실거에요]  
 {: .notice--primary}
 
-인프런 Dowon Lee님의 Spring Cloud로 개발하는 마이크로서비스 애플리케이션(MSA) 강의를 듣고 정리한 필기입니다.😊
+인프런 Dowon Lee님의 Spring Cloud로 개발하는 마이크로서비스 애플리케이션(MSA) 강의를 듣고 정리한 필기입니다.😊 <br>
 [Spring Cloud로 개발하는 마이크로서비스 애플리케이션(MSA) 강의 들으러 가기👩‍🏫](https://inf.run/GHeRm)
 {: .notice--warning}
 
