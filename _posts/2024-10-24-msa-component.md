@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[MSA] chapter 1.8_MSA Component"
-categories: 
+categories: MSA
 tag : [MSA, SpringCloud]
 author_profile: true
 ---

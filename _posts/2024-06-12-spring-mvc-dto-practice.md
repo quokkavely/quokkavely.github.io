@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[Spring MVC] DTO 실습"
-categories: MVC
+categories: Spring
 tag : [MVC,실습,Spring]
 author_profile: true
 ---

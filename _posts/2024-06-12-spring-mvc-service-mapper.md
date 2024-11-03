@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[Spring MVC] 서비스계층(DI를 통해 API계층과 연동)"
-categories: MVC
+categories: Spring
 tag : [MVC,실습,Spring,개념정리]
 author_profile: true
 ---

@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[MVC] controller"
-categories: MVC
+categories: Spring
 tag : [MVC,개념정리,Spring]
 author_profile: true
 ---

@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[spring MVC] Exception(@RestControllerAdvice,@ExceptionHandler)"
-categories: MVC
+categories: Spring
 tag : [MVC,실습,Spring,개념정리]
 author_profile: true
 ---

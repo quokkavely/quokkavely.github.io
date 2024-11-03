@@ -1,7 +1,7 @@
 ---
 layout : single
 title : "[MVC] 서블릿 실습"
-categories: MVC
+categories: Spring
 tag : [MVC,실습,Spring]
 author_profile: true
 ---

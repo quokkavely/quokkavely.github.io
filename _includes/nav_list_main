@@ -56,8 +56,8 @@
         <span class="nav__sub-title">Spring</span>
             <ul>
                 {% for category in site.categories %}
-                    {% if category[0] == "MVC" %}
-                        <li><a href="/categories/MVC" class="">MVC({{category[1].size}})</a></li>
+                    {% if category[0] == "MSA(Spring Cloud)" %}
+                        <li><a href="/categories/MSA" class="">MVC({{category[1].size}})</a></li>
                     {% endif %}
                 {% endfor %}
             </ul>
