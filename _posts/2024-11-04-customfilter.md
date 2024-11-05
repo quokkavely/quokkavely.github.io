@@ -84,14 +84,50 @@ public class CustomFilter extends AbstractGatewayFilterFactory<CustomFilter.Conf
 
 yml 파일에는 filters에 CustomFilter 를 추가한다.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/e057cf0e-9af2-45e5-a67d-399f16f73879/2f46b934-cc81-4f6c-a191-ad71bf97e033.png)
+```yaml
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: auth
+          uri: http://localhost:8081
+          predicates:
+            - path=/auth-api/**
+          filters:
+            - CustomFilter
+        - id: core
+          uri: http://localhost:8082
+          predicates:
+            - path=/core-api/**
+          filters:
+            - CustomFilter
+
+```
+
 
 ### 7. **테스트와 검증**
 
 - **서비스 컨트롤러에 체크 메서드 등록**: 첫 번째와 두 번째 서비스 컨트롤러에 체크 메서드를 추가해 필터가 정상적으로 작동하는지 검증한다.
 - **로그 확인**: 프리필터와 포스트필터가 요청과 응답을 처리하는 순서를 로그로 남겨, 필터가 올바르게 작동하고 있는지 확인한다.
+```java
+@GetMapping("/check")
+public String check() {
+		return "Hi, there. This is a message from First Service";
+}
+```
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/2794879c-f48c-4383-825b-650a0234f99f/3b858a14-9348-42a5-a994-d1d1121953c6.png)
+```java
+@GetMapping("/check")
+public String check() {
+		return "Hi, there. This is a message from Second Service";
+}
+```
+
+
+
+<img src = "https://github.com/user-attachments/assets/8e154a60-d7fd-4fd4-8365-6b00ff6ebe01" width =700/>
 
 <br>
 <br>
