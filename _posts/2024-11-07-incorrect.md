@@ -15,24 +15,24 @@ author_profile: true
 
 ### 242p 18번
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/a443de4c-293c-49ef-a7ea-92bdc4eb5929/image.png)
+<img src="https://github.com/user-attachments/assets/913fdee0-e5d1-43ea-8fff-8efc9e4cc70c" width=200/>
 
 문제가 진짜 불친절한데 EMPNO  MGRNO 가 뭔지 나는 모르는데 어떻게 풀라는건지ㅠㅠ
 
-- **선택한 답**: 1번
+- **선택한 답**: 2번
 - **오답 이유**:1번 아니면 2번이라고 생각했는데 알고보니 EMPNO 가  직원번호, MGRNO가 상사번호이며`MGRNO`가 `EMPNO`에 대응될 때 해당 상사의 이름을 찾는 것이 었음.
 - **정답:** `A.EMPNO = B.MGRNO` 조건으로 직원 `B`의 `MGRNO`가 상사 `A`의 `EMPNO`와 일치하는 경우를 찾음.`B.EMPNO`, `B.NAME`은 직원 정보, `A.NAME`은 상사 이름을 가져와 결과와 일치하는 구조를 만들어내면 된다. ⇒ 이에 해당하는 답은 1번
 
 ### 복원기출 1회 13번
 
-![KakaoTalk_20241108_003149223_12.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/3a560172-40ec-49fa-9fb0-dd85876d7e8d/KakaoTalk_20241108_003149223_12.jpg)
+<img src="https://github.com/user-attachments/assets/dc9b9869-2c9c-4769-b0f6-e6d36b50f040" width = 500/>
 
 - 선택한 답 : 1
 - 정답 : 3 `SUBSTR('DATABASE', 8, -2)`에서 길이가 음수인 경우는 유효하지 않은 구문으로, 오류가 발생한다. 나머지 옵션(1, 2, 4)은 정상적으로 `"SE"` 결과를 반환한다.
 
 ### 복원기출 1회 17번
 
-![KakaoTalk_20241108_003149223_11.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/90492260-5577-4f39-ac0e-08ce61f09b0e/KakaoTalk_20241108_003149223_11.jpg)
+<img src="https://github.com/user-attachments/assets/4148a15c-027b-4507-b006-66262e1f33f7" width = 500/>
 
 - 선택한 답 : 2번
 - 정답 : 3번
@@ -47,7 +47,7 @@ author_profile: true
 
 ### 복원기출 1회 21번
 
-![KakaoTalk_20241108_003149223_10.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/c6c50665-1bb9-4a10-bc50-1ce3f73b9b99/KakaoTalk_20241108_003149223_10.jpg)
+<img src="https://github.com/user-attachments/assets/c433d6af-ed7c-4091-8758-c5fb68ab28d4" width = 500/>
 
 - 각 함수마다 `OVER` 절을 통해 특정 범위를 설정해서 값을 계산
 - **MAX(COL1) 에서 `BETWEEN UNBOUNDED PRECEDING AND 2 FOLLOWING`**
@@ -79,7 +79,7 @@ author_profile: true
 
 ### 복원기출 1회 37번
 
-![KakaoTalk_20241108_003149223_05.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/d316a645-306d-406d-85b1-1f46905e9876/KakaoTalk_20241108_003149223_05.jpg)
+<img src="https://github.com/user-attachments/assets/03568e4b-ec01-4610-b66b-26f308d487e3" width = 500/>
 
 - **해시조인이란?**
     - 해시 조인은 데이터베이스에서 두 테이블을 조인할 때 주로 사용하는 방식 중 하나로, 특히 **큰 테이블을 조인할 때** 성능이 좋은 방법이다.
@@ -95,7 +95,7 @@ author_profile: true
 
 ### 복원기출 1회 44번
 
-![KakaoTalk_20241108_003149223_03.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/c4cfc01e-d8c7-47fa-b5bf-7df725633971/KakaoTalk_20241108_003149223_03.jpg)
+<img src="https://github.com/user-attachments/assets/99c101d3-5367-426e-b2ab-d8e32eb504db" width = 500/>
 
 - 선택한 답: 3번
 - 정답 : 2번
@@ -106,7 +106,7 @@ author_profile: true
 
 ### 복원기출 1회 50번
 
-![KakaoTalk_20241108_003149223_02.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/f7511b05-f7b2-446f-8b14-0575185a1028/1fa8effa-bcd0-4505-b4a3-214b21fb4392/KakaoTalk_20241108_003149223_02.jpg)
+<img src="https://github.com/user-attachments/assets/863b3043-f0af-40c4-ae48-c2a684144117" width = 500/>
 
 - 선택한 답 : 3번
 - 정답 : 2번
