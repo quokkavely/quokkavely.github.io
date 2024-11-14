@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[SQLD] 기출1회 오답정리"
+title : "[SQLD] 기출 오답정리"
 categories: Database
 tag : [SQLD, SQL]
 author_profile: true
