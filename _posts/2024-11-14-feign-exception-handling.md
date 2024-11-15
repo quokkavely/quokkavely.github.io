@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[MSA] Feign Client 예외 처리"
+title : "[MSA] Feign Client 예외 처리 : try-catch"
 categories: MSA
 tag : [MSA, SpringCloud]
 author_profile: true
