@@ -177,8 +177,8 @@ SELECT REGEXP_SUBSTR('abc', 'b*c') FROM dual
 시험 결과를 기다리는 동안 이번 경험을 바탕으로 헷갈렸던 개념과 문제를 정리했는데, 부디 합격이기를 🤲
 
 그리고 아래는 SQLD 시험 준비할 때 참고하기 좋은 사이트입니당!😊<br>
-[네이버카페 : 데이터전문가포럼](https://cafe.naver.com/sqlpd)
-[기출문제 :Study with yuna🌷님 블로그] (https://yunamom.tistory.com/388)
+[네이버카페 : 데이터전문가포럼](https://cafe.naver.com/sqlpd) <br>
+[기출문제 :Study with yuna🌷님 블로그](https://yunamom.tistory.com/388)
 {: .notice--warning}
 
 <br>
