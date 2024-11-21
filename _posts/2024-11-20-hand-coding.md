@@ -49,8 +49,8 @@ for (int i = 0; i < 1000; i++) {
 }
 
 for (Member member : members) {
-    if (member.getName().equals("Any")) { // 특정 조건
-        // 처리 로직
+    if (member.getName().equals("홍길동")) { 
+        
     }
 }
 ```
@@ -78,7 +78,7 @@ public class Member {
 
 List<Member> members = new ArrayList<>();
 for (int i = 0; i < 1000; i++) {
-    members.add(new Member("Name" + i, 1980 + (i % 40))); // 이름과 출생년도 생성
+    members.add(new Member("Name" + i, 1980 + (i % 40))); // 임의 data
 }
 ```
 이 방식은 루프를 한 번만 돌면서 데이터 입력을 완료하기 때문에 시간 복잡도가 O(N)이다.
@@ -89,13 +89,17 @@ for (int i = 0; i < 1000; i++) {
     - 따라서 루프를 한 번만 사용하여 조건을 검사할 수 있다:
 
 ```java
+String targetName = "홍길동"; // 찾고자 하는 이름
+int birthYear = -1; 
+
 for (Member member : members) {
-    if (member.year > 2000) { // 2000년 이후 출생자 찾기
-        System.out.println(member.name);
+    if (member.name.equals(targetName)) {
+        birthYear = member.year;
+        break; // 찾으면 중단
     }
 }
 ```
-- 최소 루프 횟수: 1000번 (배열 크기만큼 한 번의 탐색만 필요)
+- 최소 루프 횟수: 최악의 경우, 배열 전체(1000번)를 탐색해야 하지만<br> 찾는 값이 중간에 나오면 바로 종료되므로 평균 루프 횟수는 더 적을 수 있다.
 - 시간 복잡도: O(N)
 
 <br>
