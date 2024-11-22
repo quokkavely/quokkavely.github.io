@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[쓰레드] 동시성 문제"
+title : "동시성 문제 및 해결방안"
 categories: OS
 tag : [CS, JAVA, 프로세스]
 author_profile: true
@@ -11,7 +11,7 @@ author_profile: true
 [틀린 내용은 댓글로 남겨주시면 복받으실거에요]  
 {: .notice--primary}
 
-어제 Data 동기화 문제에 대한 강의를 들으면서 나온 동시성 문제에 대해서 잘 알지 못해서 이번 기회에 새로 정리해보려고 한다. MSA 환경이 아닌 MA에서도 발생하는 동시성 문제와 어떻게 해결할 수 있는지 찾아본 자료를 정리했다.
+어제 [Data 동기화 문제에 대한 강의](https://quokkavely.github.io/msa/data-synchronization/)를 들으면서 나온 동시성 문제에 대해서 잘 알지 못해서 이번 기회에 새로 정리해보려고 한다. <br> MSA 환경이 아닌 MA에서도 발생하는 동시성 문제와 어떻게 해결할 수 있는지 찾아본 자료를 정리했다.
 
 # **동시성 문제란?**
 
@@ -45,11 +45,10 @@ author_profile: true
 4. **테스트와 모니터링**:
     - 동시성 문제는 복잡하기 때문에 철저한 테스트와 모니터링이 필요
 
+
 # **동시성 문제 해결 방안**
 
-## **Database Level에서의 해결**
-
-### **1️⃣ 락(Lock) 사용**
+### 1️⃣ 락(Lock) 사용
 
 - **비관적 락 (Pessimistic Lock)**
     - **데이터가 충돌 가능성이 높은 경우 사용**
@@ -62,7 +61,7 @@ author_profile: true
     - **장점**: 높은 성능.
     - **단점**: 충돌이 빈번하면 성능 저하.
 
-### **2️⃣Database Level에서의 해결 : 트랜잭션 격리 수준**
+### 2️⃣ 트랜잭션 격리 수준
 
 - 데이터베이스에서 제공하는 격리 수준으로 동시성 문제를 완화할 수 있다.
     - **READ UNCOMMITTED**: 가장 낮은 수준, 데이터의 무결성 보장 X.
@@ -70,30 +69,29 @@ author_profile: true
     - **REPEATABLE READ**: 동일 트랜잭션 내에서 읽은 데이터가 변경되지 않음.
     - **SERIALIZABLE**: 가장 높은 격리 수준, 동시성 저하 가능성.
 
-## Java 제공
+### 3️⃣ Java에서 제공하는 도구
 
-### **Synchronized**
+#### **Synchronized**
 
 - Java에서 특정 블록이나 메서드에 락을 걸어 다른 스레드가 동시에 접근하지 못하게 함.
 - 성능 저하를 초래할 수 있다 → 모든 스레드가 순차적으로 자원에 접근해야 하기 때문
 - 결국, 실무에서 잘 사용하지 않음
 
-### Concurrent 패키지
+#### **Concurrent 패키지**
 
 - 자바에서 동시성 문제를 해결하기 위한 다양한 도구를 제공
 - ReentrantLock 클래스는 synchronized보다 더 유연한 락을 제공 : 락을 명시적으로 획득하고 해제할 수 있도록 함
 - ConcurrentHashMap 클래스는 동시성을 지원하는 해시맵 :  여러 스레드가 동시에 안전하게 데이터를 읽고 쓸 수 있다.
 - 이 외에도 CountDownLatch, Semaphore, CyclicBarrier 등 다양한 클래스 존재
-- **CopyOnWriteArrayList**, **BlockingQueue** 등.
 
-### **CAS (Compare and Swap)**
+#### **CAS (Compare and Swap)**
 
 - 자원의 현재 상태를 읽고, 예상했던 상태와 일치할 경우 자원을 업데이트하는 방식.
     - 사용 예: Java의 **AtomicInteger**, **AtomicLong**.
     - **장점 :** 락 없이 동시성 문제 해결.
     - **단점 :** 복잡한 작업에서는 사용 어려움.
 
-## **메시지 큐**
+## 4️⃣ 메시지 큐 활용
 
 - 동시성 문제를 완화하기 위해 RabbitMQ, Kafka와 같은 메시지 큐를 사용.
     - 데이터를 하나의 프로듀서가 메시지로 보내고, 여러 컨슈머가 순차적으로 처리.
