@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[MSA] kafak 개요"
+title : "[MSA] kafka 개요"
 categories: MSA
 tag : [MSA, SpringCloud, kafka]
 author_profile: true
@@ -70,13 +70,10 @@ Apache Kafka는 **Apache Software Foundation**에서 Scala 언어로 개발된 �
     - Kafka 브로커를 관리하고 조율하는 **코디네이터** 역할
     - 메타 데이터 (Broker Id, Controller ID) 등을 저장한다.
     - Controller 정보를 저장한다.
-        
-        <aside>
-        📌
-        
-        - n개의 Borker 중 1 대는 Controller 기능을 수행
-        - **Controller의 역할** : 각 Broker에게 담당 파티션 할당 수행 / Broker 정상 동작 모니터링 관리
-        </aside>
+        >  📌
+            - n개의 Borker 중 1 대는 Controller 기능을 수행
+            - **Controller의 역할** : 각 Broker에게 담당 파티션 할당 수행 / Broker 정상 동작 모니터링 관리
+            
         
 - **기능**:
     - 브로커의 상태 관리
@@ -107,3 +104,8 @@ Apache Kafka는 **Apache Software Foundation**에서 Scala 언어로 개발된 �
 Apache Kafka는 현대의 데이터 중심 애플리케이션에서 필수적인 역할을 하는 고성능 메시지 브로커이다. 기존 시스템의 복잡한 데이터 연동 문제를 해결하고, 확장성과 안정성을 제공하여 다양한 산업 분야에서 활용되고 있다.
 
 Kafka를 도입함으로써 데이터 파이프라인을 단순화하고, 실시간으로 대용량 데이터를 처리하여 비즈니스 가치를 극대화할 수 있다. 앞으로도 Kafka는 빅데이터와 실시간 처리의 핵심 기술로서 그 중요성이 더욱 부각될 것 같다.
+
+<br>
+<br>
+<br>
+<br>
