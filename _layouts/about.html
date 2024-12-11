@@ -1,14 +1,10 @@
 ---
 layout: default
 ---
-
-<article class="page" role="article">
-
-  <header>
-    <h1 class="page-title">{{ page.title }}</h1>
-    {% include components/message.html text=page.description hide=page.hide_description %}
-  </header>
-  <div class="markdown-body">
-  {{ content }}
+  
+  <div id="main" role="main">
+    {% include sidebar.html %}
+    <div class="markdown-body">
+      {{ content }}
+    </div>
   </div>
-</article>
