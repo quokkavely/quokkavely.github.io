@@ -1,11 +1,3 @@
-<!-- ---
-layout : archive
-author_profile : true
-entries_layout : list
-sidebar_main: true
-excerpt:  In HEZZIz Study Room 🍒 
---- -->
-
 ---
 layout: home
 title: 홈
