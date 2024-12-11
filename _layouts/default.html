@@ -16,12 +16,12 @@
   {% include_cached skip-links.html %}
   {% include_cached masthead.html %}
 
-  <div class="page__container">
-    <main class="main__content">
+  <div class="page__container" style="display: flex; flex-direction: row; gap: 20px; align-items: flex-start;">
+    <main class="main__content" style="flex: 3; padding: 20px;">
       {{ content }}
     </main>
 
-    <aside class="sidebar__wrapper">
+    <aside class="sidebar__wrapper" style="flex: 1; padding: 20px; background-color: #f9f9f9; border-left: 1px solid #ddd;">
       {% include sidebar.html %}
     </aside>
   </div>
