@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: about
 title: About
 description: "Welcome to my Devlog."
 hide_description: true
