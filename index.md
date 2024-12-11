@@ -3,6 +3,8 @@ layout: about
 title: About
 description: "Welcome to my Devlog."
 hide_description: true
+sidebar_main: true
+author_profile: true
 ---
 
 
