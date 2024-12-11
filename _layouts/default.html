@@ -3,7 +3,7 @@
 
 <!doctype html>
 {% include copyright.html %}
-<html lang="{{ site.locale | slice: 0,2 | default: " en" }}" class="no-js">
+<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
 
 <head>
   {% include head.html %}
@@ -12,12 +12,18 @@
 
 <body
   class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
+
   {% include_cached skip-links.html %}
   {% include_cached masthead.html %}
 
-  <div class="initial-content">
-    {{ content }}
-    {% include after-content.html %}
+  <div class="page__container">
+    <main class="main__content">
+      {{ content }}
+    </main>
+
+    <aside class="sidebar__wrapper">
+      {% include sidebar.html %}
+    </aside>
   </div>
 
   {% if site.search == true %}
@@ -25,6 +31,7 @@
     {% include_cached search/search_form.html %}
   </div>
   {% endif %}
+
   <!--사이드바 위, 아래, 홈버튼 기능 추가-->
   <aside class="sidebar__top">
     <a href="#site-nav"> <i class="fas fa-angle-double-up fa-2x"></i> </a>
