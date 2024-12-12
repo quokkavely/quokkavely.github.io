@@ -9,7 +9,7 @@ author_profile: true
 
 
 ## Me
-
+<img src= "https://github.com/user-attachments/assets/8c2dc4b2-0908-4868-a3d4-8707b1559ff6" width =300 heigth =500/>
 안녕하세요! 😊
 저는 다른 직종에서 일하다가 개발자의 길을 걷게 된 Lv1.🌱 Hezzi 입니다.
 새로운 분야에 도전하면서 방대한 학습량을 마주하게 되었고, 어제보다 성장한 나를 확인하기 위해 이 블로그에 공부한 내용을 기록하기 시작했습니다.
