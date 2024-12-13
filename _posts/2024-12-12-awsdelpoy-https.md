@@ -1,6 +1,5 @@
 ---
-layout : single
-title : "[aws] https 적용기 1탄 (with 가비아)"
+title : "[aws] https 적용기 1탄 : AWS를 활용한 도메인 및 인증서 설정 (with 가비아)"
 categories: cloud
 tag : [AWS, 실습, cloud]
 author_profile: true
