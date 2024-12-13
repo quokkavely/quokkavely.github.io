@@ -7,6 +7,8 @@ author_profile: true
 
 <br><br><br>
 
+---
+
 ## Me
 
 <div style="display: flex; align-items: center;">
@@ -26,6 +28,8 @@ author_profile: true
 </div>
 
 <br><br><br>
+
+---
 
 ## 🍀👩‍💻
 
