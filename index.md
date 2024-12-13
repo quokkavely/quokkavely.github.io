@@ -1,11 +1,13 @@
 ---
 layout: about
+title: About
 sidebar_main: true
 author_profile: true
 ---
 
-# 🚧 layout 문제로 공사중
+<br><br><br>
 
+## Me
 
 <div style="display: flex; align-items: center;">
   <div style="flex: 1;">
