@@ -1,6 +1,5 @@
 ---
 layout: about
-title: About
 description: 🍀
 hide_description: true
 sidebar_main: true
@@ -27,6 +26,7 @@ author_profile: true
 </div>
 
 <br><br><br>
+
 ## 🍀👩‍💻
 
 더 궁금한 점이나 제안 사항이 있으시면 [이메일](yellowjerri@gmail.com) 페이지를 통해 연락주세요!
