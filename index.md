@@ -1,13 +1,11 @@
 ---
 layout: about
-description: 🍀
-hide_description: true
 sidebar_main: true
 author_profile: true
 ---
 
 # 🚧 layout 문제로 공사중
----
+
 
 <div style="display: flex; align-items: center;">
   <div style="flex: 1;">
