@@ -10,10 +10,11 @@
   -webkit-animation-delay: 0.15s;
   animation-delay: 0.15s;
   z-index: 20;
+  background-color: rgba(255, 228, 196, 0.203);
 
   &__inner-wrap {
     @include clearfix;
-    background-color: rgba(255, 228, 196, 0);
+    //background-color: rgba(255, 228, 196, 0.203);
     //margin-left: auto;
     //margin-right: auto;
     //padding: 0em;
