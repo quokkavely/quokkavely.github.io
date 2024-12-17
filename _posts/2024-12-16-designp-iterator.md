@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[디자인패턴] Factory Pattern"
+title : "[디자인패턴] Iterator Pattern"
 categories: DesignPattern
 tag : [CS, DesignPattern]
 author_profile: true
@@ -13,9 +13,11 @@ author_profile: true
 
 # 이터레이터 패턴(Iterator Pattern)
 
-**이터레이터 패턴**은 자료 구조 내부의 요소들을 **순차적으로 접근**할 수 있는 방법을 제공하는 디자인 패턴이다. 이 패턴은 서로 다른 자료 구조(예: 배열, 리스트, 맵 등)를 동일한 인터페이스로 탐색할 수 있도록 도와준다. 이를 통해 자료 구조 내부 구현 방식에 관계없이 동일한 방식으로 접근이 가능하다.
+**Iterator Pattern**은 자료 구조 내부의 요소들을 **순차적으로 접근**할 수 있는 방법을 제공하는 디자인 패턴이다. <br> 
+이 패턴은 서로 다른 자료 구조(예: 배열, 리스트, 맵 등)를 동일한 인터페이스로 탐색할 수 있도록 도와준다.  <br>
+이를 통해 자료 구조 내부 구현 방식에 관계없이 동일한 방식으로 접근이 가능하다.
 
-## 이터레이터 패턴의 핵심 개념
+## 핵심 개념
 
 1. **컨테이너(Container)**
     - 동일한 요소를 담고 있는 집합, 예를 들어 배열, 리스트, 맵 등이 컨테이너에 해당한다.
@@ -23,30 +25,30 @@ author_profile: true
     - 컨테이너 내부의 요소를 순차적으로 접근하는 데 사용되는 객체.
     - 내부적으로 복잡한 탐색 로직이 있어도, 외부에서는 단순히 `hasNext()`와 `next()` 메서드만으로 순회 가능하다.
 
-## 이터레이터 패턴의 장점
+## Iterator Pattern의 장점
 
 1. **일관된 인터페이스 제공**
     - 서로 다른 자료 구조를 동일한 방식으로 순회할 수 있다.
 2. **캡슐화**
-    - 컨테이너의 내부 구조를 숨기고, 이터레이터를 통해서만 요소에 접근한다.
+    - 컨테이너의 내부 구조를 숨기고, Iterator를 통해서만 요소에 접근한다.
 3. **유연성**
-    - 자료 구조를 변경하더라도, 이터레이터 인터페이스를 유지하면 코드의 다른 부분에 영향을 주지 않는다.
+    - 자료 구조를 변경하더라도, Iterator 인터페이스를 유지하면 코드의 다른 부분에 영향을 주지 않는다.
 
-## 이터레이터 패턴의 구조
+## Iterator Pattern 구조
 
-이터레이터 패턴은 일반적으로 다음 세 가지 요소로 구성된다.
+Iterator Pattern은 일반적으로 다음 세 가지 요소로 구성된다.
 
 1. **Iterator 인터페이스**
     - `hasNext()`: 다음 요소가 있는지 확인.
     - `next()`: 다음 요소를 반환.
-2. **Concrete Iterator(구체적인 이터레이터)**
+2. **Concrete Iterator(구체적인 Iterator)**
     - Iterator 인터페이스를 구현하고, 실제 데이터 탐색 로직을 처리.
 3. **Aggregate(컨테이너)**
-    - 자료 구조를 나타내며, 이터레이터 객체를 반환하는 `createIterator()` 메서드 제공.
+    - 자료 구조를 나타내며, Iterator 객체를 반환하는 `createIterator()` 메서드 제공.
 
 ## 자바로 구현: 커스텀 컬렉션 순회
 
-아래는 이터레이터 패턴을 활용해 커스텀 컬렉션을 순회하는 예제이다.
+아래는 Iterator Pattern을 활용해 커스텀 컬렉션을 순회하는 예제이다.
 
 ### 1. Iterator 인터페이스 정의
 
@@ -118,9 +120,9 @@ public class Main {
 }
 ```
 
-## 기존 자바 컬렉션과 이터레이터
+## 기존 자바 컬렉션과 Iterator
 
-자바에서 이터레이터 패턴은 이미 내장된 `java.util.Iterator`로 제공된다. 아래는 자바 컬렉션 프레임워크에서 이터레이터를 사용하는 예제이다.
+자바에서 Iterator Pattern은 이미 내장된 `java.util.Iterator`로 제공된다. 아래는 자바 컬렉션 프레임워크에서 Iterator를 사용하는 예제이다.
 
 ```java
 import java.util.ArrayList;
@@ -133,7 +135,7 @@ public class Main {
         list.add("Python");
         list.add("C++");
 
-        Iterator<String> iterator = list.iterator(); // 내장 이터레이터 생성
+        Iterator<String> iterator = list.iterator(); // 내장 Iterator 생성
 
         while (iterator.hasNext()) {
             System.out.println(iterator.next()); // Java, Python, C++ 출력
@@ -144,7 +146,7 @@ public class Main {
 
 ---
 
-## 이터레이터 패턴의 활용 사례
+## Iterator Pattern의 활용 사례
 
 1. **자바 컬렉션 프레임워크**
     - `ArrayList`, `HashSet`, `TreeMap` 등에서 이터레이터를 통해 데이터 순회.
@@ -155,7 +157,7 @@ public class Main {
 
 ---
 
-이터레이터 패턴은 자료구조 내부에 반드시 iterator속성이 존재하지 않더라도 적용 가능하다.
+Iterator Pattern은 자료구조 내부에 반드시 iterator속성이 존재하지 않더라도 적용 가능하다.
 
-이터레이터 인터페이스를 별도로 구현하면,**기존 자료구조의 내부 구현 방식에 상관없이 통일된 방식으로 순회**할 수 있다.
-이터레이터 패턴의 강점은 **자료구조와 상관없이 일관된 인터페이스를 제공**하여 코드 재사용성과 확장성을 높이는 데 있다.
+Iterator 인터페이스를 별도로 구현하면,**기존 자료구조의 내부 구현 방식에 상관없이 통일된 방식으로 순회**할 수 있다.
+Iterator Pattern의 강점은 **자료구조와 상관없이 일관된 인터페이스를 제공**하여 코드 재사용성과 확장성을 높이는 데 있다.
