@@ -1,6 +1,6 @@
 ---
 layout : single
-title : "[디자인패턴] Iterator Pattern"
+title : "[디자인패턴] DI와 DIP"
 categories: DesignPattern
 tag : [CS, DesignPattern]
 author_profile: true
