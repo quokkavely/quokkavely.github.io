@@ -1,3 +1,16 @@
+---
+layout : single
+title : "[디자인패턴] Strategy Pattern"
+categories: DesignPattern
+tag : [CS, DesignPattern]
+author_profile: true
+---
+
+📌 개인적인 공간으로 공부를 기록하고 복습하기 위해 사용하는 블로그입니다. <br>
+정확하지 않은 정보가 있을 수 있으니 참고바랍니다 :😸 <br>
+[틀린 내용은 댓글로 남겨주시면 복받으실거에요]  
+{: .notice--primary}
+
 # 전략 패턴 (Strategy Pattern)
 
 ## **전략 패턴이란?**
