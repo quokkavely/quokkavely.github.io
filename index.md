@@ -23,7 +23,7 @@ author_profile: true
     이곳은 프로그래밍, 데이터 분석, 다양한 학습 자료를 정리하며 <br>
     더 깊이 이해하고 성장하기 위해 만든 공간입니다. 🍒<br>
     비슷한 관심사를 가진 분들과 지식을 나누고 소통하며, <br>
-    서로에게 도움이 되는 플랫폼이 되기를 바랍니다.<br>
+    서로에게 도움이 되는 블로그가가 되기를 바랍니다.<br>
   </div>
 </div>
 
@@ -33,4 +33,12 @@ author_profile: true
 
 ## 🍀👩‍💻
 
-더 궁금한 점이나 제안 사항이 있으시면 [이메일](yellowjerri@gmail.com) 페이지를 통해 연락주세요!
+더 궁금한 점이나 제안 사항이 있으시면 <html>
+  <head>
+    <meta charset="utf-8">
+  </head> 
+  <body>
+    <p> <a href="mailto:yellowjerri@gmail.com" 
+          title="메일 보내기">이메일</a></p>
+  </body>
+</html> 을 통해 연락주세요!
