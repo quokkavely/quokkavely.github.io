@@ -33,7 +33,7 @@ author_profile: true
 
 ## 🍀👩‍💻
 
-더 궁금한 점이나 제안 사항이 있으시면 <html>
+더 궁금한 점이나 제안 사항이 있으시면 
   <head>
     <meta charset="utf-8">
   </head> 
@@ -41,4 +41,4 @@ author_profile: true
     <p> <a href="mailto:yellowjerri@gmail.com" 
           title="메일 보내기">이메일</a></p>
   </body>
-</html> 을 통해 연락주세요!
+을 통해 연락주세요!
