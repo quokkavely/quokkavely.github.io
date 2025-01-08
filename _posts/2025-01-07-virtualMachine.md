@@ -1,7 +1,7 @@
 ---
 title : "[cloud] 가상머신(Virtual Machine)"
 categories: cloud
-tag : [AWS, 실습, cloud]
+tag : [cloud, vm]
 author_profile: true
 ---
 
